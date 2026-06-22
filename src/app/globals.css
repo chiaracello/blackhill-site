@@ -1,0 +1,48 @@
+@import "tailwindcss";
+
+:root {
+  --navy: #0D1B2E;
+  --navy-2: #152236;
+  --navy-3: #1E3047;
+  --gold: #C9A84C;
+  --gold-light: #E2C06A;
+  --off-white: #E8EDF4;
+  --muted-blue: #7B93B5;
+  --light-blue: #B0C4DE;
+  --gray-body: #3A3A3A;
+  --row-alt: #F4F5F7;
+}
+
+@theme inline {
+  --color-navy: var(--navy);
+  --color-navy-2: var(--navy-2);
+  --color-navy-3: var(--navy-3);
+  --color-gold: var(--gold);
+  --color-gold-light: var(--gold-light);
+  --color-off-white: var(--off-white);
+  --color-muted-blue: var(--muted-blue);
+  --color-light-blue: var(--light-blue);
+  --color-gray-body: var(--gray-body);
+  --color-row-alt: var(--row-alt);
+  --font-sans: Arial, Helvetica, sans-serif;
+}
+
+body {
+  background: var(--navy);
+  color: var(--off-white);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.eyebrow {
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 700;
+}
+
+.caveat {
+  font-size: 12px;
+  color: var(--muted-blue);
+  font-style: italic;
+}
