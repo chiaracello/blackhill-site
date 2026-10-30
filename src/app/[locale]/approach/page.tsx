@@ -92,7 +92,7 @@ export default async function ApproachPage({
             {copy.seniorPoints.map((point, i) => (
               <div key={point.label} className="panel p-7 lg:p-8">
                 <span className="t-index">{String(i + 1).padStart(2, "0")}</span>
-                <dt className="mt-5 text-base font-bold text-white">{point.label}</dt>
+                <dt className="mt-5 text-base font-bold text-fg">{point.label}</dt>
                 <dd className="t-small mt-3">{point.detail}</dd>
               </div>
             ))}
@@ -101,7 +101,7 @@ export default async function ApproachPage({
       </Section>
 
       {/* ------------------------------------------------- STRUCTURE PER MANDATE */}
-      <Section rule className="bg-navy-2/30">
+      <Section rule surface="ivory">
         <Block index="02" eyebrow={copy.structureEyebrow}>
           <div className="max-w-3xl">
             <h2 className="t-h2">{copy.structureTitle}</h2>
@@ -128,7 +128,7 @@ export default async function ApproachPage({
             {PROCESS[locale].map((phase) => (
               <li key={phase.index} className="panel flex flex-col p-7 lg:p-8">
                 <span className="t-index">{phase.index}</span>
-                <p className="mt-5 text-base font-bold text-white">{phase.title}</p>
+                <p className="mt-5 text-base font-bold text-fg">{phase.title}</p>
                 <p className="t-small mt-3">{phase.detail}</p>
                 <div className="mt-6 border-t border-rule pt-5">
                   <p className="t-caveat uppercase tracking-[0.16em]">
@@ -150,7 +150,7 @@ export default async function ApproachPage({
       </Section>
 
       {/* --------------------------------------------------------- TECHNOLOGY */}
-      <Section rule className="bg-navy-2/30">
+      <Section rule surface="ivory">
         <Block index="04" eyebrow={copy.techEyebrow}>
           <div className="max-w-3xl">
             <h2 className="t-h2">{copy.techTitle}</h2>
@@ -190,7 +190,7 @@ export default async function ApproachPage({
             {engage.steps.map((step, i) => (
               <li key={step.title} className="panel p-6 lg:p-7">
                 <span className="t-index">{String(i + 1).padStart(2, "0")}</span>
-                <p className="mt-5 text-sm font-bold text-white">{step.title}</p>
+                <p className="mt-5 text-sm font-bold text-fg">{step.title}</p>
                 <p className="t-small mt-3">{step.detail}</p>
               </li>
             ))}

@@ -4,7 +4,7 @@
 
 Site institucional da Blackhill Capital em `blackhill.com.br`. Next.js 16 (App Router, Turbopack) · React 19 · Tailwind CSS 4 · TypeScript strict. Deploy na Vercel, projeto `blackhill-site`, team `blackhill-capital`.
 
-**Antes de alterar qualquer conteúdo visível, leia [`BLACKHILL_BRAND_CONTEXT.md`](BLACKHILL_BRAND_CONTEXT.md).** Ele consolida as referências institucionais aprovadas. A norma vigente é o [Brand & Communication Standard v1.2](docs/BRAND_STANDARD_v1.2.md).
+**Antes de alterar qualquer conteúdo visível, leia [`BLACKHILL_BRAND_CONTEXT.md`](BLACKHILL_BRAND_CONTEXT.md).** Ele consolida as referências institucionais aprovadas. A norma vigente é o [Brand & Communication Standard v1.3](docs/BRAND_STANDARD_v1.3.md); a aplicação visual detalhada está em [BLACKHILL_DESIGN_SYSTEM.md](BLACKHILL_DESIGN_SYSTEM.md).
 
 ---
 
@@ -22,9 +22,12 @@ Site institucional da Blackhill Capital em `blackhill.com.br`. Next.js 16 (App R
 
 ### Identidade visual
 
-- Paleta e tipografia são fixadas pelo Standard: navy `#0D1B2E` / `#152236` / `#1E3047`, ouro `#C9A84C`, Arial.
-- **Ouro apenas sobre navy — nunca ouro sobre branco.**
-- Profundidade se obtém por alpha sobre os navies existentes, nunca por novos matizes.
+- Paleta e tipografia são fixadas pelo Standard v1.3: navy `#0B1F3A`, obsidian `#071526`, champagne `#C9A84C`, ouro institucional `#B8923F`, bronze `#5C4A1E`, marfim `#F5EFE3`, warm gray `#E4DFD4`, tinta `#23262B`.
+- **Champagne e ouro institucional apenas sobre navy. Sobre fundo claro, a família ouro aparece exclusivamente como bronze `#5C4A1E`** — champagne sobre marfim dá 2,54:1 e reprova.
+- **Nenhum componente declara cor de texto.** Cada seção declara uma superfície (`surface` em `<Section>`: `navy`, `obsidian`, `navy-2`, `ivory`, `warm`) e ela define tipo, fio, acento e botão. Todo bloco escuro aninhado em seção clara precisa declarar a própria superfície, ou herda o texto navy e some.
+- **Bodoni Moda só em título editorial, figura e citação.** Corpo, lista, rótulo, menu e formulário são Inter. Fontes auto-hospedadas por `next/font` — nenhuma requisição a terceiros.
+- Nada abaixo de 13px. Contraste mínimo 4,5:1, ou 3:1 para texto grande.
+- Profundidade se obtém por alpha sobre os azuis existentes, nunca por novos matizes. Exceção nomeada: os acentos de plataforma do Pilar 2, em `src/app/[locale]/ecosystem/page.tsx`.
 - Tokens em `src/app/globals.css`. Não usar cores literais em componentes.
 
 ### Privacidade

@@ -61,7 +61,7 @@ export default async function InsightsIndexPage({
             <li key={insight.slug}>
               <Link href={localePath(locale, `/insights/${insight.slug}`)} className="index-row">
                 <span className="t-index">{insight.index}</span>
-                <span className="text-base font-bold text-white">{insight.title[locale]}</span>
+                <span className="text-base font-bold text-fg">{insight.title[locale]}</span>
                 <span className="t-small">{insight.deck[locale]}</span>
                 <span className="link-reveal hidden lg:inline-block">
                   <span aria-hidden="true">→</span>

@@ -10,6 +10,8 @@ export const HOME: Localized<{
   heroLede: string;
   ctaPrimary: string;
   ctaSecondary: string;
+  /** The four capabilities the hero must state — Standard v1.3 §07. */
+  heroPillars: { label: string; detail: string }[];
   /** Reworded independence triad — Brand Standard v1.1. */
   triad: { label: string; detail: string }[];
   /** Senior-led block — Standard §10. The three points come from `APPROACH`. */
@@ -42,6 +44,24 @@ export const HOME: Localized<{
       "A Blackhill Capital atua na interseção entre o Judiciário brasileiro e o mercado de capitais — originando, estruturando e monetizando ativos de crédito complexos para capital institucional qualificado.",
     ctaPrimary: "Apresente sua operação",
     ctaSecondary: "Conhecer as competências",
+    heroPillars: [
+      {
+        label: "Independent Financial Advisory",
+        detail: "Advisor, nunca parte na transação.",
+      },
+      {
+        label: "Distressed Credit & NPL",
+        detail: "Carteiras inadimplentes e exposições corporativas estressadas.",
+      },
+      {
+        label: "Special Situations",
+        detail: "Precatórios, claims e crédito estruturado.",
+      },
+      {
+        label: "Senior-Led Execution",
+        detail: "Quem avalia a operação é quem a conduz.",
+      },
+    ],
     triad: [
       {
         label: "Advisor independente",
@@ -110,6 +130,24 @@ export const HOME: Localized<{
       "Blackhill Capital operates at the intersection of the Brazilian judiciary and the capital markets — originating, structuring and monetising complex credit assets for qualified institutional capital.",
     ctaPrimary: "Discuss a Transaction",
     ctaSecondary: "Explore our capabilities",
+    heroPillars: [
+      {
+        label: "Independent Financial Advisory",
+        detail: "Advisor, never a party to the transaction.",
+      },
+      {
+        label: "Distressed Credit & NPL",
+        detail: "Non-performing portfolios and stressed corporate exposures.",
+      },
+      {
+        label: "Special Situations",
+        detail: "Court-ordered claims, judicial claims and structured credit.",
+      },
+      {
+        label: "Senior-Led Execution",
+        detail: "Whoever assesses the transaction is the one who runs it.",
+      },
+    ],
     triad: [
       {
         label: "Independent advisor",

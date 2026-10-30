@@ -2,50 +2,163 @@
 
 /* ==========================================================================
    BLACKHILL CAPITAL — DESIGN SYSTEM
-   Palette and typeface are fixed by the Brand & Communication Standard.
-   Navy #0D1B2E / #152236 / #1E3047 · Gold #C9A84C · Arial.
-   Gold is only ever applied over navy — never over white (Standard §5).
+   Brand & Communication Standard v1.3 · BLACKHILL_DESIGN_SYSTEM.md
+
+   Navy #0B1F3A · Champagne #C9A84C · Ouro institucional #B8923F
+   Bronze #5C4A1E (único tom da família ouro autorizado sobre fundo claro)
+   Marfim #F5EFE3 · Champanhe claro #F3EEDC · Warm gray #E4DFD4 · Tinta #23262B
+
+   The palette is reconciled with the commercial materials actually in
+   circulation — see docs/CONTINUIDADE_VISUAL_MATERIAIS.md.
+
+   SURFACES. Every section declares a surface, and the surface sets the
+   foreground variables below it. That is why `t-h2`, `text-gold`,
+   `border-rule` and the rest need no variant: they read the surface.
    ========================================================================== */
 
 :root {
-  /* Brand — do not add hues outside the Standard. Depth comes from alpha. */
-  --navy: #0d1b2e;
-  --navy-2: #152236;
-  --navy-3: #1e3047;
+  /* --- Brand constants. Never used directly for text; see surfaces. ------ */
+  --navy: #0b1f3a;
+  --navy-deep: #071526;
+  --navy-2: #122a49;
+  --navy-3: #16304f;
   --gold: #c9a84c;
-  --gold-light: #e2c06a;
-
-  /* Text on navy. All pass WCAG AA at body size. */
+  --gold-line: #b8923f;
+  --gold-light: #dcc074;
+  --bronze: #5c4a1e;
+  --ivory: #f5efe3;
+  --champagne: #f3eedc;
+  --warm: #e4dfd4;
+  --ink: #23262b;
   --white: #ffffff;
-  --off-white: #e8edf4;
-  --light-blue: #b0c4de;
-  --muted-blue: #7b93b5;
 
-  /* Hairlines and surfaces, derived from brand hues by alpha only. */
-  --rule: rgb(255 255 255 / 0.09);
-  --rule-strong: rgb(255 255 255 / 0.16);
-  --rule-gold: rgb(201 168 76 / 0.38);
-  --surface: rgb(255 255 255 / 0.025);
-  --surface-hover: rgb(255 255 255 / 0.05);
+  /* --- Default surface: navy ------------------------------------------- */
+  --bg: var(--navy);
+  --fg: var(--white);
+  --fg-body: #c6d2e2;
+  --fg-muted: #93a7c2;
+  --accent: var(--gold);
+  --accent-line: var(--gold-line);
+  --rule: rgb(255 255 255 / 0.11);
+  --rule-strong: rgb(255 255 255 / 0.2);
+  --rule-accent: rgb(201 168 76 / 0.4);
+  --surface: rgb(255 255 255 / 0.03);
+  --surface-hover: rgb(255 255 255 / 0.065);
+  --btn-bg: var(--gold);
+  --btn-fg: var(--navy);
+  --btn-bg-hover: #dcc074;
 
   /* Editorial measure */
   --gutter: 1.25rem;
-  --measure: 1240px;
+  --measure: 1280px;
+}
+
+/* Every dark surface restates the full foreground set. It has to: a navy
+   block nested inside an ivory section would otherwise inherit ivory's navy
+   type and disappear into its own background. */
+.surface-obsidian,
+.surface-navy,
+.surface-navy-2,
+.surface-header,
+.cell-invert {
+  --fg: var(--white);
+  --fg-body: #c6d2e2;
+  --fg-muted: #93a7c2;
+  --accent: var(--gold);
+  --accent-line: var(--gold-line);
+  --rule: rgb(255 255 255 / 0.11);
+  --rule-strong: rgb(255 255 255 / 0.2);
+  --rule-accent: rgb(201 168 76 / 0.4);
+  --surface: rgb(255 255 255 / 0.03);
+  --surface-hover: rgb(255 255 255 / 0.065);
+  --btn-bg: var(--gold);
+  --btn-fg: var(--navy);
+  --btn-bg-hover: var(--gold-light);
+  color: var(--fg-body);
+}
+
+/* Obsidian — hero and the deepest institutional bands. */
+.surface-obsidian {
+  --bg: var(--navy-deep);
+  background: var(--bg);
+}
+
+/* Navy — institutional bands. */
+.surface-navy {
+  --bg: var(--navy);
+  background: var(--bg);
+}
+
+/* The sticky header floats over both light and dark sections, so it carries
+   the dark foreground variables with it and keeps its own translucent navy. */
+.surface-header {
+  --bg: rgb(11 31 58 / 0.92);
+  background: var(--bg);
+}
+
+/* Navy elevated — a second dark step, for adjacency without a new hue. */
+.surface-navy-2 {
+  --bg: var(--navy-2);
+  background: var(--bg);
+}
+
+/* Ivory — the editorial body. Gold appears here only as bronze. */
+.surface-ivory,
+.surface-warm {
+  --fg: var(--navy);
+  --fg-body: #3e434b;
+  --fg-muted: #5a6068;
+  --accent: var(--bronze);
+  --accent-line: rgb(92 74 30 / 0.55);
+  --rule: rgb(11 31 58 / 0.16);
+  --rule-strong: rgb(11 31 58 / 0.3);
+  --rule-accent: rgb(92 74 30 / 0.4);
+  --btn-bg: var(--navy);
+  --btn-fg: var(--ivory);
+  --btn-bg-hover: var(--navy-3);
+  background: var(--bg);
+  color: var(--fg-body);
+}
+
+.surface-ivory {
+  --bg: var(--ivory);
+  --surface: rgb(255 255 255 / 0.6);
+  --surface-hover: #ffffff;
+}
+
+.surface-warm {
+  --bg: var(--warm);
+  --surface: rgb(255 255 255 / 0.5);
+  --surface-hover: rgb(255 255 255 / 0.85);
 }
 
 @theme inline {
-  --color-navy: var(--navy);
-  --color-navy-2: var(--navy-2);
-  --color-navy-3: var(--navy-3);
-  --color-gold: var(--gold);
-  --color-gold-light: var(--gold-light);
-  --color-off-white: var(--off-white);
-  --color-light-blue: var(--light-blue);
-  --color-muted-blue: var(--muted-blue);
+  /* Surface-aware: these are what pages and components actually use. */
+  --color-fg: var(--fg);
+  --color-fg-body: var(--fg-body);
+  --color-fg-muted: var(--fg-muted);
+  --color-gold: var(--accent);
+  --color-gold-line: var(--accent-line);
   --color-rule: var(--rule);
   --color-rule-strong: var(--rule-strong);
+  --color-off-white: var(--fg);
+  --color-light-blue: var(--fg-body);
+  --color-muted-blue: var(--fg-muted);
 
-  --font-sans: Arial, Helvetica, sans-serif;
+  /* Fixed brand hues, for the few places that must not follow the surface. */
+  --color-navy: var(--navy);
+  --color-navy-deep: var(--navy-deep);
+  --color-navy-2: var(--navy-2);
+  --color-navy-3: var(--navy-3);
+  --color-ivory: var(--ivory);
+  --color-champagne: var(--champagne);
+  --color-warm: var(--warm);
+  --color-ink: var(--ink);
+  --color-champagne-gold: #c9a84c;
+
+  /* next/font injects these; the fallbacks keep local dev honest. */
+  --font-sans: var(--font-inter), system-ui, -apple-system, sans-serif;
+  --font-display: var(--font-bodoni), Georgia, "Times New Roman", serif;
 }
 
 @media (min-width: 768px) {
@@ -71,8 +184,8 @@ html {
 
 body {
   background: var(--navy);
-  color: var(--off-white);
-  font-family: Arial, Helvetica, sans-serif;
+  color: var(--fg-body);
+  font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
@@ -87,7 +200,7 @@ body {
 }
 
 :focus-visible {
-  outline: 2px solid var(--gold);
+  outline: 2px solid var(--accent);
   outline-offset: 3px;
   border-radius: 1px;
 }
@@ -106,99 +219,135 @@ body {
 }
 
 /* --------------------------------------------------------------------------
-   Type scale — fluid, tightened at display sizes. Arial needs negative
-   tracking above ~2rem to stop reading as a system default.
+   Type scale. Bodoni Moda carries the editorial titles only — display, h1,
+   h2 and the large figures. Everything a reader has to stay inside for more
+   than a sentence is Inter (Standard v1.3 §07).
    -------------------------------------------------------------------------- */
 
 .t-display {
-  font-size: clamp(2.5rem, 7vw, 5.25rem);
+  font-family: var(--font-display);
+  font-size: clamp(2.75rem, 7.4vw, 6rem);
   line-height: 0.98;
-  letter-spacing: -0.03em;
-  font-weight: 700;
-  color: var(--white);
+  letter-spacing: -0.015em;
+  font-weight: 400;
+  color: var(--fg);
+  text-wrap: balance;
 }
 
 .t-h1 {
-  font-size: clamp(2rem, 4.8vw, 3.5rem);
-  line-height: 1.04;
-  letter-spacing: -0.025em;
-  font-weight: 700;
-  color: var(--white);
+  font-family: var(--font-display);
+  font-size: clamp(2.125rem, 5.2vw, 4rem);
+  line-height: 1.02;
+  letter-spacing: -0.012em;
+  font-weight: 400;
+  color: var(--fg);
+  text-wrap: balance;
 }
 
 .t-h2 {
-  font-size: clamp(1.5rem, 3.1vw, 2.375rem);
-  line-height: 1.12;
-  letter-spacing: -0.02em;
-  font-weight: 700;
-  color: var(--white);
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 3.6vw, 2.875rem);
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+  font-weight: 400;
+  color: var(--fg);
+  text-wrap: balance;
 }
 
+/* h3 is a working heading, not an editorial one: Inter, not Bodoni. */
 .t-h3 {
-  font-size: clamp(1.125rem, 1.8vw, 1.375rem);
-  line-height: 1.25;
-  letter-spacing: -0.01em;
-  font-weight: 700;
-  color: var(--white);
+  font-size: clamp(1.0625rem, 1.5vw, 1.25rem);
+  line-height: 1.3;
+  letter-spacing: -0.008em;
+  font-weight: 600;
+  color: var(--fg);
+}
+
+/* Italic Bodoni accent inside an editorial title — one word, never a phrase. */
+.t-accent {
+  font-style: italic;
+  color: var(--accent);
 }
 
 .t-lead {
-  font-size: clamp(1.0625rem, 1.55vw, 1.3125rem);
-  line-height: 1.6;
-  color: var(--light-blue);
-  letter-spacing: -0.005em;
+  font-size: clamp(1.0625rem, 1.4vw, 1.3125rem);
+  line-height: 1.58;
+  color: var(--fg-body);
+  letter-spacing: -0.003em;
 }
 
 .t-body {
   font-size: 0.9375rem;
   line-height: 1.75;
-  color: var(--light-blue);
+  color: var(--fg-body);
 }
 
 @media (min-width: 768px) {
   .t-body {
-    font-size: 1rem;
+    font-size: 1.0625rem;
   }
 }
 
 .t-small {
   font-size: 0.875rem;
   line-height: 1.65;
-  color: var(--muted-blue);
+  color: var(--fg-muted);
 }
 
 /* Section label: 01 — ADVISORY */
 .t-eyebrow {
   font-size: 0.6875rem;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--accent);
 }
 
 .t-index {
   font-size: 0.6875rem;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: 0.1em;
-  color: var(--gold);
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Oversized outline numeral — the tearsheet marker. */
+.t-numeral {
+  font-family: var(--font-display);
+  font-size: clamp(2.25rem, 4vw, 3.25rem);
+  line-height: 0.9;
+  font-weight: 400;
+  color: var(--accent);
   font-variant-numeric: tabular-nums;
 }
 
 /* Compliance caveats. Deliberately quiet, never below 13px. */
 .t-caveat {
   font-size: 0.8125rem;
-  line-height: 1.6;
-  color: var(--muted-blue);
+  line-height: 1.62;
+  color: var(--fg-muted);
 }
 
 /* Large figures in stat blocks */
 .t-figure {
-  font-size: clamp(1.875rem, 3.6vw, 2.75rem);
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 3.8vw, 3rem);
   line-height: 1;
-  letter-spacing: -0.035em;
-  font-weight: 700;
-  color: var(--white);
+  letter-spacing: -0.02em;
+  font-weight: 400;
+  color: var(--fg);
   font-variant-numeric: tabular-nums;
+}
+
+/* Pull quote — editorial punctuation between argument blocks. */
+.t-quote {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 2.8vw, 2.25rem);
+  line-height: 1.22;
+  letter-spacing: -0.008em;
+  font-weight: 400;
+  color: var(--fg);
+  text-wrap: balance;
 }
 
 /* --------------------------------------------------------------------------
@@ -216,22 +365,22 @@ body {
   border-top: 1px solid var(--rule);
 }
 
-/* 40px gold accent rule used above major headings */
+/* 40px accent rule used above major headings */
 .accent-rule::before {
   content: "";
   display: block;
   width: 2.5rem;
   height: 1px;
-  background: var(--gold);
+  background: var(--accent);
   margin-bottom: 1.75rem;
 }
 
-/* Editorial link: gold underline grows from the left on hover */
+/* Editorial link: the accent underline grows from the left on hover */
 .link-reveal {
   position: relative;
   display: inline-block;
-  color: var(--gold);
-  font-weight: 700;
+  color: var(--accent);
+  font-weight: 600;
   font-size: 0.875rem;
   letter-spacing: 0.02em;
 }
@@ -243,7 +392,7 @@ body {
   bottom: -4px;
   height: 1px;
   width: 100%;
-  background: var(--gold);
+  background: var(--accent);
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 0.45s cubic-bezier(0.2, 0.7, 0.2, 1);
@@ -279,50 +428,89 @@ body {
   }
 }
 
-/* Panel: used sparingly — hairline over tinted surface, never a heavy card */
+/* Panel: hairline over a tinted surface, never a heavy card */
 .panel {
   background: var(--surface);
   border: 1px solid var(--rule);
   transition:
     border-color 0.4s ease,
-    background-color 0.4s ease;
+    background-color 0.4s ease,
+    transform 0.4s ease;
 }
 
 .panel-interactive:hover {
-  border-color: var(--rule-gold);
+  border-color: var(--rule-accent);
   background: var(--surface-hover);
+}
+
+/* Tearsheet cell: the gridded block used where hierarchy is read as area. */
+.cell {
+  background: var(--bg);
+  padding: 2rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 2rem;
+  transition:
+    background-color 0.4s ease,
+    color 0.4s ease;
+}
+
+@media (min-width: 1024px) {
+  .cell {
+    padding: 2.5rem 2.25rem;
+  }
+}
+
+/* A cell that inverts against its grid — the core practice lines. */
+.cell-invert {
+  background: var(--navy);
+}
+
+.cell-invert:hover {
+  background: var(--navy-3);
+}
+
+/* The grid that holds the cells: hairlines are the gaps. */
+.cell-grid {
+  display: grid;
+  gap: 1px;
+  background: var(--rule);
+  border: 1px solid var(--rule);
 }
 
 /* --------------------------------------------------------------------------
    Entrance — CSS only, so it costs no JavaScript and degrades to nothing.
+   Never applied to an h1 or to the first paragraph: the LCP element must
+   paint opaque on the first frame.
    -------------------------------------------------------------------------- */
 
-@keyframes rise {
+/* No entrance animation is applied to content. An element that starts at
+   opacity 0 is an element the reader may never see — and the brief forbids
+   animations that hide text on load. Only the decorative sweep below moves.
+   -------------------------------------------------------------------------- */
+
+/* Slow light sweep across the hero. Decorative only, behind the text. */
+@keyframes sweep {
   from {
-    opacity: 0;
-    transform: translateY(14px);
+    transform: translate3d(-26%, 0, 0);
   }
   to {
-    opacity: 1;
-    transform: none;
+    transform: translate3d(26%, 0, 0);
   }
 }
 
-.rise {
-  animation: rise 0.9s cubic-bezier(0.16, 0.84, 0.28, 1) both;
-}
-
-.rise-1 {
-  animation-delay: 0.08s;
-}
-.rise-2 {
-  animation-delay: 0.16s;
-}
-.rise-3 {
-  animation-delay: 0.24s;
-}
-.rise-4 {
-  animation-delay: 0.32s;
+.hero-sweep {
+  position: absolute;
+  inset: -40% -12%;
+  background: linear-gradient(
+    104deg,
+    transparent 42%,
+    rgb(201 168 76 / 0.09) 50%,
+    transparent 58%
+  );
+  animation: sweep 16s linear infinite alternate;
+  pointer-events: none;
 }
 
 /* --------------------------------------------------------------------------
@@ -337,36 +525,41 @@ body {
   padding: 0.875rem 0;
   font-size: 1rem;
   font-family: inherit;
-  color: var(--white);
+  color: var(--fg);
   transition: border-color 0.3s ease;
 }
 
 .field::placeholder {
-  color: var(--muted-blue);
+  color: var(--fg-muted);
 }
 
 .field:focus {
   outline: none;
-  border-bottom-color: var(--gold);
+  border-bottom-color: var(--accent);
 }
 
 .field:focus-visible {
   outline: none;
 }
 
-/* Native select needs its own palette on dark backgrounds */
 select.field option {
   background: var(--navy-2);
   color: var(--white);
 }
 
+.surface-ivory select.field option,
+.surface-warm select.field option {
+  background: var(--ivory);
+  color: var(--navy);
+}
+
 .field-label {
   display: block;
   font-size: 0.6875rem;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--muted-blue);
+  color: var(--fg-muted);
 }
 
 .btn-primary {
@@ -374,21 +567,21 @@ select.field option {
   align-items: center;
   justify-content: center;
   gap: 0.625rem;
-  background: var(--gold);
-  color: var(--navy);
-  font-weight: 700;
+  background: var(--btn-bg);
+  color: var(--btn-fg);
+  font-weight: 600;
   font-size: 0.875rem;
   letter-spacing: 0.04em;
   padding: 1.0625rem 2.25rem;
-  border: 1px solid var(--gold);
+  border: 1px solid var(--btn-bg);
   transition:
     background-color 0.35s ease,
     border-color 0.35s ease;
 }
 
 .btn-primary:hover:not(:disabled) {
-  background: var(--gold-light);
-  border-color: var(--gold-light);
+  background: var(--btn-bg-hover);
+  border-color: var(--btn-bg-hover);
 }
 
 .btn-primary:disabled {
@@ -402,8 +595,8 @@ select.field option {
   justify-content: center;
   gap: 0.625rem;
   background: transparent;
-  color: var(--white);
-  font-weight: 700;
+  color: var(--fg);
+  font-weight: 600;
   font-size: 0.875rem;
   letter-spacing: 0.04em;
   padding: 1.0625rem 2.25rem;
@@ -414,6 +607,6 @@ select.field option {
 }
 
 .btn-secondary:hover {
-  border-color: var(--gold);
+  border-color: var(--accent);
   background: var(--surface-hover);
 }

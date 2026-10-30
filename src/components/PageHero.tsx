@@ -30,7 +30,7 @@ export default function PageHero({
         className="pointer-events-none absolute inset-0"
         style={{
           background:
-            "radial-gradient(110% 70% at 10% 0%, rgb(30 48 71 / 0.6) 0%, rgb(13 27 46 / 0) 60%)",
+            "radial-gradient(115% 75% at 8% 0%, rgb(22 48 79 / 0.78) 0%, rgb(11 31 58 / 0) 62%)",
         }}
       />
       <Shell className="relative pb-16 pt-14 md:pb-20 md:pt-20 lg:pb-24 lg:pt-24">

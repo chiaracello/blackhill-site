@@ -59,31 +59,49 @@ export default async function HomePage({
   return (
     <>
       {/* ---------------------------------------------------------------- HERO */}
-      <section className="relative overflow-hidden">
+      <section className="surface-obsidian relative overflow-hidden">
         <div
           aria-hidden="true"
           className="pointer-events-none absolute inset-0"
           style={{
             background:
-              "radial-gradient(120% 80% at 12% 0%, rgb(30 48 71 / 0.75) 0%, rgb(13 27 46 / 0) 62%)",
+              "radial-gradient(125% 95% at 8% 0%, rgb(22 48 79 / 0.92) 0%, rgb(7 21 38 / 0) 58%), radial-gradient(85% 70% at 92% 100%, rgb(201 168 76 / 0.14) 0%, rgb(7 21 38 / 0) 62%)",
           }}
         />
+        <div className="hero-sweep" aria-hidden="true" />
         <Shell className="relative pb-20 pt-20 md:pb-28 md:pt-32 lg:pb-36 lg:pt-40">
           <p className="t-eyebrow">{copy.heroEyebrow}</p>
-          <GoldRule className="mt-7" />
-          <h1 className="t-display mt-7 max-w-4xl">{copy.heroTitle}</h1>
-          <p className="t-lead rise mt-8 max-w-2xl">{copy.heroLede}</p>
-          <div className="rise rise-1 mt-11 flex flex-wrap gap-4">
-            <PrimaryLink href={localePath(locale, "/contact")}>{copy.ctaPrimary}</PrimaryLink>
-            <SecondaryLink href={localePath(locale, "/advisory")}>
-              {copy.ctaSecondary}
-            </SecondaryLink>
+          <div className="mt-10 grid gap-12 lg:grid-cols-[minmax(0,1.3fr)_minmax(0,0.7fr)] lg:items-end lg:gap-16">
+            <div>
+              <h1 className="t-display max-w-4xl">{copy.heroTitle}</h1>
+              <GoldRule className="mt-10" />
+              <p className="t-lead mt-8 max-w-2xl">{copy.heroLede}</p>
+              <div className="mt-11 flex flex-wrap gap-4">
+                <PrimaryLink href={localePath(locale, "/contact")}>
+                  {copy.ctaPrimary}
+                </PrimaryLink>
+                <SecondaryLink href={localePath(locale, "/advisory")}>
+                  {copy.ctaSecondary}
+                </SecondaryLink>
+              </div>
+            </div>
+
+            <dl className="space-y-5">
+              {copy.heroPillars.map((pillar) => (
+                <div key={pillar.label} className="border-l-2 border-gold-line pl-5">
+                  <dt className="text-[0.9375rem] font-semibold tracking-tight text-fg">
+                    {pillar.label}
+                  </dt>
+                  <dd className="t-small mt-1">{pillar.detail}</dd>
+                </div>
+              ))}
+            </dl>
           </div>
         </Shell>
       </section>
 
       {/* ----------------------------------------------------------- SIGNATURE */}
-      <section className="rule-top bg-navy-2/35">
+      <section className="rule-top surface-navy-2">
         <Shell>
           <p className="t-eyebrow py-6 md:py-7">
             {SIGNATURE[locale].map((part, i) => (
@@ -111,7 +129,7 @@ export default async function HomePage({
                   i > 0 ? "border-t border-rule md:border-l md:border-t-0 md:pl-10" : "md:pr-10"
                 }`}
               >
-                <dt className="text-sm font-bold tracking-wide text-white">{item.label}</dt>
+                <dt className="text-sm font-bold tracking-wide text-fg">{item.label}</dt>
                 <dd className="t-small mt-2.5">{item.detail}</dd>
               </div>
             ))}
@@ -120,7 +138,7 @@ export default async function HomePage({
       </section>
 
       {/* --------------------------------------------------------- TWO PILLARS */}
-      <Section rule>
+      <Section rule surface="ivory">
         <SectionHead
           eyebrow={copy.pillarsEyebrow}
           title={copy.pillarsTitle}
@@ -129,7 +147,7 @@ export default async function HomePage({
       </Section>
 
       {/* --------------------------------------------------------- SENIOR-LED */}
-      <Section rule>
+      <Section rule surface="warm">
         <SectionHead
           eyebrow={copy.seniorEyebrow}
           title={copy.seniorTitle}
@@ -140,7 +158,7 @@ export default async function HomePage({
           {APPROACH[locale].seniorPoints.map((point, i) => (
             <div key={point.label} className="panel p-7 lg:p-8">
               <span className="t-index">{String(i + 1).padStart(2, "0")}</span>
-              <p className="mt-5 text-base font-bold text-white">{point.label}</p>
+              <p className="mt-5 text-base font-bold text-fg">{point.label}</p>
               <p className="t-small mt-3">{point.detail}</p>
             </div>
           ))}
@@ -152,7 +170,7 @@ export default async function HomePage({
       </Section>
 
       {/* ------------------------------------------------------ PILLAR 1 — CORE */}
-      <Section rule>
+      <Section rule surface="navy">
         <SectionHead
           eyebrow={copy.advisoryEyebrow}
           title={copy.advisoryTitle}
@@ -186,7 +204,7 @@ export default async function HomePage({
                 className="index-row group"
               >
                 <span className="t-index">{area.index}</span>
-                <span className="text-base font-bold text-white">{area.title[locale]}</span>
+                <span className="text-base font-bold text-fg">{area.title[locale]}</span>
                 <span className="t-small hidden md:block">{area.short[locale]}</span>
                 <span className="t-caveat uppercase tracking-[0.16em]">
                   {area.tier === "capability" ? ui.capability : ui.complementary}
@@ -199,7 +217,7 @@ export default async function HomePage({
       </Section>
 
       {/* -------------------------------------------------- PILLAR 2 — ECOSYSTEM */}
-      <Section rule className="bg-navy-2/35">
+      <Section rule surface="obsidian">
         <SectionHead
           eyebrow={copy.ecosystemEyebrow}
           title={copy.ecosystemTitle}
@@ -226,7 +244,7 @@ export default async function HomePage({
       </Section>
 
       {/* ------------------------------------------------------------- MARKET */}
-      <Section rule>
+      <Section rule surface="ivory">
         <SectionHead eyebrow={copy.marketEyebrow} index="01" title={copy.marketTitle} />
 
         <div className="mt-16 grid gap-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
@@ -245,7 +263,7 @@ export default async function HomePage({
       </Section>
 
       {/* ------------------------------------------------------------ PROCESS */}
-      <Section rule>
+      <Section rule surface="warm">
         <SectionHead
           eyebrow={copy.processEyebrow}
           index="02"
@@ -257,7 +275,7 @@ export default async function HomePage({
           {PROCESS[locale].map((phase) => (
             <li key={phase.index} className="panel flex flex-col p-8 lg:p-9">
               <span className="t-index">{phase.index}</span>
-              <p className="mt-6 text-base font-bold text-white">{phase.title}</p>
+              <p className="mt-6 text-base font-bold text-fg">{phase.title}</p>
               <p className="t-small mt-3">{phase.detail}</p>
               <div className="mt-6 border-t border-rule pt-5">
                 <p className="t-caveat uppercase tracking-[0.16em]">
@@ -277,7 +295,7 @@ export default async function HomePage({
       </Section>
 
       {/* -------------------------------------------------------- SEGMENTATION */}
-      <Section rule>
+      <Section rule surface="ivory">
         <SectionHead eyebrow={copy.segmentEyebrow} index="03" title={copy.segmentTitle} />
 
         <div className="mt-14 grid gap-px md:grid-cols-3">
@@ -300,7 +318,7 @@ export default async function HomePage({
       </Section>
 
       {/* ------------------------------------------------------------ CLOSING */}
-      <Section rule className="bg-navy-2/35">
+      <Section rule surface="navy">
         <div className="max-w-3xl">
           <GoldRule />
           <h2 className="t-h2 mt-7">

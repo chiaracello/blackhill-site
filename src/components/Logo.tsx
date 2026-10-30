@@ -25,7 +25,7 @@ export default function Logo({
   mark = true,
   className = "",
 }: LogoProps) {
-  const primary = variant === "light" ? "text-white" : "text-navy";
+  const primary = variant === "light" ? "text-fg" : "text-navy";
   // Gold is only ever used over navy (Standard §5). On a light surface the
   // secondary line falls back to navy.
   const secondary = variant === "light" ? "text-gold" : "text-navy";

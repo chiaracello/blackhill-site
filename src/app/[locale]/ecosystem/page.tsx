@@ -30,6 +30,17 @@ export async function generateMetadata({
   });
 }
 
+/**
+ * Editorial accents that tell one platform from the next. They are section
+ * ornaments within the Blackhill palette — never a logotype and never a visual
+ * identity attributed to the platform itself (Standard v1.3 §03).
+ */
+const PLATFORM_ACCENT: Record<string, string> = {
+  xcurve: "#8FB4D9",
+  finders: "#C9A84C",
+  dealnorth: "#7FA894",
+};
+
 export default async function EcosystemPage({
   params,
 }: {
@@ -86,7 +97,7 @@ export default async function EcosystemPage({
           key={platform.slug}
           rule
           id={platform.slug}
-          className={i % 2 === 1 ? "bg-navy-2/30" : ""}
+          surface={i % 2 === 1 ? "warm" : "ivory"}
         >
           <div className="grid gap-10 lg:grid-cols-[14rem_minmax(0,1fr)] lg:gap-16">
             <div>
@@ -94,15 +105,32 @@ export default async function EcosystemPage({
             </div>
 
             <div className="max-w-3xl">
-              <h2 className="t-h2">{platform.name}</h2>
-              <p className="t-lead mt-6">{platform.lede[locale]}</p>
+              {/* Name plate. The accent distinguishes one platform from the
+                  next; it is an editorial device, not a brand mark — no
+                  logotype or visual identity is attributed to a platform. */}
+              <div
+                className="surface-navy-2 border-t-2 px-7 py-8 md:px-9 md:py-10"
+                style={{ borderTopColor: PLATFORM_ACCENT[platform.slug] }}
+              >
+                <h2 className="t-h2">{platform.name}</h2>
+                <p
+                  className="t-eyebrow mt-3"
+                  style={{ color: PLATFORM_ACCENT[platform.slug] }}
+                >
+                  {platform.category[locale]}
+                </p>
+                <p className="t-lead mt-6">{platform.lede[locale]}</p>
+              </div>
 
               <div className="mt-12">
                 <Eyebrow>{locale === "pt" ? "Capacidades" : "Capabilities"}</Eyebrow>
                 <ArgumentList items={platform.capabilities[locale]} />
               </div>
 
-              <div className="mt-12 border-l-2 border-l-gold pl-6 md:pl-8">
+              <div
+                className="mt-12 border-l-2 pl-6 md:pl-8"
+                style={{ borderLeftColor: PLATFORM_ACCENT[platform.slug] }}
+              >
                 <p className="t-eyebrow">
                   {locale === "pt" ? "Racional estratégico" : "Strategic rationale"}
                 </p>

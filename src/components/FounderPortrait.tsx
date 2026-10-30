@@ -16,7 +16,7 @@ export default function FounderPortrait({ caption }: { caption: string }) {
 
   return (
     <figure className="w-full max-w-[19rem]">
-      <div className="relative aspect-[4/5] overflow-hidden border border-rule bg-navy-2">
+      <div className="relative aspect-[4/5] surface-navy-2 overflow-hidden border border-rule">
         {photo ? (
           <Image
             src={photo}
@@ -31,7 +31,7 @@ export default function FounderPortrait({ caption }: { caption: string }) {
             className="flex h-full w-full items-center justify-center"
             style={{
               background:
-                "radial-gradient(120% 90% at 50% 0%, rgb(30 48 71 / 0.9) 0%, rgb(21 34 54 / 1) 70%)",
+                "radial-gradient(120% 90% at 50% 0%, rgb(22 48 79 / 0.95) 0%, rgb(18 42 73 / 1) 70%)",
             }}
           >
             <span
@@ -46,7 +46,7 @@ export default function FounderPortrait({ caption }: { caption: string }) {
         {/* Hairline inset, so the frame reads as deliberate in both states. */}
         <span
           aria-hidden="true"
-          className="pointer-events-none absolute inset-3 border border-white/8"
+          className="pointer-events-none absolute inset-3 border border-rule-strong"
         />
       </div>
 

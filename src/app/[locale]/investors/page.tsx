@@ -71,7 +71,7 @@ export default async function InvestorsPage({
         </div>
       </Section>
 
-      <Section rule className="bg-navy-2/30">
+      <Section rule surface="ivory">
         <div className="grid gap-10 lg:grid-cols-[14rem_minmax(0,1fr)] lg:gap-16">
           <div>
             <Eyebrow index="02">{copy.profileEyebrow}</Eyebrow>
@@ -98,7 +98,7 @@ export default async function InvestorsPage({
               {access.accessSteps.map((step, i) => (
                 <li key={step.title} className="panel p-7 lg:p-8">
                   <span className="t-index">{String(i + 1).padStart(2, "0")}</span>
-                  <p className="mt-5 text-base font-bold text-white">{step.title}</p>
+                  <p className="mt-5 text-base font-bold text-fg">{step.title}</p>
                   <p className="t-small mt-3">{step.detail}</p>
                 </li>
               ))}

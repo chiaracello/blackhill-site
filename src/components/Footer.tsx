@@ -9,7 +9,7 @@ export default function Footer({ locale }: { locale: Locale }) {
   const groups = FOOTER_GROUPS[locale];
 
   return (
-    <footer className="mt-auto border-t border-rule bg-navy-2">
+    <footer className="mt-auto surface-navy-2 border-t border-rule">
       <div className="shell py-16 md:py-20">
         <div className="grid gap-12 lg:grid-cols-[18rem_minmax(0,1fr)] lg:gap-16">
           <div>
@@ -48,7 +48,7 @@ export default function Footer({ locale }: { locale: Locale }) {
           <div>
             <p className="t-eyebrow mb-5">{locale === "pt" ? "Contato" : "Contact"}</p>
             <address className="t-small not-italic">
-              <span className="block font-bold text-white">{COMPANY.founder.name}</span>
+              <span className="block font-bold text-fg">{COMPANY.founder.name}</span>
               <span className="block">{COMPANY.founder.role}</span>
               <a
                 href={`tel:${COMPANY.founder.phoneHref}`}

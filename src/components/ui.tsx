@@ -11,6 +11,13 @@ export function Shell({
   return <div className={`shell ${className}`}>{children}</div>;
 }
 
+/**
+ * A section declares its surface, and the surface sets every foreground
+ * variable beneath it — type colour, hairlines, the accent, the button.
+ * Alternating `navy` and `ivory` is what gives the page its editorial rhythm.
+ */
+export type Surface = "navy" | "navy-2" | "obsidian" | "ivory" | "warm";
+
 export function Section({
   children,
   className = "",
@@ -18,6 +25,7 @@ export function Section({
   id,
   tight = false,
   compact = false,
+  surface,
 }: {
   children: ReactNode;
   className?: string;
@@ -26,6 +34,7 @@ export function Section({
   tight?: boolean;
   /** For sections that continue the one above — keeps them reading as one list. */
   compact?: boolean;
+  surface?: Surface;
 }) {
   const rhythm = tight
     ? "py-12 md:py-16"
@@ -33,7 +42,12 @@ export function Section({
       ? "py-14 md:py-16 lg:py-20"
       : "py-20 md:py-28 lg:py-32";
   return (
-    <section id={id} className={`${rule ? "rule-top" : ""} ${rhythm} ${className}`}>
+    <section
+      id={id}
+      className={`${rule ? "rule-top" : ""} ${rhythm} ${
+        surface ? `surface-${surface}` : ""
+      } ${className}`}
+    >
       <Shell>{children}</Shell>
     </section>
   );
@@ -184,7 +198,7 @@ export function StatBlock({
   return (
     <div className="border-t border-rule pt-6">
       <p className="t-figure">{value}</p>
-      <p className="mt-4 text-sm font-bold text-white">{label}</p>
+      <p className="mt-4 text-sm font-bold text-fg">{label}</p>
       <p className="t-small mt-2">{detail}</p>
       <p className="t-caveat mt-4 opacity-80">
         <span className="sr-only">{sourceLabel}: </span>
@@ -222,7 +236,7 @@ export function FrameList({ items }: { items: { label: string; value: string }[]
       {items.map((item) => (
         <div key={item.label} className="border-t border-rule py-5 sm:pr-8">
           <dt className="t-caveat uppercase tracking-[0.16em]">{item.label}</dt>
-          <dd className="mt-2 text-sm font-bold text-white">{item.value}</dd>
+          <dd className="mt-2 text-sm font-bold text-fg">{item.value}</dd>
         </div>
       ))}
     </dl>

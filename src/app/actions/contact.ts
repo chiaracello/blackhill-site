@@ -146,7 +146,7 @@ export async function submitContact(
     ["Idioma", locale === "pt" ? "Português" : "Inglês"],
   ];
 
-  const html = `<div style="font-family:Arial,Helvetica,sans-serif;font-size:14px;color:#0D1B2E;line-height:1.6">
+  const html = `<div style="font-family:Aptos,Calibri,Helvetica,Arial,sans-serif;font-size:14px;color:#23262B;line-height:1.6">
 <p style="margin:0 0 16px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#7B93B5"><strong>Blackhill Capital — formulário do website</strong></p>
 <table style="border-collapse:collapse;margin-bottom:20px">
 ${rows

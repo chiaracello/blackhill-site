@@ -15,8 +15,8 @@ export const alt = "Blackhill Capital — Financial Advisory & Strategic Technol
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
-const NAVY = "#0D1B2E";
-const NAVY_3 = "#1E3047";
+const NAVY = "#0B1F3A";
+const NAVY_3 = "#16304F";
 const GOLD = "#C9A84C";
 const WHITE = "#FFFFFF";
 const LIGHT_BLUE = "#B0C4DE";

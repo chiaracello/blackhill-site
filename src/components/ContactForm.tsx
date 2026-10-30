@@ -186,7 +186,7 @@ export default function ContactForm({ locale }: { locale: Locale }) {
       {formError ? (
         <p
           role="alert"
-          className="border-l-2 border-l-gold bg-navy-2 px-5 py-4 text-sm text-off-white"
+          className="surface-navy-2 border-l-2 border-l-gold px-5 py-4 text-sm text-off-white"
         >
           {formError}
         </p>

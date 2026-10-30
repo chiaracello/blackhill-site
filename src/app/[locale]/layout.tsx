@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { Bodoni_Moda, Inter } from "next/font/google";
 import { notFound } from "next/navigation";
 
 import "../globals.css";
@@ -13,14 +14,31 @@ import { organizationSchema } from "@/lib/metadata";
 /**
  * Root layout. It sits inside `[locale]` — the documented Next.js i18n pattern —
  * so `lang` is always the locale actually being rendered.
+ *
+ * Both faces are self-hosted: `next/font` downloads and serves them from this
+ * origin at build time, so the site still makes no third-party request and the
+ * privacy policy stays literally true.
  */
+
+const bodoni = Bodoni_Moda({
+  subsets: ["latin"],
+  style: ["normal", "italic"],
+  variable: "--font-bodoni",
+  display: "swap",
+});
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+});
 
 export function generateStaticParams() {
   return LOCALES.map((locale) => ({ locale }));
 }
 
 export const viewport: Viewport = {
-  themeColor: "#0D1B2E",
+  themeColor: "#0B1F3A",
   colorScheme: "dark",
 };
 
@@ -73,7 +91,10 @@ export default async function LocaleLayout({
   if (!isLocale(locale)) notFound();
 
   return (
-    <html lang={HTML_LANG[locale]} className="h-full">
+    <html
+      lang={HTML_LANG[locale]}
+      className={`${inter.variable} ${bodoni.variable} h-full`}
+    >
       <body className="flex min-h-full flex-col">
         <a
           href="#main"

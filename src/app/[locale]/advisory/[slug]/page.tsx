@@ -108,7 +108,7 @@ export default async function AdvisoryAreaPage({
       </Section>
 
       {/* 2 — Why it is technically complex. */}
-      <Section rule className="bg-navy-2/30">
+      <Section rule surface="ivory">
         <Block
           index="02"
           eyebrow={locale === "pt" ? "Por que é complexo" : "Why it is complex"}
@@ -133,7 +133,7 @@ export default async function AdvisoryAreaPage({
       </Section>
 
       {/* 4 — How we act in structuring and negotiation. */}
-      <Section rule className="bg-navy-2/30">
+      <Section rule surface="ivory">
         <Block
           index="04"
           eyebrow={locale === "pt" ? "Como atuamos" : "How we work"}
@@ -172,7 +172,7 @@ export default async function AdvisoryAreaPage({
       </Section>
 
       {related.length > 0 ? (
-        <Section rule className="bg-navy-2/30">
+        <Section rule surface="ivory">
           <Block
             index="06"
             eyebrow={locale === "pt" ? "Leitura técnica" : "Technical reading"}
@@ -185,7 +185,7 @@ export default async function AdvisoryAreaPage({
                     className="index-row"
                   >
                     <span className="t-index">{insight.index}</span>
-                    <span className="text-base font-bold text-white">
+                    <span className="text-base font-bold text-fg">
                       {insight.title[locale]}
                     </span>
                     <span className="t-small">{insight.deck[locale]}</span>
@@ -214,7 +214,7 @@ export default async function AdvisoryAreaPage({
               {engage.steps.map((step, i) => (
                 <li key={step.title} className="panel p-6 lg:p-7">
                   <span className="t-index">{String(i + 1).padStart(2, "0")}</span>
-                  <p className="mt-5 text-sm font-bold text-white">{step.title}</p>
+                  <p className="mt-5 text-sm font-bold text-fg">{step.title}</p>
                   <p className="t-small mt-3">{step.detail}</p>
                 </li>
               ))}

@@ -56,7 +56,7 @@ export default async function ContactPage({
             <Eyebrow index="01">{copy.directEyebrow}</Eyebrow>
 
             <address className="mt-8 not-italic">
-              <p className="text-base font-bold text-white">{COMPANY.founder.name}</p>
+              <p className="text-base font-bold text-fg">{COMPANY.founder.name}</p>
               <p className="t-small mt-1">{COMPANY.founder.role}</p>
 
               <dl className="mt-8">

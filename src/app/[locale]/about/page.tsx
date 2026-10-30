@@ -77,7 +77,7 @@ export default async function AboutPage({
       </Section>
 
       {/* --------------------------------------------------- BLACKHILL ADVISORS */}
-      <Section rule className="bg-navy-2/30">
+      <Section rule surface="ivory">
         <div className="grid gap-10 lg:grid-cols-[14rem_minmax(0,1fr)] lg:gap-16">
           <div>
             <Eyebrow index="02">{copy.advisorsEyebrow}</Eyebrow>
@@ -136,7 +136,7 @@ export default async function AboutPage({
                   className="grid gap-x-8 gap-y-2 border-t border-rule py-7 lg:grid-cols-[3.5rem_14rem_minmax(0,1fr)] lg:items-baseline"
                 >
                   <span className="t-index">{String(i + 1).padStart(2, "0")}</span>
-                  <span className="text-base font-bold text-white">{entry.org}</span>
+                  <span className="text-base font-bold text-fg">{entry.org}</span>
                   <span>
                     <span className="block text-sm font-bold text-gold">{entry.role}</span>
                     <span className="t-small mt-1 block">{entry.detail}</span>
@@ -156,7 +156,7 @@ export default async function AboutPage({
       </Section>
 
       {/* ------------------------------------------------------------ PROCESS */}
-      <Section rule className="bg-navy-2/30">
+      <Section rule surface="ivory">
         <div className="grid gap-10 lg:grid-cols-[14rem_minmax(0,1fr)] lg:gap-16">
           <div>
             <Eyebrow index="04">{locale === "pt" ? "Como atuamos" : "How we work"}</Eyebrow>
@@ -171,7 +171,7 @@ export default async function AboutPage({
               {PROCESS[locale].map((phase) => (
                 <li key={phase.index} className="panel flex flex-col p-7 lg:p-8">
                   <span className="t-index">{phase.index}</span>
-                  <p className="mt-5 text-base font-bold text-white">{phase.title}</p>
+                  <p className="mt-5 text-base font-bold text-fg">{phase.title}</p>
                   <p className="t-small mt-3">{phase.detail}</p>
                   <div className="mt-6 border-t border-rule pt-5">
                     <p className="t-caveat uppercase tracking-[0.16em]">
@@ -221,7 +221,7 @@ export default async function AboutPage({
       </Section>
 
       {/* -------------------------------------------------- CONCEPT SEPARATION */}
-      <Section rule className="bg-navy-2/30">
+      <Section rule surface="ivory">
         <div className="grid gap-10 lg:grid-cols-[14rem_minmax(0,1fr)] lg:gap-16">
           <div>
             <Eyebrow index="06">
@@ -236,7 +236,7 @@ export default async function AboutPage({
               {copy.separation.map((item, i) => (
                 <div key={item.title} className="panel p-7">
                   <span className="t-index">{String(i + 1).padStart(2, "0")}</span>
-                  <dt className="mt-5 text-base font-bold text-white">{item.title}</dt>
+                  <dt className="mt-5 text-base font-bold text-fg">{item.title}</dt>
                   <dd className="t-small mt-3">{item.detail}</dd>
                 </div>
               ))}

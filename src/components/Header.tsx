@@ -46,7 +46,7 @@ export default function Header({ locale }: { locale: Locale }) {
   const isActive = (href: string) => bare === href || bare.startsWith(`${href}/`);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-rule bg-navy/92 backdrop-blur-md">
+    <header className="sticky top-0 z-50 surface-header border-b border-rule backdrop-blur-md">
       <Shell>
         <div className="flex h-18 items-center justify-between gap-6 md:h-20">
           <Link
@@ -65,8 +65,8 @@ export default function Header({ locale }: { locale: Locale }) {
                 aria-current={isActive(item.href) ? "page" : undefined}
                 className={`relative py-1 text-[0.8125rem] tracking-wide transition-colors ${
                   isActive(item.href)
-                    ? "text-white"
-                    : "text-light-blue hover:text-white"
+                    ? "text-fg"
+                    : "text-light-blue hover:text-fg"
                 }`}
               >
                 {item.label[locale]}
@@ -92,7 +92,7 @@ export default function Header({ locale }: { locale: Locale }) {
 
             <button
               type="button"
-              className="flex items-center gap-2 border border-rule-strong px-4 py-2.5 text-xs font-bold tracking-[0.12em] text-white transition-colors hover:border-gold xl:hidden"
+              className="flex items-center gap-2 border border-rule-strong px-4 py-2.5 text-xs font-bold tracking-[0.12em] text-fg transition-colors hover:border-gold xl:hidden"
               onClick={() => setOpen((value) => !value)}
               aria-expanded={open}
               aria-controls="mobile-nav"
@@ -107,7 +107,7 @@ export default function Header({ locale }: { locale: Locale }) {
       {open ? (
         <div
           id="mobile-nav"
-          className="max-h-[calc(100dvh-4.5rem)] overflow-y-auto border-t border-rule bg-navy xl:hidden"
+          className="max-h-[calc(100dvh-4.5rem)] surface-navy overflow-y-auto border-t border-rule xl:hidden"
         >
           <Shell>
             <nav aria-label="Primary mobile" className="flex flex-col py-2">
@@ -122,7 +122,7 @@ export default function Header({ locale }: { locale: Locale }) {
                   <span className="t-index">{String(i + 1).padStart(2, "0")}</span>
                   <span
                     className={`text-base font-bold ${
-                      isActive(item.href) ? "text-gold" : "text-white"
+                      isActive(item.href) ? "text-gold" : "text-fg"
                     }`}
                   >
                     {item.label[locale]}

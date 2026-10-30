@@ -67,7 +67,7 @@ export default async function AdvisoryIndexPage({
             key={tier}
             rule
             compact={tierIndex > 0}
-            className={tierIndex % 2 === 1 ? "bg-navy-2/25" : ""}
+            surface={tier === "core" ? "ivory" : tier === "capability" ? "navy" : "warm"}
           >
             <div className="grid gap-8 lg:grid-cols-[14rem_minmax(0,1fr)] lg:gap-16">
               <div>
@@ -77,21 +77,39 @@ export default async function AdvisoryIndexPage({
 
               <div>
                 {isCore ? (
-                  <div className="grid gap-px md:grid-cols-2">
+                  /* Hierarchy read as area: the core occupies the largest
+                     cells on the page and inverts against its surface. */
+                  <div className="cell-grid md:grid-cols-2">
                     {areas.map((area) => (
                       <Link
                         key={area.slug}
                         href={localePath(locale, `/advisory/${area.slug}`)}
-                        className="panel panel-interactive flex flex-col justify-between gap-10 p-8 lg:p-10"
+                        className="cell cell-invert min-h-[22rem]"
                       >
+                        <span className="t-numeral">{area.index}</span>
                         <div>
-                          <span className="t-index">{area.index}</span>
-                          <h2 className="t-h3 mt-5 text-xl md:text-2xl">{area.title[locale]}</h2>
-                          <p className="t-body mt-4">{area.short[locale]}</p>
+                          <h2 className="t-h2">{area.title[locale]}</h2>
+                          <p className="t-body mt-5 max-w-[40ch]">{area.short[locale]}</p>
+                          <span className="link-reveal mt-8 inline-block">
+                            {ui.readMore} <span aria-hidden="true">→</span>
+                          </span>
                         </div>
-                        <span className="link-reveal">
-                          {ui.readMore} <span aria-hidden="true">→</span>
-                        </span>
+                      </Link>
+                    ))}
+                  </div>
+                ) : tier === "capability" ? (
+                  <div className="cell-grid md:grid-cols-3">
+                    {areas.map((area) => (
+                      <Link
+                        key={area.slug}
+                        href={localePath(locale, `/advisory/${area.slug}`)}
+                        className="cell min-h-[15rem] hover:bg-[var(--surface-hover)]"
+                      >
+                        <span className="t-index">{area.index}</span>
+                        <div>
+                          <h2 className="t-h3">{area.title[locale]}</h2>
+                          <p className="t-small mt-3">{area.short[locale]}</p>
+                        </div>
                       </Link>
                     ))}
                   </div>
@@ -104,7 +122,7 @@ export default async function AdvisoryIndexPage({
                           className="index-row"
                         >
                           <span className="t-index">{area.index}</span>
-                          <span className="text-base font-bold text-white">
+                          <span className="text-base font-bold text-fg">
                             {area.title[locale]}
                           </span>
                           <span className="t-small">{area.short[locale]}</span>

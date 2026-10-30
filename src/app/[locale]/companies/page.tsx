@@ -71,7 +71,7 @@ export default async function CompaniesPage({
       />
 
       {blocks.map((block, i) => (
-        <Section key={block.index} rule className={i % 2 === 1 ? "bg-navy-2/30" : ""}>
+        <Section key={block.index} rule surface={i % 2 === 1 ? "ivory" : undefined}>
           <div className="grid gap-10 lg:grid-cols-[14rem_minmax(0,1fr)] lg:gap-16">
             <div>
               <Eyebrow index={block.index}>{block.eyebrow}</Eyebrow>
@@ -87,7 +87,7 @@ export default async function CompaniesPage({
                 {block.points.map((point, pointIndex) => (
                   <div key={point.title} className="panel p-7 lg:p-8">
                     <span className="t-index">{String(pointIndex + 1).padStart(2, "0")}</span>
-                    <dt className="mt-5 text-base font-bold text-white">{point.title}</dt>
+                    <dt className="mt-5 text-base font-bold text-fg">{point.title}</dt>
                     <dd className="t-small mt-3">{point.detail}</dd>
                   </div>
                 ))}

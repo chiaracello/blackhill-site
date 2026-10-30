@@ -12,12 +12,13 @@ Em caso de divergência, prevalece a fonte mais alta:
 
 | # | Fonte | Natureza |
 | :-- | :-- | :-- |
-| 1 | **Brand & Communication Standard v1.2** — `docs/BRAND_STANDARD_v1.2.md` | Norma vigente |
+| 1 | **Brand & Communication Standard v1.3** — `docs/BRAND_STANDARD_v1.3.md` | Norma vigente |
+| 1b | **Design System** — `BLACKHILL_DESIGN_SYSTEM.md` | Aplicação visual |
 | 2 | **Posicionamento Institucional 2026–2031 v2** — `docs/POSICIONAMENTO_INSTITUCIONAL_2026-2031_v2.md` | Estratégia aprovada |
 | 3 | `__BLACKHILL_KNOWLEDGE_HUB.md` (Google Drive, v2.1, Jun/2026) | Base de conhecimento mestre |
 | 4 | `Blackhill_Arquitetura_Website.docx` (Jun/2026) | Arquitetura de informação |
 
-**Regra de governança herdada do Knowledge Hub:** toda instrução que divergir do Brand Standard deve ser sinalizada, e o Standard prevalece até validação expressa de Marcello Chiara. Essa regra permanece em vigor na v1.2.
+**Regra de governança herdada do Knowledge Hub:** toda instrução que divergir do Brand Standard deve ser sinalizada, e o Standard prevalece até validação expressa de Marcello Chiara. Essa regra permanece em vigor na v1.3.
 
 ---
 
@@ -100,17 +101,27 @@ Não gere capital de terceiros · Não investe capital próprio nas operações 
 
 ## 5. Identidade visual
 
+Norma: [Brand & Communication Standard v1.3](docs/BRAND_STANDARD_v1.3.md) §07.
+Aplicação: [BLACKHILL_DESIGN_SYSTEM.md](BLACKHILL_DESIGN_SYSTEM.md) — paleta completa, escala tipográfica, espaçamento, componentes e padrões de apresentação.
+
 | Uso | Hex | Regra |
 | :-- | :-- | :-- |
-| Navy primário | `#0D1B2E` | Fundo base |
-| Navy secundário | `#152236` | Seções e blocos |
-| Navy terciário | `#1E3047` | Fundos secundários |
-| Ouro accent | `#C9A84C` | **Exclusivamente sobre navy — nunca ouro sobre branco** |
+| Navy | `#0B1F3A` | Cor institucional principal |
+| Obsidian | `#071526` | Profundidade máxima — hero, capa |
+| Navy elevado | `#122A49` | Rodapé, placas, molduras |
+| Champagne Gold | `#C9A84C` | Destaque premium — **somente sobre navy** |
+| Ouro institucional | `#B8923F` | Linhas e marcas — **somente sobre navy** |
+| Bronze | `#5C4A1E` | Texto da família ouro — **somente sobre fundo claro** |
+| Marfim | `#F5EFE3` | Base editorial |
+| Warm gray | `#E4DFD4` | Banda secundária |
+| Tinta | `#23262B` | Corpo de texto sobre claro |
 | Branco | `#FFFFFF` | Texto sobre navy |
 
-**Tipografia:** Arial (Standard §5). Mantida na v1.1 — ver decisão pendente na seção 7.
+**Tipografia:** Bodoni Moda em títulos editoriais, figuras e citações; Inter em corpo, interface e números; Aptos em `.docx` e `.pptx`. Bodoni nunca em texto longo. Ambas auto-hospedadas, sem requisição a terceiros.
 
-**Profundidade por alpha, não por novas cores.** Nenhum matiz fora da paleta acima deve ser introduzido; sombreamento e camadas usam transparência sobre os navies definidos.
+**Superfícies.** Nenhum componente declara cor de texto: cada seção declara uma superfície (`navy`, `obsidian`, `navy-2`, `ivory`, `warm`) e ela define tipo, fio, acento e botão de tudo que está dentro. Todo bloco escuro aninhado em seção clara precisa declarar a própria superfície.
+
+**Profundidade por alpha, não por novas cores**, com uma exceção nomeada: os acentos de plataforma do Pilar 2.
 
 ---
 

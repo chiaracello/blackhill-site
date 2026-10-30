@@ -110,7 +110,7 @@ export default async function InsightPage({
         </div>
       </Section>
 
-      <Section rule className="bg-navy-2/30">
+      <Section rule surface="ivory">
         <div className="max-w-2xl">
           <h2 className="t-h2">
             {locale === "pt" ? "Falar com a Blackhill." : "Talk to Blackhill."}
