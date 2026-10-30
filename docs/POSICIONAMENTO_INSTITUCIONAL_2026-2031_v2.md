@@ -9,7 +9,7 @@
 | **Substitui** | Posicionamento Institucional Definitivo — Junho de 2026 |
 | **Classificação** | Uso Interno — Decisão do Sócio-Fundador |
 | **Aprovação** | Marcello Chiara — outubro de 2026 |
-| **Norma decorrente** | [Brand & Communication Standard v1.1](BRAND_STANDARD_v1.1.md) |
+| **Norma decorrente** | [Brand & Communication Standard v1.2](BRAND_STANDARD_v1.2.md) |
 
 ---
 
@@ -153,7 +153,7 @@ Financial Advisory & Strategic Technology Investments
 
 | Item | Situação |
 | :-- | :-- |
-| Brand & Communication Standard v1.1 | ✅ Produzido |
+| Brand & Communication Standard v1.2 | ✅ Produzido |
 | Contexto de marca para o repositório | ✅ `BLACKHILL_BRAND_CONTEXT.md` |
 | Website institucional bilíngue | ✅ Implementado em branch, pendente de aprovação |
 | Página do ecossistema com limites de divulgação | ✅ Implementada |
@@ -177,6 +177,18 @@ A decisão de posicionamento não muda — o que muda é a estrutura de convers�
 O limite é explícito e está codificado no Standard §08: **originar mandato não autoriza prometer resultado**. Nenhuma página promete aprovação de crédito, execução garantida, prazo ou êxito, e toda frente declara que o contato preliminar não é vinculante.
 
 A qualificação acontece por natureza da oportunidade, em lista fechada, o que direciona o contato sem exigir do visitante qualquer informação que só deveria circular sob confidencialidade.
+
+### A objeção de estrutura — risco identificado em campo
+
+Em outubro de 2026 um cliente institucional encontrou a Blackhill por pesquisa em inteligência artificial, procurou o fundador diretamente e manifestou preocupação inicial com a percepção de estrutura da casa. O episódio expôs uma lacuna real do site: ele descrevia competência técnica em profundidade e **não descrevia capacidade de execução em lugar nenhum**. Um leitor institucional que não encontra quem conduz, com que método e com que entregáveis, supõe — e supõe para baixo.
+
+A resposta é o posicionamento **Senior-Led Advisory**, normatizado no Standard §10, com três consequências estruturais:
+
+1. O acesso direto ao profissional sênior responsável deixa de ser acidente do tamanho da casa e passa a ser promessa explícita do canal.
+2. Capacidade de execução passa a ser afirmada como competência aplicada por mandato, explicitamente distinta de tamanho de equipe — sem afirmar quadro próprio, rede formal ou recursos inexistentes.
+3. O método de quatro fases passa a nomear um entregável por fase, que é o que distingue advisory de intermediação aos olhos de quem contrata.
+
+A página de Abordagem concentra essa resposta e é endereçável por si: serve ao primeiro contato, antes de qualquer confidencialidade, e responde à mesma pergunta que os mecanismos de resposta por inteligência artificial sintetizam a partir do texto da página — quem executa.
 
 ---
 

@@ -20,7 +20,13 @@ export const COMPANY = {
     phone: "+55 (11) 99199-5656",
     phoneHref: "+5511991995656",
     email: "mchiara@blackhillcapital.com.br",
-    linkedin: "https://www.linkedin.com/company/blackhill-capital",
+    /**
+     * Pending verification. The previous value was assumed, never confirmed,
+     * and was rendered nowhere. A `sameAs` pointing at the wrong profile binds
+     * the Blackhill entity to a third party, so this stays null until the real
+     * addresses are confirmed — see docs/PROPOSTA_SENIOR_LED.md, item C3.
+     */
+    linkedin: null as string | null,
     initials: "MC",
     /**
      * Professional portrait. Drop the file in `public/` and set the path here
@@ -42,8 +48,8 @@ export type NavItem = { href: string; label: Localized<string> };
 export const NAV: NavItem[] = [
   { href: "/about", label: { pt: "A Blackhill", en: "About" } },
   { href: "/advisory", label: { pt: "Advisory", en: "Advisory" } },
+  { href: "/approach", label: { pt: "Abordagem", en: "Our Approach" } },
   { href: "/ecosystem", label: { pt: "Ecossistema", en: "Ecosystem" } },
-  { href: "/market", label: { pt: "Mercado", en: "Market" } },
   { href: "/investors", label: { pt: "Investidores", en: "Investors" } },
   { href: "/companies", label: { pt: "Empresas", en: "Companies" } },
   { href: "/insights", label: { pt: "Insights", en: "Insights" } },
@@ -58,6 +64,7 @@ export const FOOTER_GROUPS: Localized<
       title: "Instituição",
       links: [
         { href: "/about", label: "A Blackhill" },
+        { href: "/approach", label: "Abordagem" },
         { href: "/about#independencia", label: "Independência & Governança" },
         { href: "/about#fundador", label: "Sócio-Fundador" },
         { href: "/ecosystem", label: "Ecossistema de Tecnologia" },
@@ -94,6 +101,7 @@ export const FOOTER_GROUPS: Localized<
       title: "Institution",
       links: [
         { href: "/about", label: "About Blackhill" },
+        { href: "/approach", label: "Our Approach" },
         { href: "/about#independencia", label: "Independence & Governance" },
         { href: "/about#fundador", label: "Founding Partner" },
         { href: "/ecosystem", label: "Technology Ecosystem" },

@@ -12,6 +12,11 @@ export const HOME: Localized<{
   ctaSecondary: string;
   /** Reworded independence triad — Brand Standard v1.1. */
   triad: { label: string; detail: string }[];
+  /** Senior-led block — Standard §10. The three points come from `APPROACH`. */
+  seniorEyebrow: string;
+  seniorTitle: string;
+  seniorLede: string;
+  seniorCta: string;
   pillarsEyebrow: string;
   pillarsTitle: string;
   pillarsLede: string;
@@ -51,6 +56,11 @@ export const HOME: Localized<{
         detail: "Alinhamento exclusivo com o mandato de cada cliente.",
       },
     ],
+    seniorEyebrow: "Quem conduz",
+    seniorTitle: "Quem conduz o seu mandato.",
+    seniorLede:
+      "O profissional que avalia a sua operação é o mesmo que a conduz até o fechamento. Não há camada intermediária entre a análise e a execução, e a responsabilidade pelo que foi analisado é nominal.",
+    seniorCta: "Como a Blackhill executa",
     pillarsEyebrow: "Dois pilares",
     pillarsTitle: "Uma casa de advisory, com um ecossistema de tecnologia ao lado dela.",
     pillarsLede:
@@ -114,6 +124,11 @@ export const HOME: Localized<{
         detail: "Exclusive alignment with each client's mandate.",
       },
     ],
+    seniorEyebrow: "Who runs it",
+    seniorTitle: "Who runs your mandate.",
+    seniorLede:
+      "The professional who assesses your transaction is the one who takes it through to closing. There is no intermediate layer between analysis and execution, and accountability for what was assessed is named.",
+    seniorCta: "How Blackhill executes",
     pillarsEyebrow: "Two pillars",
     pillarsTitle: "An advisory house, with a technology ecosystem alongside it.",
     pillarsLede:
@@ -162,31 +177,46 @@ export const HOME: Localized<{
    PROCESS — four phases, Standard §1 "Rigor Técnico"
    ========================================================================== */
 
-export const PROCESS: Localized<{ index: string; title: string; detail: string }[]> = {
+/**
+ * The four phases, each ending in a named deliverable. The deliverable is what
+ * distinguishes an advisory mandate from an introduction to the market, and it
+ * is never a promise of outcome, timing or closing — see `APPROACH.methodCaveat`.
+ */
+export const PROCESS: Localized<
+  { index: string; title: string; detail: string; deliverable: string }[]
+> = {
   pt: [
     {
       index: "01",
       title: "Originação",
       detail:
         "Mapeamento por rede institucional proprietária, não dependente de leilões públicos ou bases de dados abertas.",
+      deliverable:
+        "Leitura inicial de aderência — classe de ativo, ordem de grandeza e viabilidade de estruturação.",
     },
     {
       index: "02",
       title: "Análise & Due Diligence",
       detail:
         "Triagem de risco, verificação documental e análise jurídico-financeira, com parecer independente quando o ativo exige.",
+      deliverable:
+        "Memorando técnico com premissas explícitas, lacunas documentais identificadas e pontos que exigem parecer independente.",
     },
     {
       index: "03",
       title: "Estruturação & Negociação",
       detail:
         "Modelagem do veículo, desenho de garantias e proteções contratuais, condução até o fechamento.",
+      deliverable:
+        "Desenho do veículo ou da cessão, matriz de proteções contratuais e condução da negociação.",
     },
     {
       index: "04",
       title: "Monitoramento",
       detail:
         "Acompanhamento pós-fechamento, reporte periódico e revisão de estratégia conforme a curva realizada.",
+      deliverable:
+        "Reporte periódico comparando curva realizada e curva projetada, com revisão de estratégia.",
     },
   ],
   en: [
@@ -195,24 +225,32 @@ export const PROCESS: Localized<{ index: string; title: string; detail: string }
       title: "Origination",
       detail:
         "Mapping through a proprietary institutional network, not dependent on public auctions or open databases.",
+      deliverable:
+        "Initial fit assessment — asset class, order of magnitude and feasibility of structuring.",
     },
     {
       index: "02",
       title: "Analysis & Due Diligence",
       detail:
         "Risk screening, document verification and legal-financial analysis, with an independent opinion where the asset requires one.",
+      deliverable:
+        "Technical memorandum with explicit assumptions, identified documentary gaps and points requiring an independent opinion.",
     },
     {
       index: "03",
       title: "Structuring & Negotiation",
       detail:
         "Vehicle modelling, design of security and contractual protections, through to closing.",
+      deliverable:
+        "Vehicle or assignment design, matrix of contractual protections, and conduct of the negotiation.",
     },
     {
       index: "04",
       title: "Monitoring",
       detail:
         "Post-closing follow-through, periodic reporting and strategy revision against the realised curve.",
+      deliverable:
+        "Periodic reporting comparing the realised against the projected curve, with strategy revision.",
     },
   ],
 };
@@ -369,6 +407,8 @@ export const ABOUT: Localized<{
   founderBio: string[];
   track: { org: string; role: string; detail: string }[];
   trackCaveat: string;
+  /** Named accountability for advisory mandates — Standard §10. */
+  founderResponsibility: string;
   independenceEyebrow: string;
   independenceTitle: string;
   independenceLede: string;
@@ -411,6 +451,7 @@ export const ABOUT: Localized<{
     founderBio: [
       "A trajetória de Marcello Chiara atravessa as três posições que definem o mercado de crédito estressado brasileiro: a mesa de um banco de investimento, a operação de originação e gestão de carteiras inadimplidas, e a área de distressed assets de um banco comercial.",
       "Essa combinação é o que sustenta a competência central da Blackhill: avaliar um ativo judicial com o rigor de underwriting de uma instituição financeira, sem depender de terceiros para compreender o processo que o originou.",
+      "O que essa trajetória produz na prática é uma forma específica de avaliar: ler o processo judicial que originou o crédito com a disciplina de underwriting de uma mesa de crédito, e precificar a diferença entre o que a documentação comprova e o que a expectativa do titular supõe. É essa leitura que a Blackhill entrega ao cliente — e é ela que não é delegada.",
     ],
     track: [
       {
@@ -432,6 +473,8 @@ export const ABOUT: Localized<{
     ],
     trackCaveat:
       "Experiência consolidada ao longo da trajetória profissional do sócio-fundador. Não representa ativos sob gestão, pipeline ou histórico de operações da Blackhill Capital.",
+    founderResponsibility:
+      "Mandatos de advisory da Blackhill Capital são conduzidos sob responsabilidade direta do sócio-fundador.",
     independenceEyebrow: "Independência & Governança",
     independenceTitle: "O que somos, e o que deliberadamente não somos.",
     independenceLede:
@@ -507,6 +550,7 @@ export const ABOUT: Localized<{
     founderBio: [
       "Marcello Chiara's career spans the three positions that define Brazil's distressed credit market: the desk of an investment bank, the origination and management of non-performing portfolios, and the distressed assets function of a commercial bank.",
       "That combination underpins Blackhill's core capability: assessing a judicial asset with the underwriting rigour of a financial institution, without depending on third parties to understand the proceeding that created it.",
+      "What that career produces in practice is a specific way of assessing: reading the proceeding that created the claim with the underwriting discipline of a credit desk, and pricing the gap between what the documentation proves and what the holder's expectation assumes. That reading is what Blackhill delivers to the client — and it is the part that is never delegated.",
     ],
     track: [
       {
@@ -527,6 +571,8 @@ export const ABOUT: Localized<{
     ],
     trackCaveat:
       "Experience accumulated over the founding partner's professional career. It does not represent assets under management, pipeline or transaction history of Blackhill Capital.",
+    founderResponsibility:
+      "Blackhill Capital's advisory mandates are conducted under the founding partner's direct responsibility.",
     independenceEyebrow: "Independence & Governance",
     independenceTitle: "What we are, and what we deliberately are not.",
     independenceLede:
@@ -889,11 +935,11 @@ export const CONTACT: Localized<{
         "Descreva o contexto em linhas gerais — classe de ativo, ordem de grandeza e o que você busca. Sem nomes de contrapartes, documentos ou dados de operação.",
     },
     natureHint:
-      "A seleção direciona o contato ao sócio responsável pela frente correspondente.",
+      "A seleção organiza a leitura inicial da oportunidade e orienta a preparação da resposta.",
     success: {
       title: "Mensagem enviada.",
       body:
-        "Sua mensagem foi entregue à Blackhill Capital. O retorno é feito pelo sócio responsável, normalmente em até dois dias úteis.",
+        "Sua mensagem foi entregue à Blackhill Capital. A resposta é dada diretamente pelo profissional sênior responsável pelo mandato, normalmente em até dois dias úteis.",
     },
     errors: {
       name: "Informe seu nome.",
@@ -936,11 +982,11 @@ export const CONTACT: Localized<{
         "Describe the context in broad terms — asset class, order of magnitude and what you are looking for. No counterparty names, documents or transaction data.",
     },
     natureHint:
-      "Your selection routes the enquiry to the partner responsible for that front.",
+      "Your selection frames the initial reading of the opportunity and guides how the response is prepared.",
     success: {
       title: "Message sent.",
       body:
-        "Your message has been delivered to Blackhill Capital. Responses come from the responsible partner, usually within two business days.",
+        "Your message has been delivered to Blackhill Capital. The reply comes directly from the senior professional responsible for the mandate, usually within two business days.",
     },
     errors: {
       name: "Please provide your name.",

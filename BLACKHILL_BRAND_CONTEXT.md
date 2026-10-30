@@ -2,7 +2,7 @@
 
 > Referência institucional aprovada, para uso por qualquer pessoa ou agente que trabalhe neste repositório.
 > **Classificação:** Uso interno. Este arquivo não contém informação confidencial de operações, cedentes ou investidores.
-> **Última atualização:** 30 de outubro de 2026 (inclui a camada de originação comercial).
+> **Última atualização:** 30 de outubro de 2026 (inclui a camada de originação comercial e o posicionamento Senior-Led).
 
 ---
 
@@ -12,12 +12,12 @@ Em caso de divergência, prevalece a fonte mais alta:
 
 | # | Fonte | Natureza |
 | :-- | :-- | :-- |
-| 1 | **Brand & Communication Standard v1.1** — `docs/BRAND_STANDARD_v1.1.md` | Norma vigente |
+| 1 | **Brand & Communication Standard v1.2** — `docs/BRAND_STANDARD_v1.2.md` | Norma vigente |
 | 2 | **Posicionamento Institucional 2026–2031 v2** — `docs/POSICIONAMENTO_INSTITUCIONAL_2026-2031_v2.md` | Estratégia aprovada |
 | 3 | `__BLACKHILL_KNOWLEDGE_HUB.md` (Google Drive, v2.1, Jun/2026) | Base de conhecimento mestre |
 | 4 | `Blackhill_Arquitetura_Website.docx` (Jun/2026) | Arquitetura de informação |
 
-**Regra de governança herdada do Knowledge Hub:** toda instrução que divergir do Brand Standard deve ser sinalizada, e o Standard prevalece até validação expressa de Marcello Chiara. Essa regra permanece em vigor na v1.1.
+**Regra de governança herdada do Knowledge Hub:** toda instrução que divergir do Brand Standard deve ser sinalizada, e o Standard prevalece até validação expressa de Marcello Chiara. Essa regra permanece em vigor na v1.2.
 
 ---
 
@@ -167,13 +167,44 @@ O formulário pede apenas nome, empresa, e-mail profissional, natureza da oportu
 
 ---
 
-## 8. Decisão pendente
+## 8. Condução sênior
+
+Posicionamento aprovado em 30 de outubro de 2026 e normatizado no Standard §10. Nasceu de um aprendizado comercial concreto: um cliente institucional encontrou a Blackhill por pesquisa em inteligência artificial e manifestou preocupação inicial com a percepção de estrutura da casa.
+
+### Assinatura institucional
+
+| Idioma | Linha |
+| :-- | :-- |
+| Inglês | **Senior-Led. Technology-Enabled. Execution-Focused.** |
+| Português | **Condução sênior. Tecnologia aplicada. Foco em execução.** |
+
+A forma nominal é obrigatória: afirma um modelo de condução, não um número de pessoas.
+
+### Formulação canônica
+
+Sempre **"o profissional sênior responsável pelo mandato"**, no singular. Nunca "o sócio responsável pela frente", que afirmaria um quadro societário plural sem comprovação documental.
+
+### O que pode ser afirmado
+
+Acesso direto ao responsável · continuidade entre quem analisa e quem negocia · responsabilidade nominal por mandato · mobilização de profissionais especializados **conforme a necessidade de cada mandato** · responsabilidade direta da Blackhill pela tese técnica · quatro fases, cada uma com entregável definido.
+
+### O que nunca se afirma
+
+Número de profissionais, sócios ou escritórios · equipe permanente, quadro próprio de analistas, rede formal de parceiros ou parceiros contratados · estrutura, infraestrutura ou recursos inexistentes · "one-man firm", "solo advisor" ou qualquer descrição do tamanho da casa · formação, conselhos, certificações ou idiomas sem confirmação.
+
+### Tecnologia
+
+Ferramentas avançadas de análise e inteligência artificial são **suporte** ao trabalho profissional. Decisões, análises finais, recomendações e negociações permanecem sob responsabilidade humana, e esse limite aparece **declarado em texto** em todo material que descreva o uso de tecnologia. Não afirmar que XCurve, Finders ou DealNorth estão integrados aos mandatos de advisory sem confirmação documental.
+
+---
+
+## 9. Decisão pendente
 
 **Tipografia.** O Standard fixa Arial. Para um site institucional de padrão internacional, uma tipografia de qualidade web elevaria materialmente a percepção. **Nada foi alterado** — Arial permanece em vigor. Caso aprovada, a troca é um único token em `src/app/globals.css` (`--font-sans` e a declaração em `body`).
 
 ---
 
-## 9. Onde cada coisa vive no código
+## 10. Onde cada coisa vive no código
 
 | Conteúdo | Arquivo |
 | :-- | :-- |
@@ -185,6 +216,7 @@ O formulário pede apenas nome, empresa, e-mail profissional, natureza da oportu
 | Insights técnicos | `src/content/insights.ts` |
 | Taxonomia de oportunidades e CTAs | `src/content/site.ts` |
 | Bloco "como iniciar" das frentes | `ENGAGE`, em `src/content/advisory.ts` |
+| Assinatura institucional e página de Abordagem | `src/content/approach.ts` |
 | Tokens visuais | `src/app/globals.css` |
 | Imagem Open Graph | `src/app/[locale]/opengraph-image.tsx` |
 

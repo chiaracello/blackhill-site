@@ -18,6 +18,7 @@ const ROUTES: { path: string; priority: number; changeFrequency: "monthly" | "ye
     changeFrequency: "monthly" as const,
   })),
   { path: "/about", priority: 0.8, changeFrequency: "monthly" },
+  { path: "/approach", priority: 0.8, changeFrequency: "monthly" },
   { path: "/ecosystem", priority: 0.8, changeFrequency: "monthly" },
   { path: "/market", priority: 0.7, changeFrequency: "monthly" },
   { path: "/investors", priority: 0.7, changeFrequency: "monthly" },

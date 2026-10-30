@@ -15,6 +15,7 @@ import {
   StatBlock,
 } from "@/components/ui";
 import { ADVISORY_AREAS, TIER_LABEL, areasByTier } from "@/content/advisory";
+import { APPROACH, SIGNATURE } from "@/content/approach";
 import { ECOSYSTEM_SCOPE, PLATFORMS } from "@/content/ecosystem";
 import { HOME, MARKET_STATS, PROCESS } from "@/content/pages";
 import { MARKET_CAVEAT, UI } from "@/content/site";
@@ -81,6 +82,24 @@ export default async function HomePage({
         </Shell>
       </section>
 
+      {/* ----------------------------------------------------------- SIGNATURE */}
+      <section className="rule-top bg-navy-2/35">
+        <Shell>
+          <p className="t-eyebrow py-6 md:py-7">
+            {SIGNATURE[locale].map((part, i) => (
+              <span key={part}>
+                {i > 0 ? (
+                  <span aria-hidden="true" className="mx-3 opacity-50">
+                    ·
+                  </span>
+                ) : null}
+                {part}
+              </span>
+            ))}
+          </p>
+        </Shell>
+      </section>
+
       {/* --------------------------------------------------------- INDEPENDENCE */}
       <section className="rule-top">
         <Shell>
@@ -107,6 +126,29 @@ export default async function HomePage({
           title={copy.pillarsTitle}
           lede={copy.pillarsLede}
         />
+      </Section>
+
+      {/* --------------------------------------------------------- SENIOR-LED */}
+      <Section rule>
+        <SectionHead
+          eyebrow={copy.seniorEyebrow}
+          title={copy.seniorTitle}
+          lede={copy.seniorLede}
+        />
+
+        <div className="mt-14 grid gap-px md:grid-cols-3">
+          {APPROACH[locale].seniorPoints.map((point, i) => (
+            <div key={point.label} className="panel p-7 lg:p-8">
+              <span className="t-index">{String(i + 1).padStart(2, "0")}</span>
+              <p className="mt-5 text-base font-bold text-white">{point.label}</p>
+              <p className="t-small mt-3">{point.detail}</p>
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-12">
+          <RevealLink href={localePath(locale, "/approach")}>{copy.seniorCta}</RevealLink>
+        </div>
       </Section>
 
       {/* ------------------------------------------------------ PILLAR 1 — CORE */}
@@ -211,15 +253,27 @@ export default async function HomePage({
           lede={copy.processLede}
         />
 
-        <ol className="mt-16 grid gap-px lg:grid-cols-4">
+        <ol className="mt-16 grid gap-px sm:grid-cols-2 lg:grid-cols-4">
           {PROCESS[locale].map((phase) => (
-            <li key={phase.index} className="panel p-8 lg:p-9">
+            <li key={phase.index} className="panel flex flex-col p-8 lg:p-9">
               <span className="t-index">{phase.index}</span>
               <p className="mt-6 text-base font-bold text-white">{phase.title}</p>
               <p className="t-small mt-3">{phase.detail}</p>
+              <div className="mt-6 border-t border-rule pt-5">
+                <p className="t-caveat uppercase tracking-[0.16em]">
+                  {APPROACH[locale].deliverableLabel}
+                </p>
+                <p className="t-small mt-2 text-off-white">{phase.deliverable}</p>
+              </div>
             </li>
           ))}
         </ol>
+
+        <div className="mt-12">
+          <RevealLink href={localePath(locale, "/approach")}>
+            {locale === "pt" ? "Método de execução completo" : "The full method of execution"}
+          </RevealLink>
+        </div>
       </Section>
 
       {/* -------------------------------------------------------- SEGMENTATION */}

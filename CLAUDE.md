@@ -4,7 +4,7 @@
 
 Site institucional da Blackhill Capital em `blackhill.com.br`. Next.js 16 (App Router, Turbopack) · React 19 · Tailwind CSS 4 · TypeScript strict. Deploy na Vercel, projeto `blackhill-site`, team `blackhill-capital`.
 
-**Antes de alterar qualquer conteúdo visível, leia [`BLACKHILL_BRAND_CONTEXT.md`](BLACKHILL_BRAND_CONTEXT.md).** Ele consolida as referências institucionais aprovadas. A norma vigente é o [Brand & Communication Standard v1.1](docs/BRAND_STANDARD_v1.1.md).
+**Antes de alterar qualquer conteúdo visível, leia [`BLACKHILL_BRAND_CONTEXT.md`](BLACKHILL_BRAND_CONTEXT.md).** Ele consolida as referências institucionais aprovadas. A norma vigente é o [Brand & Communication Standard v1.2](docs/BRAND_STANDARD_v1.2.md).
 
 ---
 
@@ -41,6 +41,15 @@ Site institucional da Blackhill Capital em `blackhill.com.br`. Next.js 16 (App R
 - O formulário coleta **apenas** nome, empresa, e-mail profissional, natureza da oportunidade e descrição resumida. **Nunca** pedir documentos, nomes de contrapartes, dados de devedores ou informação sigilosa antes de NDA.
 - A natureza da oportunidade vem de `OPPORTUNITY_NATURES` (lista fechada). `?assunto=<valor>` pré-seleciona o assunto; valores fora da lista são ignorados, nunca refletidos na página.
 
+### Condução sênior e tecnologia
+
+- **Nenhum texto afirma número de pessoas, sócios, escritórios, equipe permanente, quadro próprio de analistas, rede formal de parceiros ou parceiros contratados.** A formulação canônica é **"o profissional sênior responsável pelo mandato"**, sempre no singular. O oposto também é proibido: "one-man firm", "solo advisor" ou qualquer descrição do tamanho da casa.
+- **Nenhum texto apresenta sistema, modelo ou inteligência artificial como autor de decisão de crédito, de precificação ou de recomendação.** A IA é suporte ao trabalho profissional; decisões, análises finais, recomendações e negociações são humanas — e esse limite aparece declarado em texto, não apenas implícito.
+- Especialistas são mobilizados **conforme a necessidade de cada mandato**. Não afirmar que XCurve, Finders ou DealNorth estão integrados aos mandatos de advisory sem confirmação documental.
+- A assinatura institucional vive em `SIGNATURE` (`src/content/approach.ts`) e é travada nas duas línguas: *Condução sênior. Tecnologia aplicada. Foco em execução.* / *Senior-Led. Technology-Enabled. Execution-Focused.*
+- Cada fase de `PROCESS` tem um `deliverable`. Entregável nomeado **não** é promessa de prazo, de fechamento ou de resultado.
+- `COMPANY.founder.linkedin` é `null` por decisão: o valor anterior era presumido. Nenhum `sameAs` entra no JSON-LD sem URL verificada.
+
 ### Formulário de contato
 
 - O formulário anterior exibia confirmação de recebimento sem transmitir nada. **A regra é absoluta: `status: "ok"` só pode ser retornado depois que o provedor aceitou a mensagem.** Qualquer outro desfecho retorna erro dizendo que a mensagem **não** foi registrada.
@@ -55,6 +64,7 @@ Site institucional da Blackhill Capital em `blackhill.com.br`. Next.js 16 (App R
 - Ao adicionar uma rota: criar a página em `src/app/[locale]/`, acrescentá-la a `ROUTES` em `src/app/sitemap.ts` e a `PATHS` em `scripts/smoke.mjs`.
 - Ao renomear uma rota: adicionar o par antigo → novo em `LEGACY_ROUTES` (`src/proxy.ts`) e em `LEGACY` (`scripts/smoke.mjs`). Nenhuma URL indexada pode passar a dar 404.
 - Slugs são compartilhados entre os idiomas, por decisão: dois conjuntos de slugs exigiriam duas árvores de rotas.
+- `/approach` ("Abordagem" / "Our Approach") está no menu principal. `/market` saiu do menu e permanece no rodapé, no sitemap e no smoke test — a indexação foi preservada.
 
 ---
 

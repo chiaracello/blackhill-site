@@ -144,6 +144,19 @@ export default async function AdvisoryAreaPage({
           }
         >
           <ArgumentList items={area.role[locale]} />
+
+          <div className="mt-10 border-l border-gold pl-6">
+            <p className="t-caveat uppercase tracking-[0.16em]">
+              {locale === "pt" ? "Condução" : "Conduct"}
+            </p>
+            <p className="t-body mt-3 text-off-white">{area.execution[locale]}</p>
+          </div>
+
+          <div className="mt-8">
+            <RevealLink href={localePath(locale, "/approach")}>
+              {locale === "pt" ? "Como a Blackhill executa" : "How Blackhill executes"}
+            </RevealLink>
+          </div>
         </Block>
       </Section>
 

@@ -13,6 +13,7 @@ import {
   RevealLink,
   Section,
 } from "@/components/ui";
+import { APPROACH } from "@/content/approach";
 import { ABOUT, PROCESS } from "@/content/pages";
 import { COMPANY, UI } from "@/content/site";
 import { isLocale, localePath } from "@/lib/i18n";
@@ -146,6 +147,10 @@ export default async function AboutPage({
             </ol>
 
             <Caveat className="mt-8">{copy.trackCaveat}</Caveat>
+
+            <div className="mt-10 border-l border-gold pl-6">
+              <p className="t-body text-off-white">{copy.founderResponsibility}</p>
+            </div>
           </div>
         </div>
       </Section>
@@ -164,13 +169,25 @@ export default async function AboutPage({
             </h2>
             <ol className="mt-12 grid gap-px sm:grid-cols-2">
               {PROCESS[locale].map((phase) => (
-                <li key={phase.index} className="panel p-7 lg:p-8">
+                <li key={phase.index} className="panel flex flex-col p-7 lg:p-8">
                   <span className="t-index">{phase.index}</span>
                   <p className="mt-5 text-base font-bold text-white">{phase.title}</p>
                   <p className="t-small mt-3">{phase.detail}</p>
+                  <div className="mt-6 border-t border-rule pt-5">
+                    <p className="t-caveat uppercase tracking-[0.16em]">
+                      {APPROACH[locale].deliverableLabel}
+                    </p>
+                    <p className="t-small mt-2 text-off-white">{phase.deliverable}</p>
+                  </div>
                 </li>
               ))}
             </ol>
+
+            <div className="mt-10">
+              <RevealLink href={localePath(locale, "/approach")}>
+                {locale === "pt" ? "Como a Blackhill executa" : "How Blackhill executes"}
+              </RevealLink>
+            </div>
           </div>
         </div>
       </Section>
@@ -235,8 +252,8 @@ export default async function AboutPage({
           </h2>
           <p className="t-lead mt-6">
             {locale === "pt"
-              ? "Atendimento direto com o sócio responsável, tratado com confidencialidade."
-              : "Direct contact with the responsible partner, handled confidentially."}
+              ? "Atendimento direto com o profissional sênior responsável pelo mandato, tratado com confidencialidade."
+              : "Direct contact with the senior professional responsible for the mandate, handled confidentially."}
           </p>
           <div className="mt-10">
             <PrimaryLink href={localePath(locale, "/contact")}>{ui.talkToUs}</PrimaryLink>

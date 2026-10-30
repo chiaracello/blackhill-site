@@ -29,6 +29,7 @@ const PATHS = [
   "/advisory/public-receivables",
   "/advisory/restructuring",
   "/advisory/servicing",
+  "/approach",
   "/ecosystem",
   "/market",
   "/investors",

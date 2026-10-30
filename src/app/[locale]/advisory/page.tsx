@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 
 import JsonLd from "@/components/JsonLd";
 import PageHero from "@/components/PageHero";
-import { Eyebrow, PrimaryLink, Section, Shell } from "@/components/ui";
+import { Eyebrow, PrimaryLink, RevealLink, Section, Shell } from "@/components/ui";
 import { ADVISORY_AREAS, TIER_LABEL, TIER_NOTE, TIER_ORDER, areasByTier } from "@/content/advisory";
 import { UI } from "@/content/site";
 import { isLocale, localePath } from "@/lib/i18n";
@@ -136,8 +136,11 @@ export default async function AdvisoryIndexPage({
                 ? "O contato institucional é direto e discreto. Nenhuma informação sobre ativos ou contrapartes circula antes da formalização de confidencialidade."
                 : "Institutional contact is direct and discreet. No information on assets or counterparties circulates before confidentiality is formalised."}
             </p>
-            <div className="mt-10">
+            <div className="mt-10 flex flex-wrap items-center gap-8">
               <PrimaryLink href={localePath(locale, "/contact")}>{ui.talkToUs}</PrimaryLink>
+              <RevealLink href={localePath(locale, "/approach")}>
+                {locale === "pt" ? "Como a Blackhill executa" : "How Blackhill executes"}
+              </RevealLink>
             </div>
           </div>
         </Shell>

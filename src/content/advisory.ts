@@ -23,6 +23,12 @@ export type AdvisoryArea = {
   complexity: Localized<string[]>;
   /** What Blackhill does, strictly as advisor/structurer/intermediary. */
   role: Localized<string[]>;
+  /**
+   * Who conducts the mandate, and which specialist the asset requires.
+   * Standard §10: states senior conduct and engagement as the mandate requires.
+   * It never asserts a permanent team, a formal network or contracted partners.
+   */
+  execution: Localized<string>;
   /** Regulatory and procedural frame. No pricing, no deal terms. */
   frame: Localized<{ label: string; value: string }[]>;
 };
@@ -90,6 +96,10 @@ export const ADVISORY_AREAS: AdvisoryArea[] = [
         "Structuring of the assignment or investment vehicle, with price adjustment and indemnity provisions.",
         "Intermediation between seller and qualified investor, with independent due diligence at each stage.",
       ],
+    },
+    execution: {
+      pt: "A condução é sênior e direta. Quando o ativo exige, a Blackhill mobiliza parecer jurídico independente sobre a cadeia processual e a cessibilidade do crédito.",
+      en: "Senior and direct conduct. Where the asset requires it, Blackhill engages an independent legal opinion on the procedural chain and the claim's assignability.",
     },
     frame: {
       pt: [
@@ -169,6 +179,10 @@ export const ADVISORY_AREAS: AdvisoryArea[] = [
         "Transaction structuring — onerous assignment, non-standard receivables fund or co-investment — through to closing.",
       ],
     },
+    execution: {
+      pt: "A condução é sênior e direta, com a estratificação e a curva de recuperação construídas pela própria Blackhill, e avaliação independente do servicer quando a operação o exige.",
+      en: "Senior and direct conduct, with stratification and the recovery curve built by Blackhill itself, and an independent assessment of the servicer where the transaction requires one.",
+    },
     frame: {
       pt: [
         { label: "Tipologia", value: "Pulverizado PF · Pulverizado PJ · Corporate" },
@@ -246,6 +260,10 @@ export const ADVISORY_AREAS: AdvisoryArea[] = [
         "Structuring of the assignment instrument or vehicle, with release milestones tied to procedural events.",
         "Design of contractual protections against payment diversion and reversal.",
       ],
+    },
+    execution: {
+      pt: "A condução é sênior e direta. A avaliação de probabilidade de êxito e de cessibilidade exige parecer jurídico independente, mobilizado conforme a fase processual do direito.",
+      en: "Senior and direct conduct. Assessing probability of success and assignability requires an independent legal opinion, engaged according to the procedural stage of the right.",
     },
     frame: {
       pt: [
@@ -325,6 +343,10 @@ export const ADVISORY_AREAS: AdvisoryArea[] = [
         "Post-closing monitoring: periodic reporting, liquidity events and asset substitution.",
       ],
     },
+    execution: {
+      pt: "A condução é sênior e direta, em articulação com o administrador, o custodiante e o gestor do veículo, e com auditoria e assessoria legal mobilizadas conforme a estrutura escolhida.",
+      en: "Senior and direct conduct, working with the vehicle's administrator, custodian and manager, and with audit and legal counsel engaged according to the structure chosen.",
+    },
     frame: {
       pt: [
         { label: "Estruturas", value: "FIDC NP · FIDC performado · multiclasse" },
@@ -403,6 +425,10 @@ export const ADVISORY_AREAS: AdvisoryArea[] = [
         "Intermediation with qualified investors mandated for subnational sovereign risk.",
       ],
     },
+    execution: {
+      pt: "A condução é sênior e direta, com assessoria jurídica especializada em direito financeiro público mobilizada conforme o ente devedor e o arcabouço aplicável.",
+      en: "Senior and direct conduct, with counsel specialised in public finance law engaged according to the debtor entity and the applicable framework.",
+    },
     frame: {
       pt: [
         { label: "Marco legal", value: "LC 208/2024" },
@@ -477,6 +503,10 @@ export const ADVISORY_AREAS: AdvisoryArea[] = [
         "Conduct of negotiations as the company's independent adviser.",
       ],
     },
+    execution: {
+      pt: "A condução é sênior e direta, em conjunto com os assessores jurídicos da própria empresa. A Blackhill não emite parecer jurídico e não substitui a representação legal.",
+      en: "Senior and direct conduct, jointly with the company's own legal advisers. Blackhill does not issue legal opinions and does not replace legal representation.",
+    },
     frame: {
       pt: [
         { label: "Mandante", value: "A empresa — exclusivamente" },
@@ -550,6 +580,10 @@ export const ADVISORY_AREAS: AdvisoryArea[] = [
         "Monitoring of the recovery curve against the base case and periodic investor reporting.",
         "Strategy revision where observed divergence requires correction.",
       ],
+    },
+    execution: {
+      pt: "A condução é sênior e direta. A avaliação do servicer e da régua de cobrança é feita pela Blackhill; auditoria operacional e de conformidade com a LGPD é mobilizada quando a carteira o exige.",
+      en: "Senior and direct conduct. Blackhill assesses the servicer and its collection workflow; operational and LGPD compliance audits are engaged where the portfolio requires them.",
     },
     frame: {
       pt: [
