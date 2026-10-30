@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Conceito 01 · Obsidian — Blackhill Capital</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#050A12;          /* obsidian — mais profundo que o navy atual */
+  --navy:#0D1B2E;
+  --navy-2:#16263C;
+  --navy-3:#1E3047;
+  --gold:#C9A84C;
+  --gold-soft:#E3C879;
+  --ivory:#F4F1EA;
+  --warm:#B9B2A4;
+  --white:#fff;
+  --rule:rgb(255 255 255 / .10);
+  --rule-strong:rgb(255 255 255 / .22);
+  --shell:min(1440px, 100% - 3rem);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--ink);color:var(--white);
+  font-family:Archivo,system-ui,sans-serif;
+  font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;
+}
+.shell{width:var(--shell);margin-inline:auto}
+section{position:relative}
+
+/* ---------- tipografia ---------- */
+.display{
+  font-weight:800;letter-spacing:-.035em;line-height:.92;
+  font-size:clamp(2.6rem,8.4vw,8.5rem);text-wrap:balance;
+}
+.h2{font-weight:700;letter-spacing:-.025em;line-height:1.02;font-size:clamp(2.1rem,4.6vw,4rem);text-wrap:balance}
+.h3{font-weight:600;letter-spacing:-.02em;line-height:1.1;font-size:clamp(1.4rem,2.2vw,2rem)}
+.lede{font-size:clamp(1.1rem,1.5vw,1.45rem);line-height:1.5;color:rgb(255 255 255 / .78);max-width:46ch}
+.body{font-size:1.0625rem;line-height:1.65;color:rgb(255 255 255 / .70)}
+.mono{font-family:"IBM Plex Mono",monospace;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+.num{font-family:"IBM Plex Mono",monospace;font-variant-numeric:tabular-nums}
+
+/* ---------- barra de concepção ---------- */
+.bar{position:fixed;inset:0 0 auto;z-index:60;background:rgb(5 10 18 / .82);backdrop-filter:blur(14px);border-bottom:1px solid var(--rule)}
+.bar .shell{display:flex;align-items:center;gap:1.5rem;height:54px;justify-content:space-between}
+.bar a{color:rgb(255 255 255 / .55);text-decoration:none;font-size:.78rem;letter-spacing:.08em}
+.bar a:hover,.bar a[aria-current]{color:var(--gold)}
+.bar nav{display:flex;gap:1.25rem}
+
+/* ---------- header do site ---------- */
+.site{position:sticky;top:54px;z-index:50;background:rgb(5 10 18 / .78);backdrop-filter:blur(14px);border-bottom:1px solid var(--rule)}
+.site .shell{display:flex;align-items:center;justify-content:space-between;height:82px}
+.wordmark{display:flex;align-items:baseline;gap:.6rem;font-weight:700;letter-spacing:.14em;font-size:1.05rem}
+.wordmark span{font-size:.6rem;letter-spacing:.34em;color:var(--gold)}
+.site nav{display:none;gap:1.9rem}
+.site nav a{color:rgb(255 255 255 / .62);text-decoration:none;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;font-weight:500}
+.site nav a:hover{color:var(--white)}
+@media(min-width:1080px){.site nav{display:flex}}
+
+/* ---------- hero ---------- */
+.hero{min-height:92svh;display:flex;align-items:flex-end;padding:9rem 0 4.5rem;overflow:hidden;border-bottom:1px solid var(--rule)}
+.hero::before{
+  content:"";position:absolute;inset:0;
+  background:
+    radial-gradient(130% 95% at 8% 0%, rgb(30 48 71/.95) 0%, rgb(5 10 18/0) 58%),
+    radial-gradient(90% 70% at 92% 100%, rgb(201 168 76/.16) 0%, rgb(5 10 18/0) 60%);
+}
+.hero::after{ /* varredura de luz, lenta e decorativa */
+  content:"";position:absolute;inset:-40% -10%;
+  background:linear-gradient(104deg,transparent 42%,rgb(201 168 76/.10) 50%,transparent 58%);
+  animation:sweep 14s linear infinite;
+}
+@keyframes sweep{from{transform:translateX(-28%)}to{transform:translateX(28%)}}
+.hero .shell{position:relative;z-index:2}
+.hero .mono{display:block;margin-bottom:1.6rem}
+.rule-gold{width:84px;height:2px;background:var(--gold);margin:2.2rem 0}
+.cta{display:flex;flex-wrap:wrap;gap:1rem;margin-top:3rem}
+.btn{display:inline-flex;align-items:center;gap:.7rem;padding:1.05rem 2.1rem;font-weight:700;font-size:.9rem;letter-spacing:.04em;text-decoration:none;border:1px solid transparent;transition:.35s}
+.btn-primary{background:var(--gold);color:var(--ink)}
+.btn-primary:hover{background:var(--gold-soft)}
+.btn-ghost{border-color:var(--rule-strong);color:var(--white)}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold)}
+
+/* faixa de capacidades */
+.tags{display:grid;grid-template-columns:1fr;border-top:1px solid var(--rule)}
+@media(min-width:900px){.tags{grid-template-columns:repeat(4,1fr)}}
+.tags div{padding:1.6rem 0;border-bottom:1px solid var(--rule)}
+@media(min-width:900px){
+  .tags div{border-bottom:0;border-left:1px solid var(--rule);padding:1.9rem 1.8rem}
+  .tags div:first-child{border-left:0;padding-left:0}
+}
+.tags b{display:block;font-size:.92rem;font-weight:700;letter-spacing:.02em}
+.tags em{display:block;font-style:normal;margin-top:.35rem;font-size:.8rem;color:var(--warm)}
+
+/* assinatura */
+.signature{background:var(--navy);border-block:1px solid var(--rule)}
+.signature .shell{display:flex;flex-wrap:wrap;gap:.9rem 2.4rem;padding:1.5rem 0}
+.signature span{font-family:"IBM Plex Mono",monospace;font-size:.74rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold)}
+
+/* ---------- blocos ---------- */
+.band{padding:clamp(5rem,11vw,10rem) 0}
+.band--navy{background:var(--navy)}
+.band--navy2{background:var(--navy-2)}
+.band--ivory{background:var(--ivory);color:var(--navy)}
+.band--ivory .lede,.band--ivory .body{color:rgb(13 27 46 / .72)}
+.band--ivory .mono{color:#8C6F2E}
+.split{display:grid;gap:3rem}
+@media(min-width:960px){.split{grid-template-columns:minmax(0,.82fr) minmax(0,1fr);gap:5rem}}
+
+/* condução sênior */
+.conduct{display:grid;gap:1px;margin-top:4rem;background:var(--rule)}
+@media(min-width:860px){.conduct{grid-template-columns:repeat(3,1fr)}}
+.conduct article{background:var(--navy);padding:2.6rem 2.1rem;transition:background .4s}
+.conduct article:hover{background:var(--navy-3)}
+.conduct .big{font-size:3.6rem;font-weight:800;letter-spacing:-.04em;color:transparent;-webkit-text-stroke:1px var(--gold);line-height:1}
+.conduct h4{margin-top:1.4rem;font-size:1.08rem;font-weight:700}
+.conduct p{margin-top:.7rem;font-size:.95rem;color:rgb(255 255 255 / .66)}
+
+/* números de mercado — a interrupção clara */
+.stats{display:grid;gap:2.6rem;margin-top:4rem}
+@media(min-width:720px){.stats{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1100px){.stats{grid-template-columns:repeat(4,1fr)}}
+.stat{border-top:2px solid var(--navy)}
+.stat .v{display:block;font-size:clamp(2rem,3.2vw,3rem);font-weight:800;letter-spacing:-.04em;margin-top:1.4rem;line-height:1}
+.stat .l{display:block;margin-top:1rem;font-weight:700;font-size:.95rem}
+.stat .d{display:block;margin-top:.45rem;font-size:.88rem;color:rgb(13 27 46 / .64)}
+.stat .s{display:block;margin-top:.8rem;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:#8C6F2E}
+
+/* ---------- advisory ---------- */
+.feature{border-top:1px solid var(--rule);display:block;text-decoration:none;color:inherit;padding:3.2rem 0;position:relative;transition:.45s}
+.feature:hover{background:linear-gradient(90deg,rgb(201 168 76/.07),transparent 62%);padding-left:1.6rem}
+.feature .inner{display:grid;gap:1.4rem}
+@media(min-width:900px){.feature .inner{grid-template-columns:7.5rem minmax(0,1fr) minmax(0,.9fr);align-items:start;gap:2.5rem}}
+.feature .idx{font-size:2.6rem;font-weight:800;color:transparent;-webkit-text-stroke:1px rgb(201 168 76/.75);line-height:1}
+.feature h3{font-size:clamp(1.8rem,3.4vw,3rem);font-weight:700;letter-spacing:-.03em;line-height:1.02}
+.feature .sub{font-size:.98rem;color:rgb(255 255 255 / .66);max-width:44ch}
+.feature .tier{font-family:"IBM Plex Mono",monospace;font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);align-self:center}
+.feature--core h3{font-size:clamp(2.3rem,5vw,4.2rem)}
+.rows{border-bottom:1px solid var(--rule)}
+
+/* ---------- ecossistema ---------- */
+.platforms{display:grid;gap:1px;background:var(--rule);margin-top:4rem}
+@media(min-width:900px){.platforms{grid-template-columns:repeat(3,1fr)}}
+.plat{background:var(--navy);padding:3rem 2.2rem;position:relative;overflow:hidden;transition:.45s}
+.plat:hover{background:var(--navy-2)}
+.plat::before{content:"";position:absolute;inset:0 0 auto;height:3px;background:var(--accent)}
+.plat .glyph{width:66px;height:66px;margin-bottom:2rem}
+.plat h3{font-size:1.9rem;font-weight:800;letter-spacing:-.02em}
+.plat .cat{font-family:"IBM Plex Mono",monospace;font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-top:.6rem;display:block}
+.plat p{margin-top:1.4rem;font-size:.96rem;color:rgb(255 255 255/.68)}
+.plat ul{list-style:none;margin-top:1.8rem;border-top:1px solid var(--rule)}
+.plat li{padding:.85rem 0;border-bottom:1px solid var(--rule);font-size:.88rem;color:rgb(255 255 255/.62)}
+.plat .why{margin-top:1.8rem;padding-left:1.1rem;border-left:2px solid var(--accent);font-size:.9rem;color:rgb(255 255 255/.76)}
+
+.caveat{font-size:.84rem;line-height:1.65;color:rgb(255 255 255/.5);max-width:72ch;margin-top:2.6rem}
+.band--ivory .caveat{color:rgb(13 27 46/.58)}
+
+/* ---------- páginas ---------- */
+.page{display:none}
+.page.is-on{display:block}
+footer{background:var(--ink);border-top:1px solid var(--rule);padding:4rem 0;font-size:.82rem;color:rgb(255 255 255/.42)}
+
+@media (prefers-reduced-motion: reduce){
+  *{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<div class="bar"><div class="shell">
+  <a href="index.html">← Três conceitos</a>
+  <nav>
+    <a href="conceito-01-obsidian.html" aria-current="page">01 Obsidian</a>
+    <a href="conceito-02-ivory.html">02 Ivory &amp; Ink</a>
+    <a href="conceito-03-tearsheet.html">03 Tearsheet</a>
+  </nav>
+</div></div>
+
+<header class="site"><div class="shell">
+  <div class="wordmark">BLACKHILL <span>CAPITAL</span></div>
+  <nav>
+    <a href="#home" data-go="home">Home</a>
+    <a href="#advisory" data-go="advisory">Advisory</a>
+    <a href="#ecosystem" data-go="ecosystem">Ecossistema</a>
+  </nav>
+</div></header>
+
+<!-- ===================== HOME ===================== -->
+<main class="page is-on" id="home">
+
+  <section class="hero"><div class="shell">
+    <span class="mono">Financial Advisory &amp; Strategic Technology Investments</span>
+    <h1 class="display">Onde capital<br>encontra<br>complexidade.</h1>
+    <div class="rule-gold"></div>
+    <p class="lede">A Blackhill Capital atua na interseção entre o Judiciário brasileiro e o mercado de capitais — originando, estruturando e monetizando ativos de crédito complexos para capital institucional qualificado.</p>
+    <div class="cta">
+      <a class="btn btn-primary" href="#">Apresente sua operação →</a>
+      <a class="btn btn-ghost" href="#advisory" data-go="advisory">Conhecer as competências</a>
+    </div>
+  </div></section>
+
+  <section><div class="shell"><div class="tags">
+    <div><b>Independent Financial Advisory</b><em>Advisor, nunca parte na transação</em></div>
+    <div><b>Distressed Credit &amp; NPL</b><em>Carteiras inadimplentes e exposições estressadas</em></div>
+    <div><b>Special Situations</b><em>Precatórios, claims e crédito estruturado</em></div>
+    <div><b>Senior-Led Execution</b><em>Quem avalia é quem conduz</em></div>
+  </div></div></section>
+
+  <section class="signature"><div class="shell">
+    <span>Condução sênior</span><span>Tecnologia aplicada</span><span>Foco em execução</span>
+  </div></section>
+
+  <section class="band band--navy"><div class="shell">
+    <div class="split">
+      <div><span class="mono">Quem conduz</span></div>
+      <div>
+        <h2 class="h2">Quem conduz o seu mandato.</h2>
+        <p class="lede" style="margin-top:1.8rem">O profissional que avalia a sua operação é o mesmo que a conduz até o fechamento. Não há camada intermediária entre a análise e a execução, e a responsabilidade pelo que foi analisado é nominal.</p>
+      </div>
+    </div>
+    <div class="conduct">
+      <article><div class="big num">01</div><h4>Acesso direto ao responsável</h4><p>O contato inicial e a condução do mandato não passam por camadas de triagem. Quem atende é quem decide.</p></article>
+      <article><div class="big num">02</div><h4>Continuidade de leitura</h4><p>Quem analisou o ativo é quem negocia — o que elimina a perda de contexto entre a diligência e a mesa.</p></article>
+      <article><div class="big num">03</div><h4>Responsabilidade nominal</h4><p>Cada mandato tem um responsável identificado, não uma equipe difusa à qual a responsabilidade se dilui.</p></article>
+    </div>
+  </div></section>
+
+  <!-- a interrupção clara -->
+  <section class="band band--ivory"><div class="shell">
+    <span class="mono">Mercado endereçável</span>
+    <h2 class="h2" style="margin-top:1.6rem;max-width:20ch">Um mercado de trilhões de reais com infraestrutura de crédito ainda subdesenvolvida.</h2>
+    <div class="stats">
+      <div class="stat"><span class="v num">R$ 6,5 tri</span><span class="l">Carteira de crédito do SFN</span><span class="d">Volume total de crédito do sistema financeiro nacional.</span><span class="s">Banco Central do Brasil</span></div>
+      <div class="stat"><span class="v num">R$ 524 bi</span><span class="l">Dívida negativada</span><span class="d">Inadimplência acumulada de pessoas físicas e jurídicas.</span><span class="s">Serasa Experian</span></div>
+      <div class="stat"><span class="v num">R$ 393 bi</span><span class="l">Estoque de precatórios</span><span class="d">Créditos judiciais definitivos na fila orçamentária dos entes públicos.</span><span class="s">TCU · PGFN</span></div>
+      <div class="stat"><span class="v num">R$ 6 bi+</span><span class="l">Dívida ativa municipal</span><span class="d">Potencial endereçável aberto pela LC 208/2024.</span><span class="s">Recovery · Deloitte</span></div>
+    </div>
+    <p class="caveat">Dados conforme as últimas divulgações públicas das fontes indicadas. Consolidação: junho de 2026. Não representam operações, pipeline ou ativos sob gestão da Blackhill Capital.</p>
+  </div></section>
+
+  <section class="band band--navy2"><div class="shell">
+    <div class="split">
+      <div><span class="mono">Método de execução</span></div>
+      <div><h2 class="h2">Quatro fases, cada uma com um entregável definido.</h2></div>
+    </div>
+    <div class="conduct" style="margin-top:3.4rem">
+      <article><div class="big num">01</div><h4>Originação</h4><p>Mapeamento por rede institucional proprietária.</p><p style="color:var(--gold);font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;margin-top:1.4rem">Entregável</p><p>Leitura inicial de aderência — classe de ativo, ordem de grandeza e viabilidade.</p></article>
+      <article><div class="big num">02</div><h4>Análise &amp; Due Diligence</h4><p>Triagem de risco, verificação documental e análise jurídico-financeira.</p><p style="color:var(--gold);font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;margin-top:1.4rem">Entregável</p><p>Memorando técnico com premissas explícitas e lacunas documentais identificadas.</p></article>
+      <article><div class="big num">03</div><h4>Estruturação &amp; Negociação</h4><p>Modelagem do veículo, garantias e proteções contratuais.</p><p style="color:var(--gold);font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;margin-top:1.4rem">Entregável</p><p>Desenho do veículo ou da cessão e matriz de proteções contratuais.</p></article>
+    </div>
+  </div></section>
+
+</main>
+
+<!-- ===================== ADVISORY ===================== -->
+<main class="page" id="advisory">
+  <section class="hero" style="min-height:62svh"><div class="shell">
+    <span class="mono">Pilar 01 — Blackhill Advisors</span>
+    <h1 class="display" style="font-size:clamp(2.8rem,7vw,6.4rem)">Sete frentes.<br>Um núcleo<br>de autoridade.</h1>
+    <div class="rule-gold"></div>
+    <p class="lede">A hierarquia abaixo é deliberada. Precatórios e NPL &amp; Distressed Credit concentram a profundidade técnica da casa; as demais frentes são instrumentos e serviços que sustentam esse núcleo.</p>
+  </div></section>
+
+  <section class="band band--navy" style="padding-top:clamp(3rem,6vw,5rem)"><div class="shell">
+    <span class="mono">Núcleo de autoridade</span>
+    <div class="rows" style="margin-top:2.4rem">
+      <a class="feature feature--core" href="#"><div class="inner">
+        <div class="idx num">01</div>
+        <div><h3>Precatórios</h3><p class="sub" style="margin-top:1rem">Créditos judiciais definitivos contra entes públicos federais, estaduais e municipais.</p></div>
+        <div class="tier">Núcleo de autoridade</div>
+      </div></a>
+      <a class="feature feature--core" href="#"><div class="inner">
+        <div class="idx num">02</div>
+        <div><h3>NPL &amp; Distressed Credit</h3><p class="sub" style="margin-top:1rem">Carteiras inadimplentes e exposições corporativas estressadas, do varejo pulverizado ao corporate.</p></div>
+        <div class="tier">Núcleo de autoridade</div>
+      </div></a>
+    </div>
+  </div></section>
+
+  <section class="band band--navy2"><div class="shell">
+    <span class="mono">Capacidades de estruturação</span>
+    <div class="rows" style="margin-top:2.4rem">
+      <a class="feature" href="#"><div class="inner"><div class="idx num">03</div><div><h3>Claims &amp; Litigation Finance</h3><p class="sub" style="margin-top:.9rem">Monetização antecipada de direitos creditórios de origem judicial ou arbitral.</p></div><div class="tier">Capacidade</div></div></a>
+      <a class="feature" href="#"><div class="inner"><div class="idx num">04</div><div><h3>Crédito Estruturado &amp; FIDC</h3><p class="sub" style="margin-top:.9rem">Veículos de investimento com lastro em recebíveis — do FIDC à securitização.</p></div><div class="tier">Capacidade</div></div></a>
+      <a class="feature" href="#"><div class="inner"><div class="idx num">05</div><div><h3>Dívida Ativa &amp; Recebíveis Públicos</h3><p class="sub" style="margin-top:.9rem">Securitização de dívida ativa municipal sob a LC 208/2024.</p></div><div class="tier">Capacidade</div></div></a>
+    </div>
+  </div></section>
+
+  <section class="band band--ivory"><div class="shell">
+    <span class="mono">Serviços complementares</span>
+    <div style="margin-top:2.4rem;border-bottom:1px solid rgb(13 27 46/.14)">
+      <a class="feature" href="#" style="border-top-color:rgb(13 27 46/.14);color:var(--navy)"><div class="inner"><div class="idx num" style="-webkit-text-stroke-color:#8C6F2E">06</div><div><h3>Reestruturação Corporativa</h3><p class="sub" style="margin-top:.9rem;color:rgb(13 27 46/.68)">Assessoria independente em renegociação de passivos e new money.</p></div><div class="tier" style="color:#8C6F2E">Complementar</div></div></a>
+      <a class="feature" href="#" style="border-top-color:rgb(13 27 46/.14);color:var(--navy)"><div class="inner"><div class="idx num" style="-webkit-text-stroke-color:#8C6F2E">07</div><div><h3>Servicing &amp; Recuperação</h3><p class="sub" style="margin-top:.9rem;color:rgb(13 27 46/.68)">Gestão de carteiras pós-cessão e maximização de recuperação.</p></div><div class="tier" style="color:#8C6F2E">Complementar</div></div></a>
+    </div>
+  </div></section>
+</main>
+
+<!-- ===================== ECOSSISTEMA ===================== -->
+<main class="page" id="ecosystem">
+  <section class="hero" style="min-height:62svh"><div class="shell">
+    <span class="mono">Pilar 02 — Ecossistema de tecnologia</span>
+    <h1 class="display" style="font-size:clamp(2.8rem,6.6vw,6rem)">Tecnologia aplicada<br>ao crédito.</h1>
+    <div class="rule-gold"></div>
+    <p class="lede">Três plataformas que endereçam as restrições estruturais do mercado de crédito complexo: capacidade de decisão, infraestrutura de negociação e disciplina de execução.</p>
+  </div></section>
+
+  <section class="band band--navy2" style="padding-top:clamp(2rem,5vw,4rem)"><div class="shell">
+    <div class="platforms">
+      <article class="plat" style="--accent:#5B8FB9">
+        <svg class="glyph" viewBox="0 0 64 64" fill="none" aria-hidden="true"><path d="M4 52C18 52 20 12 34 12s14 28 26 28" stroke="#5B8FB9" stroke-width="2.5"/><circle cx="34" cy="12" r="4" fill="#5B8FB9"/></svg>
+        <h3>XCurve</h3><span class="cat">Motor de decisão de crédito</span>
+        <p>Motor de decisão de crédito que combina tecnologia e inteligência artificial para estruturar a análise, a classificação e a priorização de crédito em escala.</p>
+        <ul><li>Modelagem e automação de política de crédito</li><li>Classificação e priorização por perfil de risco</li><li>Inteligência artificial sobre grandes volumes de dados</li><li>Padronização de critérios entre equipes</li></ul>
+        <p class="why">A precificação de ativos complexos é limitada pela capacidade de processar informação incompleta. Tecnologia de decisão endereça essa restrição.</p>
+      </article>
+      <article class="plat" style="--accent:#C9A84C">
+        <svg class="glyph" viewBox="0 0 64 64" fill="none" aria-hidden="true"><circle cx="27" cy="27" r="17" stroke="#C9A84C" stroke-width="2.5"/><path d="M40 40l18 18" stroke="#C9A84C" stroke-width="2.5"/></svg>
+        <h3>Finders</h3><span class="cat">Originação e negociação de ativos</span>
+        <p>Plataforma de originação e negociação de NPL e ativos de crédito complexos, que conecta organizações cedentes a cessionárias em processo estruturado e auditável.</p>
+        <ul><li>Vitrine de carteiras com habilitação de contraparte</li><li>Fluxo de NDA e sala de dados com acesso por concessão</li><li>Propostas lacradas, adjudicação e registro</li><li>Inteligência de mercado em agregados anônimos</li></ul>
+        <p class="why">O mercado secundário brasileiro opera com assimetria elevada. Infraestrutura de negociação reduz atrito sem exigir que a Blackhill seja parte.</p>
+      </article>
+      <article class="plat" style="--accent:#8FB9A8">
+        <svg class="glyph" viewBox="0 0 64 64" fill="none" aria-hidden="true"><path d="M32 4l24 44H8L32 4z" stroke="#8FB9A8" stroke-width="2.5"/><path d="M32 22v26" stroke="#8FB9A8" stroke-width="2.5"/></svg>
+        <h3>DealNorth</h3><span class="cat">Gestão de pipeline e oportunidades</span>
+        <p>Plataforma SaaS multi-tenant para gestão de pipelines, próximos passos e prioridades, construída para diferentes setores — não restrita ao mercado de crédito.</p>
+        <ul><li>Pipeline com próximos passos e priorização explícita</li><li>Arquitetura multi-tenant com isolamento de dados</li><li>Papéis, permissões e trilha de auditoria</li><li>Aplicável a setores distintos</li></ul>
+        <p class="why">Disciplina de execução é um diferencial transferível: o mesmo rigor que uma operação de crédito exige aplica-se a qualquer pipeline.</p>
+      </article>
+    </div>
+    <p class="caveat">As plataformas integram o ecossistema de tecnologia da Blackhill Capital e encontram-se em diferentes estágios de desenvolvimento, incluindo fases pré-comerciais. Esta página é institucional e não constitui oferta de produto, serviço, valor mobiliário ou participação societária. Percentuais de participação, estruturas de controle e relações societárias não são divulgados.</p>
+  </div></section>
+</main>
+
+<footer><div class="shell">Conceito 01 · Obsidian — protótipo de direção de arte. Conteúdo institucional aprovado, sem alteração. Não é o site publicado.</div></footer>
+
+<script>
+const pages=[...document.querySelectorAll('.page')];
+function go(id){
+  pages.forEach(p=>p.classList.toggle('is-on',p.id===id));
+  document.querySelectorAll('[data-go]').forEach(a=>a.toggleAttribute('aria-current',a.dataset.go===id));
+  window.scrollTo({top:0,behavior:'instant'});
+}
+document.addEventListener('click',e=>{
+  const a=e.target.closest('[data-go]');
+  if(!a)return;e.preventDefault();history.replaceState(null,'','#'+a.dataset.go);go(a.dataset.go);
+});
+if(location.hash)go(location.hash.slice(1));
+</script>
+</body>
+</html>

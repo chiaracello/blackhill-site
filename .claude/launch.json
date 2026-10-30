@@ -6,6 +6,12 @@
       "runtimeExecutable": "npx",
       "runtimeArgs": ["next", "start", "--port", "3210"],
       "port": 3210
+    },
+    {
+      "name": "blackhill-prototypes",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["-m", "http.server", "3310", "--directory", "prototypes"],
+      "port": 3310
     }
   ]
 }

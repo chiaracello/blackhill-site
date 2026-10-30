@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Conceito 03 · Tearsheet — Blackhill Capital</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0D1B2E;--navy-2:#152236;--navy-3:#1E3047;
+  --gold:#C9A84C;--antique:#8C6F2E;
+  --gray:#E7E4DD;--gray-2:#DBD7CE;--paper:#F2F0EA;
+  --line:rgb(13 27 46/.22);--line-d:rgb(255 255 255/.18);
+  --shell:min(1480px, 100% - 2.5rem);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--gray);color:var(--navy);font-family:Inter,system-ui,sans-serif;font-size:16.5px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.shell{width:var(--shell);margin-inline:auto}
+.mono{font-family:"JetBrains Mono",monospace}
+.num{font-family:"JetBrains Mono",monospace;font-variant-numeric:tabular-nums}
+
+.display{font-weight:800;letter-spacing:-.04em;line-height:.95;font-size:clamp(2.9rem,7.6vw,7rem);text-wrap:balance}
+.h2{font-weight:700;letter-spacing:-.03em;line-height:1.04;font-size:clamp(1.9rem,4.2vw,3.5rem);text-wrap:balance}
+.lede{font-size:clamp(1.05rem,1.35vw,1.3rem);line-height:1.52;color:rgb(13 27 46/.76);max-width:50ch}
+.lbl{font-family:"JetBrains Mono",monospace;font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--antique)}
+.on-dark .lbl,.cell--navy .lbl{color:var(--gold)}
+
+/* barras */
+.bar{position:fixed;inset:0 0 auto;z-index:60;background:var(--navy);border-bottom:1px solid var(--line-d)}
+.bar .shell{display:flex;align-items:center;height:54px;justify-content:space-between}
+.bar a{color:rgb(255 255 255/.56);text-decoration:none;font-size:.76rem;letter-spacing:.08em;font-family:"JetBrains Mono",monospace}
+.bar a:hover,.bar a[aria-current]{color:var(--gold)}
+.bar nav{display:flex;gap:1.1rem}
+
+.site{position:sticky;top:54px;z-index:50;background:var(--gray);border-bottom:1px solid var(--line)}
+.site .shell{display:flex;align-items:center;justify-content:space-between;height:76px}
+.wordmark{font-weight:800;letter-spacing:.1em;font-size:1.02rem}
+.wordmark span{font-family:"JetBrains Mono",monospace;font-size:.58rem;letter-spacing:.3em;color:var(--antique);display:block}
+.site nav{display:none;gap:1.6rem}
+.site nav a{font-family:"JetBrains Mono",monospace;color:rgb(13 27 46/.7);text-decoration:none;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase}
+.site nav a:hover{color:var(--antique)}
+@media(min-width:1080px){.site nav{display:flex}}
+
+/* ---------- grade modular ---------- */
+.grid{display:grid;gap:1px;background:var(--line);border-block:1px solid var(--line)}
+.cell{background:var(--gray);padding:2.2rem 1.8rem;display:flex;flex-direction:column;justify-content:space-between;min-height:168px}
+.cell--paper{background:var(--paper)}
+.cell--navy{background:var(--navy);color:#fff}
+.cell--navy .k{color:rgb(255 255 255/.6)}
+.cell--gold{background:var(--gold);color:var(--navy)}
+.cell .k{font-family:"JetBrains Mono",monospace;font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:rgb(13 27 46/.58)}
+.cell .v{font-weight:700;letter-spacing:-.02em;font-size:1.12rem;margin-top:.8rem;line-height:1.25}
+.cell .big{font-family:"JetBrains Mono",monospace;font-variant-numeric:tabular-nums;font-size:clamp(2.1rem,3.4vw,3.1rem);font-weight:700;letter-spacing:-.04em;line-height:1}
+
+/* hero em grade */
+.hero{border-bottom:1px solid var(--line)}
+.hero-main{background:var(--navy);color:#fff;padding:clamp(4.5rem,9vw,8rem) 0 clamp(3rem,6vw,5rem);position:relative;overflow:hidden}
+.hero-main::before{content:"";position:absolute;inset:0;background:
+  linear-gradient(90deg,rgb(255 255 255/.045) 1px,transparent 1px) 0 0/calc(100%/6) 100%,
+  radial-gradient(90% 80% at 85% 0%,rgb(201 168 76/.17),rgb(13 27 46/0) 58%);}
+.hero-main .shell{position:relative;z-index:2}
+.hero-main .lede{color:rgb(255 255 255/.76)}
+.tick{display:flex;gap:1.6rem;flex-wrap:wrap;margin-bottom:2.2rem}
+.tick span{font-family:"JetBrains Mono",monospace;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);padding-left:.9rem;border-left:2px solid var(--gold)}
+.cta{display:flex;flex-wrap:wrap;gap:.9rem;margin-top:2.8rem}
+.btn{display:inline-flex;align-items:center;gap:.6rem;padding:1rem 1.9rem;font-weight:700;font-size:.85rem;letter-spacing:.06em;text-transform:uppercase;font-family:"JetBrains Mono",monospace;text-decoration:none;border:1px solid transparent;transition:.3s}
+.btn-primary{background:var(--gold);color:var(--navy)}
+.btn-primary:hover{background:#E3C879}
+.btn-ghost{border-color:rgb(255 255 255/.3);color:#fff}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold)}
+
+.band{padding:clamp(4rem,8vw,7rem) 0}
+.band--paper{background:var(--paper)}
+.band--navy{background:var(--navy);color:#fff}
+.band--navy .lede{color:rgb(255 255 255/.74)}
+.head{display:grid;gap:1.6rem;margin-bottom:3rem}
+@media(min-width:980px){.head{grid-template-columns:13rem minmax(0,1fr);gap:3.5rem;align-items:start}}
+
+/* matriz de capacidades */
+.matrix{display:grid;gap:1px;background:var(--line);border:1px solid var(--line)}
+@media(min-width:900px){.matrix{grid-template-columns:repeat(4,1fr)}}
+.mcell{background:var(--gray);padding:2rem 1.7rem;text-decoration:none;color:inherit;display:flex;flex-direction:column;justify-content:space-between;min-height:210px;transition:.35s}
+.mcell:hover{background:var(--paper)}
+.mcell--core{background:var(--navy);color:#fff;min-height:320px}
+.mcell--core:hover{background:var(--navy-3)}
+@media(min-width:900px){.mcell--core{grid-column:span 2;grid-row:span 2}}
+.mcell .i{font-family:"JetBrains Mono",monospace;font-size:.8rem;letter-spacing:.1em;color:var(--antique)}
+.mcell--core .i{color:var(--gold);font-size:1rem}
+.mcell h3{margin-top:1.4rem;font-weight:700;letter-spacing:-.02em;font-size:1.25rem;line-height:1.15}
+.mcell--core h3{font-size:clamp(1.9rem,3.4vw,3rem);letter-spacing:-.035em}
+.mcell p{margin-top:.8rem;font-size:.9rem;color:rgb(13 27 46/.68)}
+.mcell--core p{font-size:1.02rem;color:rgb(255 255 255/.72);max-width:38ch}
+.mcell .t{font-family:"JetBrains Mono",monospace;font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--antique);margin-top:1.6rem}
+.mcell--core .t{color:var(--gold)}
+
+/* spec sheet do ecossistema */
+.spec{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);margin-top:3rem}
+@media(min-width:1000px){.spec{grid-template-columns:repeat(3,1fr)}}
+.sp{background:var(--paper);display:flex;flex-direction:column}
+.sp header{background:var(--navy);color:#fff;padding:1.8rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;border-bottom:3px solid var(--accent)}
+.sp header h3{font-size:1.6rem;font-weight:800;letter-spacing:-.025em}
+.sp header .c{font-family:"JetBrains Mono",monospace;font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);display:block;margin-top:.3rem}
+.sp .rows{padding:0}
+.sp .r{display:grid;grid-template-columns:7.5rem minmax(0,1fr);gap:1rem;padding:1rem 1.8rem;border-bottom:1px solid var(--line);font-size:.88rem}
+.sp .r dt{font-family:"JetBrains Mono",monospace;font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;color:rgb(13 27 46/.55);padding-top:.2rem}
+.sp .why{margin-top:auto;padding:1.8rem;background:var(--gray-2);font-size:.9rem;line-height:1.55}
+
+.stats{display:grid;gap:1px;background:var(--line);border:1px solid var(--line)}
+@media(min-width:700px){.stats{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1100px){.stats{grid-template-columns:repeat(4,1fr)}}
+.caveat{font-size:.82rem;line-height:1.62;color:rgb(13 27 46/.6);max-width:76ch;margin-top:2.2rem}
+.band--navy .caveat{color:rgb(255 255 255/.55)}
+.page{display:none}.page.is-on{display:block}
+footer{background:var(--navy);color:rgb(255 255 255/.45);padding:3.4rem 0;font-size:.8rem;font-family:"JetBrains Mono",monospace}
+@media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<div class="bar"><div class="shell">
+  <a href="index.html">← Três conceitos</a>
+  <nav><a href="conceito-01-obsidian.html">01 Obsidian</a><a href="conceito-02-ivory.html">02 Ivory &amp; Ink</a><a href="conceito-03-tearsheet.html" aria-current="page">03 Tearsheet</a></nav>
+</div></div>
+
+<header class="site"><div class="shell">
+  <div class="wordmark">BLACKHILL<span>CAPITAL</span></div>
+  <nav><a href="#home" data-go="home">Home</a><a href="#advisory" data-go="advisory">Advisory</a><a href="#ecosystem" data-go="ecosystem">Ecossistema</a></nav>
+</div></header>
+
+<!-- ===================== HOME ===================== -->
+<main class="page is-on" id="home">
+  <section class="hero">
+    <div class="hero-main on-dark"><div class="shell">
+      <div class="tick">
+        <span>Independent Financial Advisory</span><span>Distressed Credit &amp; NPL</span><span>Special Situations</span><span>Senior-Led Execution</span>
+      </div>
+      <h1 class="display">Onde capital<br>encontra complexidade.</h1>
+      <p class="lede" style="margin-top:2.2rem">A Blackhill Capital atua na interseção entre o Judiciário brasileiro e o mercado de capitais — originando, estruturando e monetizando ativos de crédito complexos para capital institucional qualificado.</p>
+      <div class="cta">
+        <a class="btn btn-primary" href="#">Apresente sua operação</a>
+        <a class="btn btn-ghost" href="#advisory" data-go="advisory">Competências</a>
+      </div>
+    </div></div>
+
+    <div class="shell"><div class="grid" style="grid-template-columns:repeat(2,1fr)">
+      <div class="cell cell--navy"><span class="k">Posição</span><span class="v">Advisor independente<br><span style="font-weight:400;font-size:.92rem;color:rgb(255 255 255/.62)">Não investimos nas operações que assessoramos.</span></span></div>
+      <div class="cell"><span class="k">Capital</span><span class="v">Sem gestão de terceiros<br><span style="font-weight:400;font-size:.92rem;color:rgb(13 27 46/.62)">Não somos gestora regulada nem fundo.</span></span></div>
+      <div class="cell cell--paper"><span class="k">Alinhamento</span><span class="v">Sem conflito cedente–investidor<br><span style="font-weight:400;font-size:.92rem;color:rgb(13 27 46/.62)">Alinhamento exclusivo com o mandato.</span></span></div>
+      <div class="cell cell--gold"><span class="k" style="color:rgb(13 27 46/.68)">Assinatura</span><span class="v">Condução sênior · Tecnologia aplicada · Foco em execução</span></div>
+    </div></div>
+  </section>
+
+  <section class="band"><div class="shell">
+    <div class="head">
+      <div><span class="lbl">Quem conduz</span></div>
+      <div><h2 class="h2">Quem conduz o seu mandato.</h2>
+      <p class="lede" style="margin-top:1.4rem">O profissional que avalia a sua operação é o mesmo que a conduz até o fechamento. Não há camada intermediária entre a análise e a execução.</p></div>
+    </div>
+    <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(260px,1fr))">
+      <div class="cell cell--paper"><span class="big">01</span><div><span class="v" style="display:block">Acesso direto ao responsável</span><p style="margin-top:.5rem;font-size:.9rem;color:rgb(13 27 46/.66)">Quem atende é quem decide. Sem camadas de triagem.</p></div></div>
+      <div class="cell cell--paper"><span class="big">02</span><div><span class="v" style="display:block">Continuidade de leitura</span><p style="margin-top:.5rem;font-size:.9rem;color:rgb(13 27 46/.66)">Quem analisou o ativo é quem negocia.</p></div></div>
+      <div class="cell cell--paper"><span class="big">03</span><div><span class="v" style="display:block">Responsabilidade nominal</span><p style="margin-top:.5rem;font-size:.9rem;color:rgb(13 27 46/.66)">Um responsável identificado por mandato.</p></div></div>
+    </div>
+  </div></section>
+
+  <section class="band band--navy"><div class="shell">
+    <div class="head">
+      <div><span class="lbl">Mercado endereçável</span></div>
+      <div><h2 class="h2">Um mercado de trilhões de reais com infraestrutura de crédito ainda subdesenvolvida.</h2></div>
+    </div>
+    <div class="stats" style="--line:rgb(255 255 255/.18);border-color:rgb(255 255 255/.18)">
+      <div class="cell cell--navy"><span class="k">SFN</span><div><span class="big" style="color:var(--gold)">R$ 6,5 tri</span><span class="v" style="font-size:.95rem">Carteira de crédito do SFN</span><p style="font-size:.8rem;color:rgb(255 255 255/.55);margin-top:.6rem" class="mono">BANCO CENTRAL</p></div></div>
+      <div class="cell cell--navy"><span class="k">Inadimplência</span><div><span class="big" style="color:var(--gold)">R$ 524 bi</span><span class="v" style="font-size:.95rem">Dívida negativada</span><p style="font-size:.8rem;color:rgb(255 255 255/.55);margin-top:.6rem" class="mono">SERASA EXPERIAN</p></div></div>
+      <div class="cell cell--navy"><span class="k">Judicial</span><div><span class="big" style="color:var(--gold)">R$ 393 bi</span><span class="v" style="font-size:.95rem">Estoque de precatórios</span><p style="font-size:.8rem;color:rgb(255 255 255/.55);margin-top:.6rem" class="mono">TCU · PGFN</p></div></div>
+      <div class="cell cell--navy"><span class="k">Municipal</span><div><span class="big" style="color:var(--gold)">R$ 6 bi+</span><span class="v" style="font-size:.95rem">Dívida ativa municipal</span><p style="font-size:.8rem;color:rgb(255 255 255/.55);margin-top:.6rem" class="mono">RECOVERY · DELOITTE</p></div></div>
+    </div>
+    <p class="caveat">Dados conforme as últimas divulgações públicas das fontes indicadas. Consolidação: junho de 2026. Não representam operações, pipeline ou ativos sob gestão da Blackhill Capital.</p>
+  </div></section>
+
+  <section class="band band--paper"><div class="shell">
+    <div class="head"><div><span class="lbl">Método</span></div><div><h2 class="h2">Quatro fases, cada uma com um entregável definido.</h2></div></div>
+    <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(240px,1fr))">
+      <div class="cell"><div><span class="lbl">Fase 01</span><span class="v" style="display:block">Originação</span><p style="font-size:.88rem;color:rgb(13 27 46/.66);margin-top:.5rem">Rede institucional proprietária.</p></div><div style="margin-top:1.4rem;border-top:1px solid var(--line);padding-top:.9rem"><span class="lbl">Entregável</span><p style="font-size:.86rem;margin-top:.4rem">Leitura inicial de aderência.</p></div></div>
+      <div class="cell"><div><span class="lbl">Fase 02</span><span class="v" style="display:block">Due Diligence</span><p style="font-size:.88rem;color:rgb(13 27 46/.66);margin-top:.5rem">Triagem de risco e verificação documental.</p></div><div style="margin-top:1.4rem;border-top:1px solid var(--line);padding-top:.9rem"><span class="lbl">Entregável</span><p style="font-size:.86rem;margin-top:.4rem">Memorando técnico com premissas explícitas.</p></div></div>
+      <div class="cell"><div><span class="lbl">Fase 03</span><span class="v" style="display:block">Estruturação</span><p style="font-size:.88rem;color:rgb(13 27 46/.66);margin-top:.5rem">Veículo, garantias e proteções contratuais.</p></div><div style="margin-top:1.4rem;border-top:1px solid var(--line);padding-top:.9rem"><span class="lbl">Entregável</span><p style="font-size:.86rem;margin-top:.4rem">Desenho do veículo e matriz de proteções.</p></div></div>
+      <div class="cell"><div><span class="lbl">Fase 04</span><span class="v" style="display:block">Monitoramento</span><p style="font-size:.88rem;color:rgb(13 27 46/.66);margin-top:.5rem">Acompanhamento pós-fechamento.</p></div><div style="margin-top:1.4rem;border-top:1px solid var(--line);padding-top:.9rem"><span class="lbl">Entregável</span><p style="font-size:.86rem;margin-top:.4rem">Reporte curva realizada × projetada.</p></div></div>
+    </div>
+  </div></section>
+</main>
+
+<!-- ===================== ADVISORY ===================== -->
+<main class="page" id="advisory">
+  <section class="hero-main on-dark"><div class="shell">
+    <span class="lbl">Pilar 01 — Blackhill Advisors</span>
+    <h1 class="display" style="font-size:clamp(2.6rem,6vw,5.4rem);margin-top:1.8rem">Sete frentes.<br>Um núcleo de autoridade.</h1>
+    <p class="lede" style="margin-top:2rem">A hierarquia é deliberada e está codificada na própria composição: o núcleo ocupa quatro vezes a área das capacidades.</p>
+  </div></section>
+
+  <section class="band"><div class="shell">
+    <div class="matrix">
+      <a class="mcell mcell--core" href="#"><span class="i">01 / NÚCLEO</span><div><h3>Precatórios</h3><p>Créditos judiciais definitivos contra entes públicos federais, estaduais e municipais.</p></div><span class="t">Núcleo de autoridade</span></a>
+      <a class="mcell" href="#"><span class="i">03</span><div><h3>Claims &amp; Litigation Finance</h3><p>Monetização antecipada de direitos creditórios de origem judicial ou arbitral.</p></div><span class="t">Capacidade</span></a>
+      <a class="mcell" href="#"><span class="i">04</span><div><h3>Crédito Estruturado &amp; FIDC</h3><p>Veículos com lastro em recebíveis — do FIDC à securitização.</p></div><span class="t">Capacidade</span></a>
+      <a class="mcell" href="#"><span class="i">05</span><div><h3>Dívida Ativa &amp; Recebíveis Públicos</h3><p>Securitização de dívida ativa municipal sob a LC 208/2024.</p></div><span class="t">Capacidade</span></a>
+      <a class="mcell" href="#"><span class="i">06</span><div><h3>Reestruturação Corporativa</h3><p>Renegociação de passivos e new money.</p></div><span class="t">Complementar</span></a>
+      <a class="mcell mcell--core" href="#"><span class="i">02 / NÚCLEO</span><div><h3>NPL &amp; Distressed Credit</h3><p>Carteiras inadimplentes e exposições corporativas estressadas, do varejo pulverizado ao corporate.</p></div><span class="t">Núcleo de autoridade</span></a>
+      <a class="mcell" href="#"><span class="i">07</span><div><h3>Servicing &amp; Recuperação</h3><p>Gestão de carteiras pós-cessão e maximização de recuperação.</p></div><span class="t">Complementar</span></a>
+      <a class="mcell cell--gold" href="#" style="color:var(--navy)"><span class="i" style="color:rgb(13 27 46/.7)">→</span><div><h3>Apresente sua operação</h3><p style="color:rgb(13 27 46/.72)">Contato preliminar, sem documentos e sem nomes de contraparte.</p></div><span class="t" style="color:rgb(13 27 46/.7)">Conversa confidencial</span></a>
+    </div>
+  </div></section>
+</main>
+
+<!-- ===================== ECOSSISTEMA ===================== -->
+<main class="page" id="ecosystem">
+  <section class="hero-main on-dark"><div class="shell">
+    <span class="lbl">Pilar 02 — Ecossistema de tecnologia</span>
+    <h1 class="display" style="font-size:clamp(2.6rem,5.8vw,5.2rem);margin-top:1.8rem">Tecnologia aplicada ao crédito.</h1>
+    <p class="lede" style="margin-top:2rem">Três plataformas que endereçam as restrições estruturais do mercado: capacidade de decisão, infraestrutura de negociação e disciplina de execução.</p>
+  </div></section>
+
+  <section class="band band--paper"><div class="shell">
+    <div class="spec">
+      <article class="sp" style="--accent:#8FB4D9">
+        <header><div><h3>XCurve</h3><span class="c">Motor de decisão</span></div><svg width="44" height="44" viewBox="0 0 64 64" fill="none" aria-hidden="true"><path d="M4 52C18 52 20 12 34 12s14 28 26 28" stroke="#8FB4D9" stroke-width="3"/></svg></header>
+        <dl class="rows">
+          <div class="r"><dt>Função</dt><dd>Análise, classificação e priorização de crédito em escala, com tecnologia e inteligência artificial.</dd></div>
+          <div class="r"><dt>Política</dt><dd>Modelagem e automação de política de crédito</dd></div>
+          <div class="r"><dt>Carteira</dt><dd>Classificação e priorização por perfil de risco</dd></div>
+          <div class="r"><dt>IA</dt><dd>Leitura de grandes volumes de dados de crédito</dd></div>
+          <div class="r"><dt>Equipes</dt><dd>Padronização de critérios de decisão</dd></div>
+        </dl>
+        <p class="why">A precificação de ativos de crédito complexos é limitada pela capacidade de processar informação incompleta e heterogênea.</p>
+      </article>
+      <article class="sp" style="--accent:#C9A84C">
+        <header><div><h3>Finders</h3><span class="c">Originação e negociação</span></div><svg width="44" height="44" viewBox="0 0 64 64" fill="none" aria-hidden="true"><circle cx="27" cy="27" r="17" stroke="#C9A84C" stroke-width="3"/><path d="M40 40l18 18" stroke="#C9A84C" stroke-width="3"/></svg></header>
+        <dl class="rows">
+          <div class="r"><dt>Função</dt><dd>Originação e negociação de NPL e ativos complexos, em processo estruturado e auditável.</dd></div>
+          <div class="r"><dt>Vitrine</dt><dd>Carteiras com manifestação de interesse e habilitação</dd></div>
+          <div class="r"><dt>Sigilo</dt><dd>Fluxo de NDA e sala de dados com acesso por concessão</dd></div>
+          <div class="r"><dt>Leilão</dt><dd>Propostas lacradas, adjudicação e registro do negócio</dd></div>
+          <div class="r"><dt>Dados</dt><dd>Agregados anônimos com piso mínimo de amostra</dd></div>
+        </dl>
+        <p class="why">O mercado secundário brasileiro opera com assimetria de informação elevada e processos pouco padronizados.</p>
+      </article>
+      <article class="sp" style="--accent:#5E9B81">
+        <header><div><h3>DealNorth</h3><span class="c">Pipeline e oportunidades</span></div><svg width="44" height="44" viewBox="0 0 64 64" fill="none" aria-hidden="true"><path d="M32 6l24 44H8L32 6z" stroke="#5E9B81" stroke-width="3"/></svg></header>
+        <dl class="rows">
+          <div class="r"><dt>Função</dt><dd>SaaS multi-tenant para pipelines, próximos passos e prioridades, em diferentes setores.</dd></div>
+          <div class="r"><dt>Pipeline</dt><dd>Próximos passos e priorização explícita</dd></div>
+          <div class="r"><dt>Isolamento</dt><dd>Multi-tenant com separação de dados entre organizações</dd></div>
+          <div class="r"><dt>Governança</dt><dd>Papéis, permissões e trilha de auditoria</dd></div>
+          <div class="r"><dt>Escopo</dt><dd>Setores distintos sobre o mesmo núcleo de produto</dd></div>
+        </dl>
+        <p class="why">Disciplina de execução é um diferencial transferível a qualquer pipeline comercial ou institucional.</p>
+      </article>
+    </div>
+    <p class="caveat">As plataformas integram o ecossistema de tecnologia da Blackhill Capital e encontram-se em diferentes estágios de desenvolvimento, incluindo fases pré-comerciais. Esta página é institucional e não constitui oferta de produto, serviço, valor mobiliário ou participação societária. Percentuais de participação, estruturas de controle e relações societárias não são divulgados.</p>
+  </div></section>
+</main>
+
+<footer><div class="shell">CONCEITO 03 · TEARSHEET — PROTÓTIPO DE DIREÇÃO DE ARTE. CONTEÚDO APROVADO, SEM ALTERAÇÃO. NÃO É O SITE PUBLICADO.</div></footer>
+
+<script>
+const pages=[...document.querySelectorAll('.page')];
+function go(id){pages.forEach(p=>p.classList.toggle('is-on',p.id===id));window.scrollTo({top:0,behavior:'instant'});}
+document.addEventListener('click',e=>{const a=e.target.closest('[data-go]');if(!a)return;e.preventDefault();history.replaceState(null,'','#'+a.dataset.go);go(a.dataset.go);});
+if(location.hash)go(location.hash.slice(1));
+</script>
+</body>
+</html>
