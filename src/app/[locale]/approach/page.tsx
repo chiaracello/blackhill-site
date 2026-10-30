@@ -34,8 +34,8 @@ export async function generateMetadata({
       ? "Abordagem | Condução Sênior, Método e Execução"
       : "Our Approach | Senior Conduct, Method and Execution",
     description: pt
-      ? "Como a Blackhill conduz um mandato de advisory: acesso direto ao profissional sênior responsável, estrutura mobilizada conforme cada mandato, quatro fases com entregáveis definidos e o limite declarado do uso de tecnologia e inteligência artificial."
-      : "How Blackhill runs an advisory mandate: direct access to the senior professional responsible, structure engaged as each mandate requires, four phases with defined deliverables, and a stated limit on the use of technology and artificial intelligence.",
+      ? "Como a Blackhill conduz um mandato de advisory: acesso direto ao profissional sênior responsável, especialistas mobilizados conforme cada mandato, quatro fases com entregáveis definidos e supervisão profissional sobre o uso de tecnologia e inteligência artificial."
+      : "How Blackhill runs an advisory mandate: direct access to the senior professional responsible, specialists engaged as each mandate requires, four phases with defined deliverables, and professional supervision over the use of technology and artificial intelligence.",
   });
 }
 
@@ -113,7 +113,6 @@ export default async function ApproachPage({
               ))}
             </div>
           </div>
-          <Caveat className="mt-10">{copy.structureCaveat}</Caveat>
         </Block>
       </Section>
 

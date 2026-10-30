@@ -6,6 +6,7 @@
 
 > **Status:** **aprovada em 30 de outubro de 2026** e implementada na branch. Nada publicado.
 > Decisões do aprovador: C1 — mobilização conforme cada mandato, sem afirmar rede formal, equipe permanente ou parceiros contratados · C2 — ferramentas de análise e IA como suporte, decisões humanas, sem afirmar integração de XCurve, Finders ou DealNorth · C3 — LinkedIn pendente de verificação · A5 — somente credenciais verificáveis · M1 e M2 aprovados. A norma resultante é o [Brand & Communication Standard v1.2](BRAND_STANDARD_v1.2.md), §10.
+> **Refinamentos finais aprovados em 30 de outubro de 2026, após a implementação:** (1) a ressalva pública da seção "Estrutura por mandato" foi retirada — a regra passa a ser de abstenção, não de ressalva, e a apresentação é positiva; (2) o bloco de tecnologia passa a intitular-se **"Supervisão e responsabilidade profissional"** / *Professional supervision and responsibility*, preservando integralmente a afirmação de que análises finais, recomendações, decisões e negociações permanecem sob responsabilidade humana.
 > **Base:** Brand & Communication Standard v1.1, Posicionamento Institucional 2026–2031 v2, Auditoria de SEO e Visibilidade.
 > **Branch:** `redesign/reposicionamento-2026`, 5 commits à frente de `main`, sem push.
 

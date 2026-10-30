@@ -192,9 +192,11 @@ Acesso direto ao responsável · continuidade entre quem analisa e quem negocia 
 
 Número de profissionais, sócios ou escritórios · equipe permanente, quadro próprio de analistas, rede formal de parceiros ou parceiros contratados · estrutura, infraestrutura ou recursos inexistentes · "one-man firm", "solo advisor" ou qualquer descrição do tamanho da casa · formação, conselhos, certificações ou idiomas sem confirmação.
 
+A regra é de **abstenção, não de ressalva**: não se afirma nada disso e tampouco se enuncia publicamente a inexistência de qualquer deles. A apresentação é positiva — condução sênior e mobilização de especialistas conforme a necessidade real de cada mandato.
+
 ### Tecnologia
 
-Ferramentas avançadas de análise e inteligência artificial são **suporte** ao trabalho profissional. Decisões, análises finais, recomendações e negociações permanecem sob responsabilidade humana, e esse limite aparece **declarado em texto** em todo material que descreva o uso de tecnologia. Não afirmar que XCurve, Finders ou DealNorth estão integrados aos mandatos de advisory sem confirmação documental.
+Ferramentas avançadas de análise e inteligência artificial são **suporte** ao trabalho profissional. Decisões, análises finais, recomendações e negociações permanecem sob responsabilidade humana, e isso aparece **declarado em texto** em todo material que descreva o uso de tecnologia, sob o título **"Supervisão e responsabilidade profissional"** (em inglês, *Professional supervision and responsibility*). Não afirmar que XCurve, Finders ou DealNorth estão integrados aos mandatos de advisory sem confirmação documental.
 
 ---
 

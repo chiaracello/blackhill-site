@@ -23,7 +23,7 @@ A v1.2 incorpora o posicionamento **Senior-Led Advisory**, aprovado em 30 de out
 | # | Cláusula | v1.1 | v1.2 |
 | :-- | :-- | :-- | :-- |
 | 1 | Condução e estrutura | Não tratado | **Nova §10** — assinatura institucional e limites do que pode ser afirmado sobre condução, estrutura e tecnologia |
-| 2 | Tecnologia na atividade de advisory | Tratada apenas como participação societária (§03) | **Ferramental de análise e inteligência artificial como suporte**, com limite declarado e separação mantida em relação ao Pilar 2 |
+| 2 | Tecnologia na atividade de advisory | Tratada apenas como participação societária (§03) | **Ferramental de análise e inteligência artificial como suporte**, com supervisão e responsabilidade profissional declaradas, e separação mantida em relação ao Pilar 2 |
 | 3 | Atendimento | "o sócio responsável pela frente correspondente" | **"o profissional sênior responsável pelo mandato"** — singular, sem afirmar quadro societário plural |
 | 4 | Método | Quatro fases, sem entregável nomeado | **Cada fase do método tem entregável definido** |
 | 5 | Arquitetura do site | Menu com "Mercado" | **Página de Abordagem no menu principal**; "Mercado" no rodapé, com indexação preservada |
@@ -333,7 +333,7 @@ Antes de finalizar qualquer material:
 
 **Originação (v1.1):** nenhuma promessa de aprovação, execução ou prazo · contato preliminar declarado não vinculante · formulário sem pedido de documento ou dado sigiloso · confirmação apenas após entrega real.
 
-**Condução (v1.2):** nenhuma afirmação de quadro próprio, equipe permanente ou rede formal de parceiros · "profissional sênior responsável pelo mandato" sempre no singular · limite da tecnologia declarado em texto, não apenas implícito · trajetória profissional distinguida de operações da Blackhill.
+**Condução (v1.2):** nenhuma afirmação de quadro próprio, equipe permanente ou rede formal de parceiros · **e nenhuma ressalva pública negando a existência deles** · "profissional sênior responsável pelo mandato" sempre no singular · supervisão e responsabilidade profissional declaradas em texto · trajetória profissional distinguida de operações da Blackhill.
 
 ---
 
@@ -373,11 +373,13 @@ Aparece: faixa sob o hero da Home · topo da página de Abordagem · capa do Ins
 - "One-man firm", "solo advisor", "equipe enxuta" ou qualquer formulação que descreva o tamanho da casa, em qualquer direção.
 - Operações executadas, clientes, certificações, formação acadêmica, conselhos ou idiomas sem confirmação documental.
 
-### Tecnologia — limite obrigatório
+**Forma da regra — acréscimo de 30 de outubro de 2026.** A regra é de **abstenção, não de ressalva**. Nenhum material precisa, nem deve, enunciar publicamente a inexistência de equipe permanente, de rede formal de parceiros ou de estrutura operacional: declarar o que não se tem desloca a leitura para o que falta. O que se exige é que nada disso seja afirmado. A apresentação é sempre positiva — condução sênior e mobilização de especialistas conforme a necessidade real de cada mandato.
+
+### Tecnologia — supervisão e responsabilidade profissional
 
 A Blackhill utiliza ferramentas avançadas de análise e inteligência artificial como **suporte** ao trabalho profissional. Decisões, análises finais, recomendações e negociações permanecem sob responsabilidade humana.
 
-Nenhum material pode apresentar sistema, modelo ou inteligência artificial como autor de decisão de crédito, de precificação ou de recomendação. Todo material que descreva o uso de tecnologia traz esse limite **declarado em texto**, não apenas implícito.
+Nenhum material pode apresentar sistema, modelo ou inteligência artificial como autor de decisão de crédito, de precificação ou de recomendação. Todo material que descreva o uso de tecnologia traz essa declaração **em texto**, não apenas implícita, sob o título **"Supervisão e responsabilidade profissional"** — em inglês, *Professional supervision and responsibility*. A formulação é afirmativa: enuncia quem responde, não o que a ferramenta não faz.
 
 A separação em relação ao Pilar 2 é a de §03: ferramental de análise é metodologia da atividade de advisory; participação societária em plataformas é frente de investimento.
 

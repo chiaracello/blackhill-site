@@ -34,7 +34,6 @@ export const APPROACH: Localized<{
   structureEyebrow: string;
   structureTitle: string;
   structureBody: string[];
-  structureCaveat: string;
   methodEyebrow: string;
   methodTitle: string;
   methodLede: string;
@@ -83,8 +82,6 @@ export const APPROACH: Localized<{
       "O que não é mobilizado é a análise. A tese técnica da operação, a leitura de risco e a condução da negociação permanecem sob responsabilidade direta da Blackhill, que responde pela conclusão técnica apresentada ao cliente.",
       "A estrutura é montada para o ativo. É isso que permite que cada mandato receba atenção sênior integral, sem camada de triagem e sem diluição de responsabilidade.",
     ],
-    structureCaveat:
-      "A mobilização de profissionais especializados ocorre conforme a necessidade de cada mandato. A Blackhill não mantém, nem afirma manter, equipe permanente, rede formal de parceiros, estrutura operacional ou recursos além dos descritos nesta página.",
 
     methodEyebrow: "Método de execução",
     methodTitle: "Quatro fases, cada uma com um entregável definido.",
@@ -102,7 +99,7 @@ export const APPROACH: Localized<{
       "Estratificar uma carteira inadimplente por safra, aging e colateral, projetar curvas de recuperação sob múltiplos cenários, conferir cadeia de titularidade e atualizar valores por índices distintos são tarefas de processamento. A Blackhill utiliza ferramentas avançadas de análise e inteligência artificial para executá-las.",
       "O ganho não é apenas de velocidade: é de alocação. Tratar o processamento com ferramental adequado é o que permite que o tempo do profissional sênior seja gasto onde ele é insubstituível — na leitura de risco, na estruturação e na negociação.",
     ],
-    techLimitLabel: "O limite, declarado",
+    techLimitLabel: "Supervisão e responsabilidade profissional",
     techLimit:
       "Decisões, análises finais, recomendações e negociações permanecem sob responsabilidade humana. Nenhuma decisão de crédito, precificação ou recomendação é produzida por sistema automatizado. A tecnologia organiza a informação sobre a qual a análise sênior se exerce.",
     techPillar:
@@ -144,8 +141,6 @@ export const APPROACH: Localized<{
       "What is never delegated is the analysis. The technical thesis of the transaction, the reading of risk and the conduct of the negotiation remain Blackhill's direct responsibility, and Blackhill is accountable for the technical conclusion presented to the client.",
       "The structure is assembled for the asset. That is what allows every mandate to receive undivided senior attention, with no screening layer and no dilution of accountability.",
     ],
-    structureCaveat:
-      "Specialist professionals are engaged as each mandate requires. Blackhill does not maintain, and does not claim to maintain, a permanent team, a formal partner network, operating infrastructure or resources beyond those described on this page.",
 
     methodEyebrow: "Method of execution",
     methodTitle: "Four phases, each with a defined deliverable.",
@@ -163,7 +158,7 @@ export const APPROACH: Localized<{
       "Stratifying a non-performing portfolio by vintage, aging and collateral, projecting recovery curves across multiple scenarios, verifying chains of title and restating values under different indices are processing tasks. Blackhill uses advanced analytical tools and artificial intelligence to carry them out.",
       "The gain is not only speed: it is allocation. Handling processing with proper tooling is what allows senior time to be spent where it cannot be replaced — reading risk, structuring and negotiating.",
     ],
-    techLimitLabel: "The limit, stated",
+    techLimitLabel: "Professional supervision and responsibility",
     techLimit:
       "Decisions, final analyses, recommendations and negotiations remain under human responsibility. No credit decision, pricing or recommendation is produced by an automated system. Technology organises the information on which senior analysis is exercised.",
     techPillar:
