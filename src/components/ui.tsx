@@ -1,111 +1,264 @@
-import { ReactNode } from "react";
 import Link from "next/link";
+import type { ReactNode } from "react";
 
-export function Eyebrow({ children }: { children: ReactNode }) {
-  return <p className="eyebrow mb-4">{children}</p>;
+export function Shell({
+  children,
+  className = "",
+}: {
+  children: ReactNode;
+  className?: string;
+}) {
+  return <div className={`shell ${className}`}>{children}</div>;
 }
 
 export function Section({
   children,
   className = "",
+  rule = false,
+  id,
   tight = false,
 }: {
   children: ReactNode;
   className?: string;
+  rule?: boolean;
+  id?: string;
   tight?: boolean;
 }) {
   return (
-    <section className={`mx-auto max-w-[1280px] px-5 md:px-16 ${tight ? "py-12" : "py-20 md:py-28"} ${className}`}>
-      {children}
+    <section
+      id={id}
+      className={`${rule ? "rule-top" : ""} ${
+        tight ? "py-12 md:py-16" : "py-20 md:py-28 lg:py-32"
+      } ${className}`}
+    >
+      <Shell>{children}</Shell>
     </section>
   );
 }
 
-export function Divider() {
-  return <div className="h-px bg-navy-3 my-10" />;
+/** Section label: `01 — ADVISORY`. The number is structural, not decorative. */
+export function Eyebrow({
+  children,
+  index,
+  className = "",
+}: {
+  children: ReactNode;
+  index?: string;
+  className?: string;
+}) {
+  return (
+    <p className={`t-eyebrow ${className}`}>
+      {index ? <span className="mr-3 opacity-70">{index}</span> : null}
+      {children}
+    </p>
+  );
 }
 
-export function StatCard({ value, label, sub }: { value: string; label: string; sub?: string }) {
+/**
+ * Two-column editorial header: label rail on the left, heading and lede on the
+ * right. The recurring page-opening unit across the site.
+ */
+export function SectionHead({
+  eyebrow,
+  index,
+  title,
+  lede,
+  children,
+}: {
+  eyebrow?: string;
+  index?: string;
+  title: ReactNode;
+  lede?: ReactNode;
+  children?: ReactNode;
+}) {
   return (
-    <div className="rounded-lg border border-navy-3 bg-navy-2 px-6 py-7">
-      <p className="text-3xl md:text-4xl font-bold text-white">{value}</p>
-      <p className="mt-2 text-sm font-bold text-light-blue">{label}</p>
-      {sub && <p className="mt-1 text-xs text-muted-blue">{sub}</p>}
+    <div className="grid gap-8 lg:grid-cols-[14rem_minmax(0,1fr)] lg:gap-16">
+      <div>{eyebrow ? <Eyebrow index={index}>{eyebrow}</Eyebrow> : null}</div>
+      <div className="max-w-3xl">
+        <h2 className="t-h2">{title}</h2>
+        {lede ? <p className="t-lead mt-6">{lede}</p> : null}
+        {children}
+      </div>
     </div>
   );
 }
 
-export function CoreCard({
-  title,
-  text,
+export function Divider() {
+  return (
+    <Shell>
+      <hr className="border-0 border-t border-rule" />
+    </Shell>
+  );
+}
+
+export function GoldRule({ className = "" }: { className?: string }) {
+  return <span className={`block h-px w-10 bg-gold ${className}`} aria-hidden="true" />;
+}
+
+export function PrimaryLink({
   href,
+  children,
+  className = "",
 }: {
-  title: string;
-  text: string;
   href: string;
+  children: ReactNode;
+  className?: string;
 }) {
   return (
-    <Link
-      href={href}
-      className="block rounded-lg border border-gold/70 bg-navy-2 px-7 py-8 hover:border-gold transition-colors"
-    >
-      <h3 className="text-lg font-bold text-white mb-2">{title}</h3>
-      <p className="text-sm text-light-blue leading-relaxed">{text}</p>
-      <span className="inline-block mt-4 text-xs font-bold text-gold tracking-wide">
-        Saiba mais →
-      </span>
+    <Link href={href} className={`btn-primary ${className}`}>
+      {children}
+      <Arrow />
     </Link>
   );
 }
 
-export function CapabilityCard({
-  title,
-  text,
+export function SecondaryLink({
   href,
-  muted = false,
+  children,
+  className = "",
 }: {
-  title: string;
-  text: string;
   href: string;
-  muted?: boolean;
+  children: ReactNode;
+  className?: string;
 }) {
   return (
-    <Link
-      href={href}
-      className={`block rounded-lg border px-6 py-6 transition-colors ${
-        muted
-          ? "border-navy-3 bg-navy-2/60 hover:border-muted-blue"
-          : "border-navy-3 bg-navy-2 hover:border-light-blue"
-      }`}
-    >
-      <h3 className="text-base font-bold text-white mb-1.5">{title}</h3>
-      <p className="text-sm text-light-blue leading-relaxed">{text}</p>
-    </Link>
-  );
-}
-
-export function PrimaryButton({ href, children }: { href: string; children: ReactNode }) {
-  return (
-    <Link
-      href={href}
-      className="inline-block rounded bg-gold px-7 py-3.5 text-sm font-bold text-navy hover:bg-gold-light transition-colors"
-    >
+    <Link href={href} className={`btn-secondary ${className}`}>
       {children}
     </Link>
   );
 }
 
-export function SecondaryButton({ href, children }: { href: string; children: ReactNode }) {
+export function RevealLink({
+  href,
+  children,
+  className = "",
+}: {
+  href: string;
+  children: ReactNode;
+  className?: string;
+}) {
   return (
-    <Link
-      href={href}
-      className="inline-block rounded border border-gold px-7 py-3.5 text-sm font-bold text-gold hover:bg-gold/10 transition-colors"
-    >
-      {children}
+    <Link href={href} className={`link-reveal ${className}`}>
+      {children} <span aria-hidden="true">→</span>
     </Link>
   );
 }
 
-export function Caveat({ children }: { children: ReactNode }) {
-  return <p className="caveat mt-4">{children}</p>;
+export function Arrow() {
+  return (
+    <svg
+      width="16"
+      height="10"
+      viewBox="0 0 16 10"
+      fill="none"
+      aria-hidden="true"
+      className="shrink-0"
+    >
+      <path
+        d="M10.5 1 14.5 5l-4 4M14 5H1"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="square"
+      />
+    </svg>
+  );
+}
+
+/** Figure block for market data. Hairline rules, never boxes. */
+export function StatBlock({
+  value,
+  label,
+  detail,
+  source,
+  sourceLabel,
+}: {
+  value: string;
+  label: string;
+  detail: string;
+  source: string;
+  sourceLabel: string;
+}) {
+  return (
+    <div className="border-t border-rule pt-6">
+      <p className="t-figure">{value}</p>
+      <p className="mt-4 text-sm font-bold text-white">{label}</p>
+      <p className="t-small mt-2">{detail}</p>
+      <p className="t-caveat mt-4 opacity-80">
+        <span className="sr-only">{sourceLabel}: </span>
+        {source}
+      </p>
+    </div>
+  );
+}
+
+export function Caveat({ children, className = "" }: { children: ReactNode; className?: string }) {
+  return <p className={`t-caveat max-w-3xl ${className}`}>{children}</p>;
+}
+
+/** Numbered prose list used for complexity and role arguments. */
+export function ArgumentList({ items }: { items: string[] }) {
+  return (
+    <ol className="mt-2">
+      {items.map((item, i) => (
+        <li
+          key={item}
+          className="grid grid-cols-[2.5rem_minmax(0,1fr)] gap-x-4 border-t border-rule py-5"
+        >
+          <span className="t-index pt-1">{String(i + 1).padStart(2, "0")}</span>
+          <p className="t-body">{item}</p>
+        </li>
+      ))}
+    </ol>
+  );
+}
+
+/** Key/value frame for regulatory and procedural context. */
+export function FrameList({ items }: { items: { label: string; value: string }[] }) {
+  return (
+    <dl className="grid gap-px sm:grid-cols-2">
+      {items.map((item) => (
+        <div key={item.label} className="border-t border-rule py-5 sm:pr-8">
+          <dt className="t-caveat uppercase tracking-[0.16em]">{item.label}</dt>
+          <dd className="mt-2 text-sm font-bold text-white">{item.value}</dd>
+        </div>
+      ))}
+    </dl>
+  );
+}
+
+export function CheckList({
+  items,
+  tone = "affirm",
+}: {
+  items: string[];
+  tone?: "affirm" | "deny";
+}) {
+  return (
+    <ul className="mt-6">
+      {items.map((item) => (
+        <li key={item} className="flex gap-4 border-t border-rule py-4">
+          <span
+            aria-hidden="true"
+            className={`mt-2 shrink-0 ${tone === "affirm" ? "text-gold" : "text-muted-blue"}`}
+          >
+            {tone === "affirm" ? (
+              <svg width="12" height="9" viewBox="0 0 12 9" fill="none">
+                <path
+                  d="M1 4.5 4.2 7.5 11 1"
+                  stroke="currentColor"
+                  strokeWidth="1.6"
+                  strokeLinecap="square"
+                />
+              </svg>
+            ) : (
+              <svg width="12" height="9" viewBox="0 0 12 9" fill="none">
+                <path d="M1 4.5h10" stroke="currentColor" strokeWidth="1.6" strokeLinecap="square" />
+              </svg>
+            )}
+          </span>
+          <p className="t-body">{item}</p>
+        </li>
+      ))}
+    </ul>
+  );
 }

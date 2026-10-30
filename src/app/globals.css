@@ -1,16 +1,36 @@
 @import "tailwindcss";
 
+/* ==========================================================================
+   BLACKHILL CAPITAL — DESIGN SYSTEM
+   Palette and typeface are fixed by the Brand & Communication Standard.
+   Navy #0D1B2E / #152236 / #1E3047 · Gold #C9A84C · Arial.
+   Gold is only ever applied over navy — never over white (Standard §5).
+   ========================================================================== */
+
 :root {
-  --navy: #0D1B2E;
+  /* Brand — do not add hues outside the Standard. Depth comes from alpha. */
+  --navy: #0d1b2e;
   --navy-2: #152236;
-  --navy-3: #1E3047;
-  --gold: #C9A84C;
-  --gold-light: #E2C06A;
-  --off-white: #E8EDF4;
-  --muted-blue: #7B93B5;
-  --light-blue: #B0C4DE;
-  --gray-body: #3A3A3A;
-  --row-alt: #F4F5F7;
+  --navy-3: #1e3047;
+  --gold: #c9a84c;
+  --gold-light: #e2c06a;
+
+  /* Text on navy. All pass WCAG AA at body size. */
+  --white: #ffffff;
+  --off-white: #e8edf4;
+  --light-blue: #b0c4de;
+  --muted-blue: #7b93b5;
+
+  /* Hairlines and surfaces, derived from brand hues by alpha only. */
+  --rule: rgb(255 255 255 / 0.09);
+  --rule-strong: rgb(255 255 255 / 0.16);
+  --rule-gold: rgb(201 168 76 / 0.38);
+  --surface: rgb(255 255 255 / 0.025);
+  --surface-hover: rgb(255 255 255 / 0.05);
+
+  /* Editorial measure */
+  --gutter: 1.25rem;
+  --measure: 1240px;
 }
 
 @theme inline {
@@ -20,29 +40,380 @@
   --color-gold: var(--gold);
   --color-gold-light: var(--gold-light);
   --color-off-white: var(--off-white);
-  --color-muted-blue: var(--muted-blue);
   --color-light-blue: var(--light-blue);
-  --color-gray-body: var(--gray-body);
-  --color-row-alt: var(--row-alt);
+  --color-muted-blue: var(--muted-blue);
+  --color-rule: var(--rule);
+  --color-rule-strong: var(--rule-strong);
+
   --font-sans: Arial, Helvetica, sans-serif;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --gutter: 2.5rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  :root {
+    --gutter: 4rem;
+  }
+}
+
+* {
+  min-width: 0;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--navy);
   color: var(--off-white);
   font-family: Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  /* Tabular figures throughout: financial data must align in columns. */
+  font-variant-numeric: tabular-nums;
+  overflow-x: hidden;
 }
 
-.eyebrow {
-  font-size: 12px;
-  letter-spacing: 0.18em;
+::selection {
+  background: var(--gold);
+  color: var(--navy);
+}
+
+:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+  border-radius: 1px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Type scale — fluid, tightened at display sizes. Arial needs negative
+   tracking above ~2rem to stop reading as a system default.
+   -------------------------------------------------------------------------- */
+
+.t-display {
+  font-size: clamp(2.5rem, 7vw, 5.25rem);
+  line-height: 0.98;
+  letter-spacing: -0.03em;
+  font-weight: 700;
+  color: var(--white);
+}
+
+.t-h1 {
+  font-size: clamp(2rem, 4.8vw, 3.5rem);
+  line-height: 1.04;
+  letter-spacing: -0.025em;
+  font-weight: 700;
+  color: var(--white);
+}
+
+.t-h2 {
+  font-size: clamp(1.5rem, 3.1vw, 2.375rem);
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+  color: var(--white);
+}
+
+.t-h3 {
+  font-size: clamp(1.125rem, 1.8vw, 1.375rem);
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  font-weight: 700;
+  color: var(--white);
+}
+
+.t-lead {
+  font-size: clamp(1.0625rem, 1.55vw, 1.3125rem);
+  line-height: 1.6;
+  color: var(--light-blue);
+  letter-spacing: -0.005em;
+}
+
+.t-body {
+  font-size: 0.9375rem;
+  line-height: 1.75;
+  color: var(--light-blue);
+}
+
+@media (min-width: 768px) {
+  .t-body {
+    font-size: 1rem;
+  }
+}
+
+.t-small {
+  font-size: 0.875rem;
+  line-height: 1.65;
+  color: var(--muted-blue);
+}
+
+/* Section label: 01 — ADVISORY */
+.t-eyebrow {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--gold);
-  font-weight: 700;
 }
 
-.caveat {
-  font-size: 12px;
+.t-index {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--gold);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Compliance caveats. Deliberately quiet, never below 13px. */
+.t-caveat {
+  font-size: 0.8125rem;
+  line-height: 1.6;
   color: var(--muted-blue);
-  font-style: italic;
+}
+
+/* Large figures in stat blocks */
+.t-figure {
+  font-size: clamp(1.875rem, 3.6vw, 2.75rem);
+  line-height: 1;
+  letter-spacing: -0.035em;
+  font-weight: 700;
+  color: var(--white);
+  font-variant-numeric: tabular-nums;
+}
+
+/* --------------------------------------------------------------------------
+   Structure
+   -------------------------------------------------------------------------- */
+
+.shell {
+  width: 100%;
+  max-width: var(--measure);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.rule-top {
+  border-top: 1px solid var(--rule);
+}
+
+/* 40px gold accent rule used above major headings */
+.accent-rule::before {
+  content: "";
+  display: block;
+  width: 2.5rem;
+  height: 1px;
+  background: var(--gold);
+  margin-bottom: 1.75rem;
+}
+
+/* Editorial link: gold underline grows from the left on hover */
+.link-reveal {
+  position: relative;
+  display: inline-block;
+  color: var(--gold);
+  font-weight: 700;
+  font-size: 0.875rem;
+  letter-spacing: 0.02em;
+}
+
+.link-reveal::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  height: 1px;
+  width: 100%;
+  background: var(--gold);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.45s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.link-reveal:hover::after,
+.link-reveal:focus-visible::after {
+  transform: scaleX(1);
+}
+
+/* Index row: the recurring navigational unit across the site */
+.index-row {
+  display: grid;
+  gap: 0.5rem 2rem;
+  padding: 1.75rem 0;
+  border-top: 1px solid var(--rule);
+  transition:
+    background-color 0.4s ease,
+    padding-inline 0.4s ease;
+}
+
+.index-row:hover {
+  background: var(--surface-hover);
+}
+
+@media (min-width: 900px) {
+  .index-row {
+    grid-template-columns: 3.5rem minmax(0, 20rem) minmax(0, 1fr) auto;
+    align-items: baseline;
+  }
+  .index-row:hover {
+    padding-inline: 1.25rem;
+  }
+}
+
+/* Panel: used sparingly — hairline over tinted surface, never a heavy card */
+.panel {
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  transition:
+    border-color 0.4s ease,
+    background-color 0.4s ease;
+}
+
+.panel-interactive:hover {
+  border-color: var(--rule-gold);
+  background: var(--surface-hover);
+}
+
+/* --------------------------------------------------------------------------
+   Entrance — CSS only, so it costs no JavaScript and degrades to nothing.
+   -------------------------------------------------------------------------- */
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.rise {
+  animation: rise 0.9s cubic-bezier(0.16, 0.84, 0.28, 1) both;
+}
+
+.rise-1 {
+  animation-delay: 0.08s;
+}
+.rise-2 {
+  animation-delay: 0.16s;
+}
+.rise-3 {
+  animation-delay: 0.24s;
+}
+.rise-4 {
+  animation-delay: 0.32s;
+}
+
+/* --------------------------------------------------------------------------
+   Forms
+   -------------------------------------------------------------------------- */
+
+.field {
+  width: 100%;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--rule-strong);
+  padding: 0.875rem 0;
+  font-size: 1rem;
+  font-family: inherit;
+  color: var(--white);
+  transition: border-color 0.3s ease;
+}
+
+.field::placeholder {
+  color: var(--muted-blue);
+}
+
+.field:focus {
+  outline: none;
+  border-bottom-color: var(--gold);
+}
+
+.field:focus-visible {
+  outline: none;
+}
+
+/* Native select needs its own palette on dark backgrounds */
+select.field option {
+  background: var(--navy-2);
+  color: var(--white);
+}
+
+.field-label {
+  display: block;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted-blue);
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.625rem;
+  background: var(--gold);
+  color: var(--navy);
+  font-weight: 700;
+  font-size: 0.875rem;
+  letter-spacing: 0.04em;
+  padding: 1.0625rem 2.25rem;
+  border: 1px solid var(--gold);
+  transition:
+    background-color 0.35s ease,
+    border-color 0.35s ease;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: var(--gold-light);
+  border-color: var(--gold-light);
+}
+
+.btn-primary:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.625rem;
+  background: transparent;
+  color: var(--white);
+  font-weight: 700;
+  font-size: 0.875rem;
+  letter-spacing: 0.04em;
+  padding: 1.0625rem 2.25rem;
+  border: 1px solid var(--rule-strong);
+  transition:
+    border-color 0.35s ease,
+    background-color 0.35s ease;
+}
+
+.btn-secondary:hover {
+  border-color: var(--gold);
+  background: var(--surface-hover);
 }

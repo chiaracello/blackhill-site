@@ -1,57 +1,84 @@
 import Link from "next/link";
+
 import Logo from "./Logo";
+import { localePath, type Locale } from "@/lib/i18n";
+import { BRAND, COMPANY, DISCLAIMER, FOOTER_GROUPS, UI } from "@/content/site";
 
-export default function Footer() {
+export default function Footer({ locale }: { locale: Locale }) {
+  const ui = UI[locale];
+  const groups = FOOTER_GROUPS[locale];
+
   return (
-    <footer className="bg-navy-2 border-t border-navy-3 mt-32">
-      <div className="mx-auto max-w-[1280px] px-5 md:px-16 py-16 grid grid-cols-1 md:grid-cols-4 gap-10">
-        <div>
-          <Logo variant="light" withTagline />
+    <footer className="mt-auto border-t border-rule bg-navy-2">
+      <div className="shell py-16 md:py-20">
+        <div className="grid gap-12 lg:grid-cols-[18rem_minmax(0,1fr)] lg:gap-16">
+          <div>
+            <Logo withTagline tagline={BRAND.tagline[locale]} />
+            <p className="t-caveat mt-8">
+              {COMPANY.address.line1}
+              <br />
+              {COMPANY.address.line2}
+              <br />
+              CNPJ {COMPANY.cnpj}
+            </p>
+          </div>
+
+          <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+            {groups.map((group) => (
+              <nav key={group.title} aria-label={group.title}>
+                <p className="t-eyebrow mb-5">{group.title}</p>
+                <ul className="space-y-3">
+                  {group.links.map((link) => (
+                    <li key={`${group.title}-${link.href}`}>
+                      <Link
+                        href={localePath(locale, link.href)}
+                        className="text-sm text-light-blue transition-colors hover:text-gold"
+                      >
+                        {link.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+            ))}
+          </div>
         </div>
 
-        <div>
-          <p className="eyebrow mb-4">Navegação</p>
-          <ul className="space-y-2 text-sm text-light-blue">
-            <li><Link href="/about" className="hover:text-gold">About Blackhill</Link></li>
-            <li><Link href="/why-blackhill" className="hover:text-gold">Why Blackhill</Link></li>
-            <li><Link href="/practice-areas" className="hover:text-gold">Practice Areas</Link></li>
-            <li><Link href="/origination-access" className="hover:text-gold">Origination & Access</Link></li>
-            <li><Link href="/insights" className="hover:text-gold">Insights</Link></li>
-          </ul>
-        </div>
-
-        <div>
-          <p className="eyebrow mb-4">Para quem</p>
-          <ul className="space-y-2 text-sm text-light-blue">
-            <li><Link href="/investors" className="hover:text-gold">Investors</Link></li>
-            <li><Link href="/companies" className="hover:text-gold">Companies</Link></li>
-            <li><Link href="/contact" className="hover:text-gold">Contact</Link></li>
-          </ul>
-        </div>
-
-        <div>
-          <p className="eyebrow mb-4">Contato</p>
-          <ul className="space-y-2 text-sm text-light-blue">
-            <li>Marcello Chiara</li>
-            <li>Founder & Managing Partner</li>
-            <li>+55 (11) 99199-5656</li>
-            <li>mchiara@blackhillcapital.com.br</li>
-            <li>São Paulo · Brasil</li>
-          </ul>
+        <div className="mt-16 grid gap-8 border-t border-rule pt-10 lg:grid-cols-[18rem_minmax(0,1fr)] lg:gap-16">
+          <div>
+            <p className="t-eyebrow mb-5">{locale === "pt" ? "Contato" : "Contact"}</p>
+            <address className="t-small not-italic">
+              <span className="block font-bold text-white">{COMPANY.founder.name}</span>
+              <span className="block">{COMPANY.founder.role}</span>
+              <a
+                href={`tel:${COMPANY.founder.phoneHref}`}
+                className="mt-3 block transition-colors hover:text-gold"
+              >
+                {COMPANY.founder.phone}
+              </a>
+              <a
+                href={`mailto:${COMPANY.founder.email}`}
+                className="block break-all transition-colors hover:text-gold"
+              >
+                {COMPANY.founder.email}
+              </a>
+            </address>
+          </div>
+          <div>
+            <p className="t-eyebrow mb-5">
+              {locale === "pt" ? "Aviso legal" : "Legal notice"}
+            </p>
+            <p className="t-caveat max-w-3xl">{DISCLAIMER[locale]}</p>
+          </div>
         </div>
       </div>
 
-      <div className="border-t border-navy-3">
-        <div className="mx-auto max-w-[1280px] px-5 md:px-16 py-6 flex flex-col md:flex-row gap-3 md:items-center md:justify-between">
-          <p className="caveat max-w-3xl">
-            Este material não constitui oferta pública de valores mobiliários, parecer jurídico,
-            recomendação de investimento, promessa de rentabilidade nem garantia de qualquer
-            natureza. A decisão de investimento cabe exclusivamente ao investidor, com base em
-            suas próprias análises e due diligence independente.
+      <div className="border-t border-rule">
+        <div className="shell flex flex-col gap-3 py-6 md:flex-row md:items-center md:justify-between">
+          <p className="t-caveat">
+            © {new Date().getFullYear()} {COMPANY.legalName} · {ui.rights}
           </p>
-          <p className="text-[11px] text-muted-blue whitespace-nowrap">
-            © {new Date().getFullYear()} Blackhill Capital · Confidencial
-          </p>
+          <p className="t-caveat">{BRAND.descriptor[locale]}</p>
         </div>
       </div>
     </footer>

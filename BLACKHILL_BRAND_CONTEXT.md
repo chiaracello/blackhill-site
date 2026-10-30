@@ -1,0 +1,149 @@
+# BLACKHILL CAPITAL — CONTEXTO DE MARCA
+
+> Referência institucional aprovada, para uso por qualquer pessoa ou agente que trabalhe neste repositório.
+> **Classificação:** Uso interno. Este arquivo não contém informação confidencial de operações, cedentes ou investidores.
+> **Última atualização:** 30 de outubro de 2026.
+
+---
+
+## 1. Hierarquia de fontes
+
+Em caso de divergência, prevalece a fonte mais alta:
+
+| # | Fonte | Natureza |
+| :-- | :-- | :-- |
+| 1 | **Brand & Communication Standard v1.1** — `docs/BRAND_STANDARD_v1.1.md` | Norma vigente |
+| 2 | **Posicionamento Institucional 2026–2031 v2** — `docs/POSICIONAMENTO_INSTITUCIONAL_2026-2031_v2.md` | Estratégia aprovada |
+| 3 | `__BLACKHILL_KNOWLEDGE_HUB.md` (Google Drive, v2.1, Jun/2026) | Base de conhecimento mestre |
+| 4 | `Blackhill_Arquitetura_Website.docx` (Jun/2026) | Arquitetura de informação |
+
+**Regra de governança herdada do Knowledge Hub:** toda instrução que divergir do Brand Standard deve ser sinalizada, e o Standard prevalece até validação expressa de Marcello Chiara. Essa regra permanece em vigor na v1.1.
+
+---
+
+## 2. Identidade institucional
+
+**Blackhill Capital** — *Financial Advisory & Strategic Technology Investments*
+
+**Tagline:** "Onde capital encontra complexidade." / *"Where capital meets complexity."*
+Ativo permanente de marca. **Não reescrever.**
+
+**Definição operacional (v1.1):** boutique independente de assessoria financeira especializada em ativos de crédito complexos no Brasil, que atua como advisor, estruturador, intermediário e originador — sem gestão de capital de terceiros e sem investir capital próprio nas operações que assessora. Mantém, em frente separada, participações estratégicas em plataformas de tecnologia.
+
+### Dados corporativos
+
+- **Razão social:** Blackhill Capital Ltda.
+- **CNPJ:** 49.400.092/0001-96
+- **Sede:** Alameda Rio Negro, 1030 — Torre Corporate — Escritório 206 — Alphaville — Barueri — SP — CEP 06454-000
+- **Sócio-fundador:** Marcello de Rezende Chiara — Founder & Managing Partner
+
+### Trajetória do sócio-fundador
+
+| Instituição | Papel | Escopo |
+| :-- | :-- | :-- |
+| BTG Pactual | Associate Partner (~20 anos) | Crédito, distressed, estruturação |
+| Enforce (arm de NPL do BTG) | Head Comercial | Originação e gestão de carteiras inadimplidas |
+| Banco ABC Brasil | Distressed Assets | Análise e estruturação de ativos estressados |
+
+Sempre acompanhado do caveat: track record profissional do sócio-fundador, **não** da Blackhill Capital.
+
+---
+
+## 3. Os dois pilares
+
+### Pilar 1 — Blackhill Advisors
+
+Denominação da frente de advisory. **Não é pessoa jurídica independente** — é a designação institucional da atividade de assessoria conduzida pela Blackhill Capital Ltda.
+
+Escopo: Financial Advisory · Structured Credit · Debt Solutions · NPL · Distressed Assets · Judicial Claims · Special Situations.
+
+**Hierarquia editorial obrigatória** (nunca apresentar as sete frentes em paridade visual):
+
+| Camada | Frentes |
+| :-- | :-- |
+| **Núcleo de autoridade** | Precatórios · NPL & Distressed Credit |
+| **Capacidades de estruturação** | Claims & Litigation Finance · Crédito Estruturado/FIDC · Dívida Ativa (LC 208/2024) |
+| **Serviços complementares** | Reestruturação Corporativa · Servicing & Recuperação |
+
+### Pilar 2 — Strategic Technology Investments
+
+| Plataforma | Descrição aprovada |
+| :-- | :-- |
+| **XCurve** | Motor de decisão de crédito com tecnologia e inteligência artificial. |
+| **Finders** | Plataforma de originação e negociação de NPL e ativos complexos. |
+| **DealNorth** | Plataforma SaaS de gestão de pipelines e oportunidades para diferentes setores. |
+
+**Limites de divulgação — não negociáveis:**
+
+- ❌ Não divulgar percentuais de participação, estruturas de controle ou relações societárias sem validação documental atualizada.
+- ✅ Podem ser apresentadas institucionalmente mesmo em desenvolvimento ou pré-lançamento.
+- ❌ Não implicar escala operacional, base de clientes ou disponibilidade comercial.
+- ✅ Sempre acompanhadas da nota de escopo (`src/content/ecosystem.ts` → `ECOSYSTEM_SCOPE`).
+
+---
+
+## 4. Independência — redação vigente (v1.1)
+
+A formulação absoluta **"Sem capital próprio"** foi substituída, porque o Pilar 2 a tornaria literalmente falsa. A redação vigente é mais precisa e mais forte:
+
+> **Não investimos nas operações que assessoramos.**
+> **Não gerimos capital de terceiros.**
+> **Sem conflito entre cedente e investidor.**
+
+### O que a Blackhill faz
+Origina · Estrutura veículos (FIDC, CRI, cessão, debêntures) · Intermedia com DD rigorosa · Assessora reestruturação · Monitora pós-fechamento · Mantém participações em tecnologia, fora do mandato de advisory.
+
+### O que a Blackhill não faz
+Não gere capital de terceiros · Não investe capital próprio nas operações que assessora · Não é parte compradora ou vendedora onde atua como advisor · Não garante retorno · Não emite parecer jurídico · Não compartilha informação confidencial entre as partes sem autorização.
+
+---
+
+## 5. Identidade visual
+
+| Uso | Hex | Regra |
+| :-- | :-- | :-- |
+| Navy primário | `#0D1B2E` | Fundo base |
+| Navy secundário | `#152236` | Seções e blocos |
+| Navy terciário | `#1E3047` | Fundos secundários |
+| Ouro accent | `#C9A84C` | **Exclusivamente sobre navy — nunca ouro sobre branco** |
+| Branco | `#FFFFFF` | Texto sobre navy |
+
+**Tipografia:** Arial (Standard §5). Mantida na v1.1 — ver decisão pendente na seção 7.
+
+**Profundidade por alpha, não por novas cores.** Nenhum matiz fora da paleta acima deve ser introduzido; sombreamento e camadas usam transparência sobre os navies definidos.
+
+---
+
+## 6. Linguagem
+
+### Proibido em qualquer material externo
+IRR/TIR · retorno esperado · rentabilidade-alvo · MOIC sem metodologia · "retorno garantido" · "oportunidade única" · "não perca" · "investimento seguro" · "garantimos" · "parecer jurídico" (como papel da Blackhill) · "gestora" · "fundo" · "asset management" sem qualificação · "investimos em" referido a operações assessoradas · nomes de cedentes, devedores ou investidores sem autorização formal.
+
+### Permitido
+Advisor · Estruturador · Intermediário · Originador · Originação · Estruturação · Due diligence · Monetização · Recovery · NPL · Distressed · Precatório · Legal claims · FIDC · Crédito complexo · Special situations · Prêmio de complexidade · Prêmio de iliquidez · Sujeito a due diligence · Material preliminar.
+
+### Quatro conceitos que nunca se confundem
+1. **Mercado endereçável** — dados públicos, com fonte e data-base.
+2. **Pipeline Blackhill** — não divulgado publicamente.
+3. **Track record profissional** — histórico de Marcello anterior à Blackhill.
+4. **Track record Blackhill** — não divulgado publicamente.
+
+---
+
+## 7. Decisão pendente
+
+**Tipografia.** O Standard fixa Arial. Para um site institucional de padrão internacional, uma tipografia de qualidade web elevaria materialmente a percepção. **Nada foi alterado** — Arial permanece em vigor. Caso aprovada, a troca é um único token em `src/app/globals.css` (`--font-sans` e a declaração em `body`).
+
+---
+
+## 8. Onde cada coisa vive no código
+
+| Conteúdo | Arquivo |
+| :-- | :-- |
+| Navegação, rodapé, dados corporativos, disclaimer | `src/content/site.ts` |
+| Sete frentes de advisory, hierarquia e camadas | `src/content/advisory.ts` |
+| Ecossistema e nota de escopo | `src/content/ecosystem.ts` |
+| Home, sobre, mercado, investidores, empresas, contato | `src/content/pages.ts` |
+| Privacidade (LGPD) e compliance | `src/content/legal.ts` |
+| Insights técnicos | `src/content/insights.ts` |
+| Tokens visuais | `src/app/globals.css` |
