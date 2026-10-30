@@ -68,15 +68,15 @@ export default async function HomePage({
           }}
         />
         <Shell className="relative pb-20 pt-20 md:pb-28 md:pt-32 lg:pb-36 lg:pt-40">
-          <p className="t-eyebrow rise">{copy.heroEyebrow}</p>
-          <GoldRule className="rise rise-1 mt-7" />
-          <h1 className="t-display rise rise-1 mt-7 max-w-4xl">{copy.heroTitle}</h1>
-          <p className="t-lead rise rise-2 mt-8 max-w-2xl">{copy.heroLede}</p>
-          <div className="rise rise-3 mt-11 flex flex-wrap gap-4">
-            <PrimaryLink href={localePath(locale, "/advisory")}>
-              {locale === "pt" ? "Conhecer o advisory" : "Explore the advisory"}
-            </PrimaryLink>
-            <SecondaryLink href={localePath(locale, "/contact")}>{ui.talkToUs}</SecondaryLink>
+          <p className="t-eyebrow">{copy.heroEyebrow}</p>
+          <GoldRule className="mt-7" />
+          <h1 className="t-display mt-7 max-w-4xl">{copy.heroTitle}</h1>
+          <p className="t-lead rise mt-8 max-w-2xl">{copy.heroLede}</p>
+          <div className="rise rise-1 mt-11 flex flex-wrap gap-4">
+            <PrimaryLink href={localePath(locale, "/contact")}>{copy.ctaPrimary}</PrimaryLink>
+            <SecondaryLink href={localePath(locale, "/advisory")}>
+              {copy.ctaSecondary}
+            </SecondaryLink>
           </div>
         </Shell>
       </section>
@@ -104,7 +104,6 @@ export default async function HomePage({
       <Section rule>
         <SectionHead
           eyebrow={copy.pillarsEyebrow}
-          index="00"
           title={copy.pillarsTitle}
           lede={copy.pillarsLede}
         />
@@ -114,7 +113,6 @@ export default async function HomePage({
       <Section rule>
         <SectionHead
           eyebrow={copy.advisoryEyebrow}
-          index="01"
           title={copy.advisoryTitle}
           lede={copy.advisoryLede}
         />
@@ -162,7 +160,6 @@ export default async function HomePage({
       <Section rule className="bg-navy-2/35">
         <SectionHead
           eyebrow={copy.ecosystemEyebrow}
-          index="02"
           title={copy.ecosystemTitle}
           lede={copy.ecosystemLede}
         />
@@ -188,7 +185,7 @@ export default async function HomePage({
 
       {/* ------------------------------------------------------------- MARKET */}
       <Section rule>
-        <SectionHead eyebrow={copy.marketEyebrow} index="03" title={copy.marketTitle} />
+        <SectionHead eyebrow={copy.marketEyebrow} index="01" title={copy.marketTitle} />
 
         <div className="mt-16 grid gap-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
           {MARKET_STATS[locale].map((stat) => (
@@ -209,7 +206,7 @@ export default async function HomePage({
       <Section rule>
         <SectionHead
           eyebrow={copy.processEyebrow}
-          index="04"
+          index="02"
           title={copy.processTitle}
           lede={copy.processLede}
         />
@@ -227,7 +224,7 @@ export default async function HomePage({
 
       {/* -------------------------------------------------------- SEGMENTATION */}
       <Section rule>
-        <SectionHead eyebrow={copy.segmentEyebrow} index="05" title={copy.segmentTitle} />
+        <SectionHead eyebrow={copy.segmentEyebrow} index="03" title={copy.segmentTitle} />
 
         <div className="mt-14 grid gap-px md:grid-cols-3">
           {copy.segments.map((segment) => (
@@ -263,7 +260,7 @@ export default async function HomePage({
               : "We do not publish transactions, sellers or investors. Institutional contact is the starting point — direct and discreet."}
           </p>
           <div className="mt-10">
-            <PrimaryLink href={localePath(locale, "/contact")}>{ui.talkToUs}</PrimaryLink>
+            <PrimaryLink href={localePath(locale, "/contact")}>{copy.ctaPrimary}</PrimaryLink>
           </div>
         </div>
       </Section>

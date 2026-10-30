@@ -1,7 +1,7 @@
 "use server";
 
 import { isLocale, type Locale } from "@/lib/i18n";
-import { COMPANY } from "@/content/site";
+import { COMPANY, natureByValue } from "@/content/site";
 
 /**
  * Contact delivery.
@@ -27,25 +27,26 @@ export type ContactValues = {
   name: string;
   institution: string;
   email: string;
-  profile: string;
+  nature: string;
   message: string;
 };
 
 export type ContactErrorCode =
   | "name"
   | "email"
+  | "nature"
   | "message"
   | "consent"
   | "unavailable"
   | "generic";
 
-export type ContactField = "name" | "email" | "message" | "consent";
+export type ContactField = "name" | "email" | "nature" | "message" | "consent";
 
 const LIMITS = {
   name: 120,
   institution: 160,
   email: 180,
-  profile: 80,
+  nature: 40,
   message: 4000,
 } as const;
 
@@ -85,11 +86,11 @@ export async function submitContact(
   const name = field(data, "name", LIMITS.name);
   const institution = field(data, "institution", LIMITS.institution);
   const email = field(data, "email", LIMITS.email);
-  const profile = field(data, "profile", LIMITS.profile);
+  const nature = field(data, "nature", LIMITS.nature);
   const message = field(data, "message", LIMITS.message);
   const consent = data.get("consent") === "on";
 
-  const values: ContactValues = { name, institution, email, profile, message };
+  const values: ContactValues = { name, institution, email, nature, message };
   const fail = (code: ContactErrorCode, field?: ContactField): ContactState => ({
     status: "error",
     code,
@@ -97,8 +98,12 @@ export async function submitContact(
     values,
   });
 
+  // The subject must be one of the published options, not free text.
+  const selected = natureByValue(nature);
+
   if (name.length < 2) return fail("name", "name");
   if (!EMAIL.test(email)) return fail("email", "email");
+  if (!selected) return fail("nature", "nature");
   if (message.length < 20) return fail("message", "message");
   if (!consent) return fail("consent", "consent");
 
@@ -115,15 +120,17 @@ export async function submitContact(
     return fail("unavailable");
   }
 
+  const natureLabel = selected.label[locale];
+
   const subject = headerSafe(
-    `[Website] ${profile || "Contato"} — ${name}${institution ? ` · ${institution}` : ""}`,
+    `[Website] ${selected.label.pt} — ${name}${institution ? ` · ${institution}` : ""}`,
   );
 
   const rows: [string, string][] = [
     ["Nome", name],
     ["Instituição", institution || "—"],
     ["E-mail", email],
-    ["Perfil", profile || "—"],
+    ["Natureza", `${selected.label.pt}${locale === "en" ? ` (${natureLabel})` : ""}`],
     ["Idioma", locale === "pt" ? "Português" : "Inglês"],
   ];
 
@@ -137,7 +144,7 @@ ${rows
   )
   .join("")}
 </table>
-<p style="margin:0 0 6px;color:#7B93B5">Mensagem</p>
+<p style="margin:0 0 6px;color:#7B93B5">Descrição</p>
 <p style="margin:0;white-space:pre-wrap">${escapeHtml(message)}</p>
 </div>`;
 
@@ -146,7 +153,7 @@ ${rows
     "",
     ...rows.map(([label, value]) => `${label}: ${value}`),
     "",
-    "Mensagem:",
+    "Descrição:",
     message,
   ].join("\n");
 

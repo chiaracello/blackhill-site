@@ -140,6 +140,7 @@ async function checkPage(locale, path) {
 
   check(`${label} exactly one h1`, one(html, /<h1[\s>]/g) === 1, `found ${one(html, /<h1[\s>]/g)}`);
   check(`${label} has og:title`, /property="og:title"/.test(html));
+  check(`${label} has og:image`, /property="og:image"/.test(html));
   check(`${label} no literal undefined`, !/>undefined</.test(html));
   check(`${label} no unresolved [object Object]`, !html.includes("[object Object]"));
 
@@ -212,6 +213,40 @@ async function main() {
       }
     }
     check("sitemap has hreflang alternates", sitemapBody.includes("xhtml:link"));
+
+    // The share card must actually render, not just be referenced.
+    for (const locale of LOCALES) {
+      const page = await fetch(`${BASE}${localeUrl(locale, "/")}`).then((r) => r.text());
+      const ogUrl = page.match(/property="og:image" content="([^"]+)"/)?.[1] ?? "";
+      check(`${locale} og:image declared`, ogUrl.length > 0);
+      if (ogUrl) {
+        const img = await fetch(ogUrl.replace("https://blackhill.com.br", BASE));
+        check(
+          `${locale} og:image renders`,
+          img.status === 200 && (img.headers.get("content-type") ?? "").includes("image"),
+          `got ${img.status} ${img.headers.get("content-type")}`,
+        );
+      }
+    }
+
+    // Origination CTAs must reach the form with the subject preselected.
+    for (const nature of ["npl", "structuring", "restructuring", "judicial-claims"]) {
+      const res = await fetch(`${BASE}/contact?assunto=${nature}`, { redirect: "manual" });
+      check(`contact?assunto=${nature}`, res.status === 200, `got ${res.status}`);
+    }
+
+    // Every advisory page must offer the qualified form, not a bare mailto.
+    for (const locale of LOCALES) {
+      for (const slug of ["precatorios", "npl-distressed", "restructuring"]) {
+        const html = await fetch(`${BASE}${localeUrl(locale, `/advisory/${slug}`)}`).then((r) =>
+          r.text(),
+        );
+        check(
+          `${locale} /advisory/${slug} links to qualified form`,
+          /href="[^"]*\/contact\?assunto=[a-z-]+"/.test(html),
+        );
+      }
+    }
 
     const missing = await fetch(`${BASE}/this-route-does-not-exist`, { redirect: "manual" });
     check("unknown route 404", missing.status === 404, `got ${missing.status}`);

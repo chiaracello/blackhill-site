@@ -1,18 +1,25 @@
 "use client";
 
+import { useSearchParams } from "next/navigation";
 import { useActionState } from "react";
 import { useFormStatus } from "react-dom";
 
 import { submitContact, type ContactState } from "@/app/actions/contact";
 import { CONTACT } from "@/content/pages";
-import type { Locale } from "@/lib/i18n";
-import { localePath } from "@/lib/i18n";
+import { OPPORTUNITY_NATURES, natureByValue } from "@/content/site";
+import { localePath, type Locale } from "@/lib/i18n";
 
 const INITIAL: ContactState = { status: "idle" };
 
 export default function ContactForm({ locale }: { locale: Locale }) {
   const [state, action] = useActionState(submitContact, INITIAL);
   const copy = CONTACT[locale];
+
+  // An advisory page can open the form with its subject already selected:
+  // /contact?assunto=npl. Unknown values are ignored rather than trusted.
+  const params = useSearchParams();
+  const requested = params.get("assunto") ?? "";
+  const preselected = natureByValue(requested)?.value ?? "";
 
   if (state.status === "ok") {
     return (
@@ -26,6 +33,7 @@ export default function ContactForm({ locale }: { locale: Locale }) {
   const error = state.status === "error" ? state : null;
   // Re-seed the fields after a failed submission so nothing typed is lost.
   const prior = error?.values;
+
   const fieldError = (field: string) =>
     error?.field === field ? copy.errors[error.code as keyof typeof copy.errors] : null;
   // Delivery failures are not tied to a single field.
@@ -80,24 +88,33 @@ export default function ContactForm({ locale }: { locale: Locale }) {
       />
 
       <div>
-        <label htmlFor="contact-profile" className="field-label">
-          {copy.labels.profile}
+        <label htmlFor="contact-nature" className="field-label">
+          {copy.labels.nature} <Required />
         </label>
         <select
-          id="contact-profile"
-          name="profile"
+          id="contact-nature"
+          name="nature"
+          required
+          defaultValue={prior?.nature ?? preselected}
+          aria-invalid={fieldError("nature") ? true : undefined}
+          aria-describedby={
+            fieldError("nature") ? "contact-nature-error" : "contact-nature-hint"
+          }
           className="field mt-1"
-          defaultValue={prior?.profile ?? ""}
         >
           <option value="" disabled>
             —
           </option>
-          {copy.profiles.map((profile) => (
-            <option key={profile} value={profile}>
-              {profile}
+          {OPPORTUNITY_NATURES.map((nature) => (
+            <option key={nature.value} value={nature.value}>
+              {nature.label[locale]}
             </option>
           ))}
         </select>
+        <p id="contact-nature-hint" className="t-caveat mt-2">
+          {copy.natureHint}
+        </p>
+        <FieldError id="contact-nature-error" message={fieldError("nature")} />
       </div>
 
       <div>

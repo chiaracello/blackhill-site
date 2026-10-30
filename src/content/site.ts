@@ -21,6 +21,13 @@ export const COMPANY = {
     phoneHref: "+5511991995656",
     email: "mchiara@blackhillcapital.com.br",
     linkedin: "https://www.linkedin.com/company/blackhill-capital",
+    initials: "MC",
+    /**
+     * Professional portrait. Drop the file in `public/` and set the path here
+     * (e.g. "/marcello-chiara.jpg"); the About page swaps the typographic
+     * fallback for the photograph with no other change.
+     */
+    photo: null as string | null,
   },
 } as const;
 
@@ -198,4 +205,64 @@ export const UI: Localized<Record<string, string>> = {
     rights: "All rights reserved",
     inThisSection: "In this section",
   },
+};
+
+/* --------------------------------------------------------------------------
+   Commercial origination.
+
+   The site is also the entry point for Financial Advisory mandates. The
+   taxonomy below drives the qualified contact form and lets an advisory page
+   hand the visitor to the form with the subject already selected.
+   -------------------------------------------------------------------------- */
+
+export type OpportunityNature = {
+  /** Stable value: submitted with the form and accepted as the `assunto` query param. */
+  value: string;
+  label: Localized<string>;
+};
+
+export const OPPORTUNITY_NATURES: OpportunityNature[] = [
+  {
+    value: "npl",
+    label: {
+      pt: "Venda ou aquisição de carteira NPL",
+      en: "NPL portfolio sale or acquisition",
+    },
+  },
+  {
+    value: "structuring",
+    label: { pt: "Estruturação de crédito / funding", en: "Credit structuring / funding" },
+  },
+  {
+    value: "restructuring",
+    label: { pt: "Debt restructuring", en: "Debt restructuring" },
+  },
+  {
+    value: "special-situations",
+    label: { pt: "Special situations", en: "Special situations" },
+  },
+  {
+    value: "judicial-claims",
+    label: { pt: "Precatórios / judicial claims", en: "Precatórios / judicial claims" },
+  },
+  {
+    value: "partnerships",
+    label: { pt: "Parcerias institucionais", en: "Institutional partnerships" },
+  },
+  { value: "other", label: { pt: "Outros assuntos", en: "Other matters" } },
+];
+
+export function natureByValue(value: string): OpportunityNature | undefined {
+  return OPPORTUNITY_NATURES.find((nature) => nature.value === value);
+}
+
+/** Advisory front → the subject the contact form opens with. */
+export const AREA_NATURE: Record<string, string> = {
+  precatorios: "judicial-claims",
+  "npl-distressed": "npl",
+  claims: "judicial-claims",
+  "structured-credit": "structuring",
+  "public-receivables": "structuring",
+  restructuring: "restructuring",
+  servicing: "npl",
 };

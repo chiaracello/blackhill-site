@@ -7,15 +7,17 @@ import PageHero from "@/components/PageHero";
 import {
   ArgumentList,
   Caveat,
+  CheckList,
   Eyebrow,
   FrameList,
+  GoldRule,
   PrimaryLink,
   RevealLink,
   Section,
 } from "@/components/ui";
-import { ADVISORY_AREAS, TIER_LABEL, areaBySlug } from "@/content/advisory";
+import { ADVISORY_AREAS, ENGAGE, TIER_LABEL, areaBySlug } from "@/content/advisory";
 import { INSIGHTS } from "@/content/insights";
-import { DISCLAIMER, UI } from "@/content/site";
+import { AREA_NATURE, DISCLAIMER, UI } from "@/content/site";
 import { LOCALES, isLocale, localePath } from "@/lib/i18n";
 import { breadcrumbSchema, buildMetadata } from "@/lib/metadata";
 
@@ -39,8 +41,32 @@ export async function generateMetadata({
     locale,
     path: `/advisory/${area.slug}`,
     title: area.title[locale],
-    description: area.short[locale],
+    // The problem statement is the strongest summary for search results.
+    description: area.problem[locale].slice(0, 300),
   });
+}
+
+/** Label rail + content, the recurring two-column unit on this page. */
+function Block({
+  index,
+  eyebrow,
+  note,
+  children,
+}: {
+  index: string;
+  eyebrow: string;
+  note?: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <div className="grid gap-10 lg:grid-cols-[14rem_minmax(0,1fr)] lg:gap-16">
+      <div>
+        <Eyebrow index={index}>{eyebrow}</Eyebrow>
+        {note ? <p className="t-caveat mt-5 max-w-xs">{note}</p> : null}
+      </div>
+      <div className="max-w-3xl">{children}</div>
+    </div>
+  );
 }
 
 export default async function AdvisoryAreaPage({
@@ -55,8 +81,11 @@ export default async function AdvisoryAreaPage({
   if (!area) notFound();
 
   const ui = UI[locale];
+  const engage = ENGAGE[locale];
   const related = INSIGHTS.filter((insight) => insight.related === area.slug);
   const siblings = ADVISORY_AREAS.filter((other) => other.slug !== area.slug).slice(0, 3);
+  // Opens the contact form with this front's subject already selected.
+  const contactHref = `${localePath(locale, "/contact")}?assunto=${AREA_NATURE[area.slug] ?? "other"}`;
 
   return (
     <>
@@ -68,97 +97,121 @@ export default async function AdvisoryAreaPage({
         lede={area.lede[locale]}
       />
 
+      {/* 1 — What financial problem does this solve? */}
       <Section rule>
-        <div className="grid gap-10 lg:grid-cols-[14rem_minmax(0,1fr)] lg:gap-16">
-          <div>
-            <Eyebrow>
-              {locale === "pt" ? "Por que é complexo" : "Why it is complex"}
-            </Eyebrow>
-          </div>
-          <div className="max-w-3xl">
-            <ArgumentList items={area.complexity[locale]} />
-          </div>
-        </div>
+        <Block
+          index="01"
+          eyebrow={locale === "pt" ? "O problema" : "The problem"}
+        >
+          <p className="t-lead text-off-white">{area.problem[locale]}</p>
+        </Block>
       </Section>
 
+      {/* 2 — Why it is technically complex. */}
       <Section rule className="bg-navy-2/30">
-        <div className="grid gap-10 lg:grid-cols-[14rem_minmax(0,1fr)] lg:gap-16">
-          <div>
-            <Eyebrow>{locale === "pt" ? "O papel da Blackhill" : "Blackhill's role"}</Eyebrow>
-            <p className="t-caveat mt-5 max-w-xs">
-              {locale === "pt"
-                ? "Atuamos como advisor, estruturador e intermediário. Não adquirimos o ativo que assessoramos."
-                : "We act as advisor, structurer and intermediary. We do not acquire the asset we advise on."}
-            </p>
-          </div>
-          <div className="max-w-3xl">
-            <ArgumentList items={area.role[locale]} />
-          </div>
-        </div>
+        <Block
+          index="02"
+          eyebrow={locale === "pt" ? "Por que é complexo" : "Why it is complex"}
+        >
+          <ArgumentList items={area.complexity[locale]} />
+        </Block>
       </Section>
 
+      {/* 3 — Who can engage Blackhill. */}
       <Section rule>
-        <div className="grid gap-10 lg:grid-cols-[14rem_minmax(0,1fr)] lg:gap-16">
-          <div>
-            <Eyebrow>
-              {locale === "pt" ? "Arcabouço e referências" : "Framework and references"}
-            </Eyebrow>
-          </div>
-          <div className="max-w-3xl">
-            <FrameList items={area.frame[locale]} />
-            <Caveat className="mt-10">{DISCLAIMER[locale]}</Caveat>
-          </div>
-        </div>
+        <Block
+          index="03"
+          eyebrow={locale === "pt" ? "Quem pode contratar" : "Who can engage us"}
+          note={
+            locale === "pt"
+              ? "Atuamos por mandato. A aderência é avaliada caso a caso, antes de qualquer compromisso."
+              : "We act under mandate. Fit is assessed case by case, before any commitment."
+          }
+        >
+          <CheckList items={area.who[locale]} tone="affirm" />
+        </Block>
+      </Section>
+
+      {/* 4 — How we act in structuring and negotiation. */}
+      <Section rule className="bg-navy-2/30">
+        <Block
+          index="04"
+          eyebrow={locale === "pt" ? "Como atuamos" : "How we work"}
+          note={
+            locale === "pt"
+              ? "Advisor, estruturador e intermediário. Não adquirimos o ativo que assessoramos."
+              : "Advisor, structurer and intermediary. We do not acquire the asset we advise on."
+          }
+        >
+          <ArgumentList items={area.role[locale]} />
+        </Block>
+      </Section>
+
+      {/* 5 — Regulatory and procedural frame. */}
+      <Section rule>
+        <Block
+          index="05"
+          eyebrow={locale === "pt" ? "Arcabouço e referências" : "Framework and references"}
+        >
+          <FrameList items={area.frame[locale]} />
+          <Caveat className="mt-10">{DISCLAIMER[locale]}</Caveat>
+        </Block>
       </Section>
 
       {related.length > 0 ? (
         <Section rule className="bg-navy-2/30">
-          <div className="grid gap-10 lg:grid-cols-[14rem_minmax(0,1fr)] lg:gap-16">
-            <div>
-              <Eyebrow>{locale === "pt" ? "Leitura técnica" : "Technical reading"}</Eyebrow>
-            </div>
-            <div>
-              <ul>
-                {related.map((insight) => (
-                  <li key={insight.slug}>
-                    <Link
-                      href={localePath(locale, `/insights/${insight.slug}`)}
-                      className="index-row"
-                    >
-                      <span className="t-index">{insight.index}</span>
-                      <span className="text-base font-bold text-white">
-                        {insight.title[locale]}
-                      </span>
-                      <span className="t-small">{insight.deck[locale]}</span>
-                      <span className="link-reveal hidden lg:inline-block">
-                        <span aria-hidden="true">→</span>
-                      </span>
-                    </Link>
-                  </li>
-                ))}
-                <li className="border-t border-rule" />
-              </ul>
-            </div>
-          </div>
+          <Block
+            index="06"
+            eyebrow={locale === "pt" ? "Leitura técnica" : "Technical reading"}
+          >
+            <ul className="!max-w-none">
+              {related.map((insight) => (
+                <li key={insight.slug}>
+                  <Link
+                    href={localePath(locale, `/insights/${insight.slug}`)}
+                    className="index-row"
+                  >
+                    <span className="t-index">{insight.index}</span>
+                    <span className="text-base font-bold text-white">
+                      {insight.title[locale]}
+                    </span>
+                    <span className="t-small">{insight.deck[locale]}</span>
+                    <span className="link-reveal hidden lg:inline-block">
+                      <span aria-hidden="true">→</span>
+                    </span>
+                  </Link>
+                </li>
+              ))}
+              <li className="border-t border-rule" />
+            </ul>
+          </Block>
         </Section>
       ) : null}
 
+      {/* 6 — How to start a confidential conversation. */}
       <Section rule>
-        <div className="grid gap-12 lg:grid-cols-[minmax(0,1fr)_22rem] lg:gap-16">
-          <div className="max-w-2xl">
-            <h2 className="t-h2">
-              {locale === "pt"
-                ? "Falar sobre esta categoria."
-                : "Discuss this category."}
-            </h2>
-            <p className="t-lead mt-6">
-              {locale === "pt"
-                ? "O contato é direto e tratado com confidencialidade. Não envie documentos de operações por formulário."
-                : "Contact is direct and handled confidentially. Please do not send transaction documents by form."}
-            </p>
+        <div className="grid gap-12 lg:grid-cols-[minmax(0,1fr)_18rem] lg:gap-16">
+          <div>
+            <Eyebrow index={related.length > 0 ? "07" : "06"}>{engage.eyebrow}</Eyebrow>
+            <GoldRule className="mt-7" />
+            <h2 className="t-h2 mt-7 max-w-2xl">{engage.title}</h2>
+            <p className="t-lead mt-6 max-w-2xl">{engage.lede}</p>
+
+            <ol className="mt-12 grid gap-px sm:grid-cols-3">
+              {engage.steps.map((step, i) => (
+                <li key={step.title} className="panel p-6 lg:p-7">
+                  <span className="t-index">{String(i + 1).padStart(2, "0")}</span>
+                  <p className="mt-5 text-sm font-bold text-white">{step.title}</p>
+                  <p className="t-small mt-3">{step.detail}</p>
+                </li>
+              ))}
+            </ol>
+
             <div className="mt-10">
-              <PrimaryLink href={localePath(locale, "/contact")}>{ui.talkToUs}</PrimaryLink>
+              <PrimaryLink href={contactHref}>{engage.cta}</PrimaryLink>
             </div>
+
+            <Caveat className="mt-8">{engage.caveat}</Caveat>
           </div>
 
           <div>

@@ -32,6 +32,15 @@ Site institucional da Blackhill Capital em `blackhill.com.br`. Next.js 16 (App R
 - Este site **não** usa analytics de terceiros, pixels, cookies de publicidade ou qualquer rastreamento. Por isso não há banner de cookies.
 - Se isso mudar, `src/content/legal.ts` (seções 4 e 5 de `PRIVACY`) precisa ser atualizado **na mesma alteração**, e o banner de consentimento passa a ser obrigatório.
 
+### Originação comercial
+
+- O site origina mandatos, mas **originar não autoriza prometer**. Nunca prometer aprovação de crédito, execução garantida, prazo de fechamento, retorno ou êxito — nem em CTA, nem em copy de conversão. O smoke test falha se linguagem de retorno proibida aparecer.
+- Toda página de frente de advisory responde quatro perguntas, nesta ordem: o problema, quem pode contratar, como atuamos, como iniciar uma conversa confidencial. A estrutura está em `src/app/[locale]/advisory/[slug]/page.tsx`; o conteúdo, nos campos `problem` e `who` de `src/content/advisory.ts`.
+- Toda frente declara que o contato preliminar **não é vinculante** (`ENGAGE.caveat`).
+- A CTA primária é "Apresente sua operação" / "Discuss a Transaction" e leva sempre ao formulário qualificado.
+- O formulário coleta **apenas** nome, empresa, e-mail profissional, natureza da oportunidade e descrição resumida. **Nunca** pedir documentos, nomes de contrapartes, dados de devedores ou informação sigilosa antes de NDA.
+- A natureza da oportunidade vem de `OPPORTUNITY_NATURES` (lista fechada). `?assunto=<valor>` pré-seleciona o assunto; valores fora da lista são ignorados, nunca refletidos na página.
+
 ### Formulário de contato
 
 - O formulário anterior exibia confirmação de recebimento sem transmitir nada. **A regra é absoluta: `status: "ok"` só pode ser retornado depois que o provedor aceitou a mensagem.** Qualquer outro desfecho retorna erro dizendo que a mensagem **não** foi registrada.
@@ -68,6 +77,12 @@ O smoke test (`scripts/smoke.mjs`, zero dependências) sobe um `next start` real
 | `RESEND_API_KEY` | sim, em produção | Chave do provedor de envio. Sem ela o formulário recusa o envio e informa o visitante. |
 | `CONTACT_FROM_EMAIL` | sim, em produção | Remetente, em domínio verificado no provedor. |
 | `CONTACT_TO_EMAIL` | não | Destinatário. Default: `mchiara@blackhillcapital.com.br`. |
+
+## Imagem e foto
+
+- A imagem Open Graph é gerada em `src/app/[locale]/opengraph-image.tsx` e referenciada explicitamente em `buildMetadata` — a convenção de arquivo sozinha não resolve sob o segmento `[locale]`.
+- A foto do sócio-fundador entra por `COMPANY.founder.photo` (`src/content/site.ts`): basta pôr o arquivo em `public/` e apontar o caminho. Enquanto for `null`, a página renderiza o fallback tipográfico.
+- **Não publicar a timeline da plataforma** enquanto os marcos não forem confirmados.
 
 ---
 

@@ -15,6 +15,10 @@ export type AdvisoryArea = {
   title: Localized<string>;
   short: Localized<string>;
   lede: Localized<string>;
+  /** The financial problem the mandate solves, stated from the client's side. */
+  problem: Localized<string>;
+  /** Who can engage Blackhill on this front. */
+  who: Localized<string[]>;
   /** Why the asset class is structurally complex — the authority argument. */
   complexity: Localized<string[]>;
   /** What Blackhill does, strictly as advisor/structurer/intermediary. */
@@ -28,7 +32,7 @@ export const ADVISORY_AREAS: AdvisoryArea[] = [
     slug: "precatorios",
     tier: "core",
     index: "01",
-    title: { pt: "Precatórios", en: "Court-Ordered Public Claims" },
+    title: { pt: "Precatórios", en: "Precatórios (Court-Ordered Public Claims)" },
     short: {
       pt: "Créditos judiciais definitivos contra entes públicos federais, estaduais e municipais.",
       en: "Final judicial claims against federal, state and municipal public entities.",
@@ -36,6 +40,24 @@ export const ADVISORY_AREAS: AdvisoryArea[] = [
     lede: {
       pt: "O precatório é um crédito reconhecido judicialmente em caráter definitivo contra a Fazenda Pública. Sua complexidade não está no mérito — já decidido — mas na fila orçamentária, na cadeia de titularidade e na atualização do valor. É aí que a estruturação técnica define o resultado.",
       en: "A precatório is a judicially recognised, final claim against the Brazilian public treasury. Its complexity lies not in the merits — already decided — but in the budgetary queue, the chain of title and the restatement of value. That is where technical structuring determines the outcome.",
+    },
+    problem: {
+      pt: "O titular de um precatório tem um crédito já reconhecido em definitivo, mas não tem liquidez: o pagamento depende da fila orçamentária do ente devedor e pode levar anos. A Blackhill estrutura a monetização antecipada desse crédito junto a capital institucional qualificado.",
+      en: "The holder of a precatório has a claim already recognised with finality, but no liquidity: payment depends on the debtor entity's budgetary queue and can take years. Blackhill structures the early monetisation of that claim with qualified institutional capital.",
+    },
+    who: {
+      pt: [
+        "Detentores de precatórios federais, estaduais ou municipais",
+        "Escritórios de advocacia com carteiras de clientes titulares",
+        "Empresas com precatórios reconhecidos em balanço",
+        "Investidores institucionais com mandato para crédito de ente público",
+      ],
+      en: [
+        "Holders of federal, state or municipal precatórios",
+        "Law firms with portfolios of holder clients",
+        "Companies carrying recognised precatórios on their balance sheet",
+        "Institutional investors mandated for public-entity credit",
+      ],
     },
     complexity: {
       pt: [
@@ -97,6 +119,24 @@ export const ADVISORY_AREAS: AdvisoryArea[] = [
       pt: "Precificar uma carteira inadimplente é projetar comportamento de recuperação sobre um ativo cuja documentação, colateral e histórico raramente estão completos. A disciplina está em separar o que é mensurável do que é suposição — e em precificar a diferença.",
       en: "Pricing a non-performing portfolio means projecting recovery behaviour on an asset whose documentation, collateral and history are rarely complete. The discipline lies in separating what is measurable from what is assumption — and pricing the difference.",
     },
+    problem: {
+      pt: "Carteiras inadimplentes consomem provisão e capital regulatório de quem as originou, e exigem estrutura especializada de recuperação que a maioria dos credores não tem. A Blackhill conecta quem precisa ceder a quem tem mandato, estrutura e apetite para adquirir.",
+      en: "Non-performing portfolios consume provisions and regulatory capital from the institution that originated them, and demand specialised recovery infrastructure most lenders do not have. Blackhill connects those who need to sell with those who have the mandate, structure and appetite to acquire.",
+    },
+    who: {
+      pt: [
+        "Bancos, financeiras e cooperativas de crédito com carteiras para cessão",
+        "Empresas com carteiras de recebíveis inadimplidos",
+        "Fundos e gestoras com mandato em distressed e special situations",
+        "Securitizadoras e servicers verticalmente integrados",
+      ],
+      en: [
+        "Banks, finance companies and credit unions with portfolios to assign",
+        "Companies holding non-performing receivables portfolios",
+        "Funds and asset managers mandated in distressed and special situations",
+        "Securitisation companies and vertically integrated servicers",
+      ],
+    },
     complexity: {
       pt: [
         "Carteiras pulverizadas de pessoa física e de pessoa jurídica seguem lógicas de recuperação distintas e não devem ser precificadas pelo mesmo modelo.",
@@ -156,6 +196,24 @@ export const ADVISORY_AREAS: AdvisoryArea[] = [
     lede: {
       pt: "Um direito litigioso só se torna ativo financeiro quando a probabilidade de êxito, a cessibilidade e o prazo de realização podem ser avaliados de forma independente. A elegibilidade é função da fase processual — não da expectativa do titular.",
       en: "A litigious right becomes a financial asset only when probability of success, assignability and time to realisation can be assessed independently. Eligibility is a function of procedural stage — not of the holder's expectation.",
+    },
+    problem: {
+      pt: "Um direito creditório reconhecido em juízo só se converte em caixa quando o processo se encerra — o que pode levar anos e imobilizar capital de giro. A Blackhill estrutura a antecipação desse valor, com as proteções contratuais que o risco processual exige.",
+      en: "A credit right recognised in court only converts into cash when proceedings end — which can take years and tie up working capital. Blackhill structures the early realisation of that value, with the contractual protections procedural risk demands.",
+    },
+    who: {
+      pt: [
+        "Empresas com créditos tributários, trabalhistas ou comerciais reconhecidos",
+        "Escritórios de advocacia com honorários de êxito a realizar",
+        "Fundos com mandato em litigation finance",
+        "Credores em execuções de longa maturação",
+      ],
+      en: [
+        "Companies with recognised tax, labour or commercial claims",
+        "Law firms with success fees yet to be realised",
+        "Funds mandated in litigation finance",
+        "Creditors in long-maturing enforcement proceedings",
+      ],
     },
     complexity: {
       pt: [
@@ -217,6 +275,24 @@ export const ADVISORY_AREAS: AdvisoryArea[] = [
       pt: "A estrutura não é o objetivo: é o instrumento que torna um ativo complexo investível por capital institucional. A escolha entre cessão direta, FIDC simples ou estrutura multiclasse decorre do tamanho, da origem e do perfil de risco da carteira.",
       en: "The structure is not the objective: it is the instrument that makes a complex asset investable by institutional capital. The choice between direct assignment, a single-tranche fund or a multi-class structure follows from the portfolio's size, origin and risk profile.",
     },
+    problem: {
+      pt: "Um ativo de crédito pode ser bom e, ainda assim, não ser investível: falta o veículo, o desenho de garantias e o arcabouço regulatório que permitem a capital institucional entrar. A Blackhill constrói essa ponte entre o ativo e o investidor.",
+      en: "A credit asset can be sound and still not be investable: what is missing is the vehicle, the security design and the regulatory framework that let institutional capital in. Blackhill builds that bridge between the asset and the investor.",
+    },
+    who: {
+      pt: [
+        "Originadores de recebíveis que buscam funding estruturado",
+        "Empresas que precisam transformar carteira em liquidez",
+        "Gestoras que precisam estruturar um veículo para uma tese",
+        "Bancos e securitizadoras em operações de cessão",
+      ],
+      en: [
+        "Receivables originators seeking structured funding",
+        "Companies that need to turn a portfolio into liquidity",
+        "Asset managers that need a vehicle built for a thesis",
+        "Banks and securitisation companies in assignment transactions",
+      ],
+    },
     complexity: {
       pt: [
         "O sizing das cotas — sênior, mezanino e subordinada — define a cobertura efetiva do investidor sênior e é a decisão estrutural central.",
@@ -276,6 +352,24 @@ export const ADVISORY_AREAS: AdvisoryArea[] = [
     lede: {
       pt: "A LC 208/2024 abriu aos municípios a possibilidade de securitizar créditos tributários inscritos em dívida ativa. É uma classe de ativo nova no Brasil, com risco soberano municipal e arcabouço ainda em consolidação — o que exige diligência proporcionalmente maior.",
       en: "Complementary Law 208/2024 enabled Brazilian municipalities to securitise tax claims registered as active debt. It is a new asset class, carrying municipal sovereign risk within a framework still consolidating — which demands proportionally greater diligence.",
+    },
+    problem: {
+      pt: "Municípios acumulam estoques relevantes de dívida ativa que não se convertem em caixa no horizonte necessário. A LC 208/2024 abriu a via de antecipação — e a estruturação técnica é o que separa a permissão legal da operação executável.",
+      en: "Municipalities accumulate material stocks of registered tax debt that do not convert into cash within the horizon they need. Complementary Law 208/2024 opened the path to anticipation — and technical structuring is what separates legal permission from an executable transaction.",
+    },
+    who: {
+      pt: [
+        "Municípios com estoque relevante de dívida ativa inscrita",
+        "Procuradorias municipais e assessorias jurídicas do setor público",
+        "Investidores com mandato para risco soberano subnacional",
+        "Securitizadoras e estruturadores de veículos de propósito específico",
+      ],
+      en: [
+        "Municipalities with material registered tax-debt stock",
+        "Municipal attorneys' offices and public-sector legal advisers",
+        "Investors mandated for subnational sovereign risk",
+        "Securitisation companies and special purpose vehicle structurers",
+      ],
     },
     complexity: {
       pt: [
@@ -337,6 +431,24 @@ export const ADVISORY_AREAS: AdvisoryArea[] = [
       pt: "Assessoramos empresas com passivos complexos a reorganizar sua estrutura de capital com a mesma lente técnica usada para precificar ativos distressed — do lado oposto da mesa, e sem viés de gestora.",
       en: "We advise companies with complex liabilities on reorganising their capital structure using the same technical lens applied to pricing distressed assets — from the opposite side of the table, and without a fund manager's bias.",
     },
+    problem: {
+      pt: "Uma empresa com passivo estressado precisa negociar com credores que têm incentivos distintos, garantias distintas e mais informação. Sem assessoria independente, a negociação acaba conduzida pelo lado mais preparado — que raramente é o devedor.",
+      en: "A company with stressed liabilities must negotiate with creditors who hold different incentives, different security and more information. Without independent advice, the negotiation ends up led by the better-prepared side — which is rarely the debtor.",
+    },
+    who: {
+      pt: [
+        "Empresas médias e grandes com passivo bancário, fiscal ou comercial relevante",
+        "Grupos empresariais em renegociação de dívida",
+        "Acionistas e conselhos avaliando alternativas de capital",
+        "Empresas buscando new money com estrutura de garantias",
+      ],
+      en: [
+        "Mid-sized and large companies with material bank, tax or trade liabilities",
+        "Corporate groups in debt renegotiation",
+        "Shareholders and boards assessing capital alternatives",
+        "Companies seeking new money with a security structure",
+      ],
+    },
     complexity: {
       pt: [
         "O mapeamento completo do passivo — bancário, fiscal, trabalhista e de fornecedores — precede qualquer negociação.",
@@ -392,6 +504,24 @@ export const ADVISORY_AREAS: AdvisoryArea[] = [
     lede: {
       pt: "O preço de uma carteira é uma hipótese; a recuperação é o resultado. O acompanhamento pós-fechamento existe para verificar a hipótese contra a realidade e corrigir a operação enquanto há tempo.",
       en: "A portfolio's price is a hypothesis; recovery is the outcome. Post-closing monitoring exists to test the hypothesis against reality and correct the operation while there is still time.",
+    },
+    problem: {
+      pt: "Depois do fechamento, o resultado de uma carteira passa a depender de quem opera a cobrança. O desvio entre a curva projetada e a realizada só aparece a tempo de ser corrigido quando há monitoramento estruturado e independente.",
+      en: "After closing, a portfolio's outcome depends on whoever operates collection. The gap between the projected and the realised curve only surfaces in time to be corrected where monitoring is structured and independent.",
+    },
+    who: {
+      pt: [
+        "Investidores que adquiriram carteiras e precisam de acompanhamento independente",
+        "Fundos com carteiras sob gestão de servicers terceiros",
+        "Cedentes com cota subordinada retida na operação",
+        "Estruturas de FIDC com reporte periódico obrigatório",
+      ],
+      en: [
+        "Investors that acquired portfolios and need independent oversight",
+        "Funds with portfolios managed by third-party servicers",
+        "Sellers retaining a subordinated tranche in the transaction",
+        "Receivables fund structures with mandatory periodic reporting",
+      ],
     },
     complexity: {
       pt: [
@@ -468,3 +598,72 @@ export function areaBySlug(slug: string): AdvisoryArea | undefined {
 export function areasByTier(tier: Tier): AdvisoryArea[] {
   return ADVISORY_AREAS.filter((area) => area.tier === tier);
 }
+
+/* --------------------------------------------------------------------------
+   Engagement block, shared by every advisory front.
+
+   Answers "how do I start a confidential conversation?" without promising any
+   outcome: no approval, no execution, no result is implied at any step.
+   -------------------------------------------------------------------------- */
+
+export const ENGAGE: Localized<{
+  eyebrow: string;
+  title: string;
+  lede: string;
+  steps: { title: string; detail: string }[];
+  cta: string;
+  caveat: string;
+}> = {
+  pt: {
+    eyebrow: "Como iniciar",
+    title: "Iniciar uma conversa confidencial.",
+    lede:
+      "O primeiro contato não exige documentos, nomes de contrapartes ou dados de operação. Basta o contexto em linhas gerais para avaliarmos se há aderência de mandato.",
+    steps: [
+      {
+        title: "Contato preliminar",
+        detail:
+          "Você descreve o contexto em termos gerais. Avaliamos aderência e retornamos com uma leitura inicial.",
+      },
+      {
+        title: "Confidencialidade",
+        detail:
+          "Havendo aderência, formalizamos NDA antes de qualquer informação sensível ser compartilhada.",
+      },
+      {
+        title: "Análise e mandato",
+        detail:
+          "Com a documentação disponível, estruturamos o escopo do trabalho e as condições do mandato.",
+      },
+    ],
+    cta: "Apresente sua operação",
+    caveat:
+      "O contato preliminar não constitui mandato, proposta vinculante, compromisso de estruturação ou garantia de execução. A aceitação de qualquer trabalho depende de análise prévia e de acordo formal entre as partes.",
+  },
+  en: {
+    eyebrow: "How to start",
+    title: "Start a confidential conversation.",
+    lede:
+      "A first approach requires no documents, counterparty names or transaction data. The context in broad terms is enough for us to assess whether there is mandate fit.",
+    steps: [
+      {
+        title: "Preliminary contact",
+        detail:
+          "You describe the context in general terms. We assess fit and come back with an initial reading.",
+      },
+      {
+        title: "Confidentiality",
+        detail:
+          "Where there is fit, an NDA is executed before any sensitive information is shared.",
+      },
+      {
+        title: "Analysis and mandate",
+        detail:
+          "With documentation available, we define the scope of work and the terms of the mandate.",
+      },
+    ],
+    cta: "Discuss a Transaction",
+    caveat:
+      "Preliminary contact does not constitute a mandate, a binding proposal, a commitment to structure or any guarantee of execution. Accepting any engagement depends on prior analysis and a formal agreement between the parties.",
+  },
+};

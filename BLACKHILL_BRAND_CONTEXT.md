@@ -2,7 +2,7 @@
 
 > Referência institucional aprovada, para uso por qualquer pessoa ou agente que trabalhe neste repositório.
 > **Classificação:** Uso interno. Este arquivo não contém informação confidencial de operações, cedentes ou investidores.
-> **Última atualização:** 30 de outubro de 2026.
+> **Última atualização:** 30 de outubro de 2026 (inclui a camada de originação comercial).
 
 ---
 
@@ -130,13 +130,50 @@ Advisor · Estruturador · Intermediário · Originador · Originação · Estru
 
 ---
 
-## 7. Decisão pendente
+## 7. Originação comercial
+
+O site não é apenas institucional: é também canal de originação de mandatos de Financial Advisory. Essa função não afeta o posicionamento — afeta a estrutura de conversão.
+
+### Públicos prioritários
+
+Bancos e instituições financeiras · FIDCs e gestoras de crédito · Empresas médias e grandes · Credores e investidores institucionais · Detentores de créditos judiciais · Escritórios jurídicos especializados em operações complexas.
+
+### Chamada principal
+
+| | PT | EN |
+| :-- | :-- | :-- |
+| Primária | **Apresente sua operação** | **Discuss a Transaction** |
+| Secundária | Conhecer as competências | Explore our capabilities |
+
+A primária leva sempre ao formulário qualificado. A secundária leva a `/advisory`.
+
+### As quatro perguntas de cada frente
+
+Toda página de frente de advisory responde, nesta ordem: **(1)** que problema financeiro resolvemos · **(2)** quem pode contratar a Blackhill · **(3)** como atuamos na estruturação ou negociação · **(4)** como iniciar uma conversa confidencial.
+
+### Taxonomia do formulário
+
+"Qual é a natureza da oportunidade?" — campo obrigatório, com valores estáveis em `OPPORTUNITY_NATURES` (`src/content/site.ts`):
+
+`npl` · `structuring` · `restructuring` · `special-situations` · `judicial-claims` · `partnerships` · `other`
+
+Cada frente de advisory abre o formulário já com o assunto selecionado, via `?assunto=<valor>`. O mapa está em `AREA_NATURE`. Valores fora da lista são ignorados.
+
+### Limites da linguagem comercial
+
+Originar mandato **não** autoriza prometer resultado. Permanecem proibidos, inclusive em CTA e copy de conversão: promessa de retorno, de aprovação de crédito, de execução garantida, de prazo de fechamento ou de êxito. O contato preliminar é declarado explicitamente como **não vinculante** em toda página de frente.
+
+O formulário pede apenas nome, empresa, e-mail profissional, natureza da oportunidade e descrição resumida. **Nunca** solicitar documentos, nomes de contrapartes, dados de devedores ou informação sigilosa antes de NDA.
+
+---
+
+## 8. Decisão pendente
 
 **Tipografia.** O Standard fixa Arial. Para um site institucional de padrão internacional, uma tipografia de qualidade web elevaria materialmente a percepção. **Nada foi alterado** — Arial permanece em vigor. Caso aprovada, a troca é um único token em `src/app/globals.css` (`--font-sans` e a declaração em `body`).
 
 ---
 
-## 8. Onde cada coisa vive no código
+## 9. Onde cada coisa vive no código
 
 | Conteúdo | Arquivo |
 | :-- | :-- |
@@ -146,4 +183,15 @@ Advisor · Estruturador · Intermediário · Originador · Originação · Estru
 | Home, sobre, mercado, investidores, empresas, contato | `src/content/pages.ts` |
 | Privacidade (LGPD) e compliance | `src/content/legal.ts` |
 | Insights técnicos | `src/content/insights.ts` |
+| Taxonomia de oportunidades e CTAs | `src/content/site.ts` |
+| Bloco "como iniciar" das frentes | `ENGAGE`, em `src/content/advisory.ts` |
 | Tokens visuais | `src/app/globals.css` |
+| Imagem Open Graph | `src/app/[locale]/opengraph-image.tsx` |
+
+### Foto do sócio-fundador
+
+A página About já tem o enquadramento previsto na arquitetura aprovada, com fallback tipográfico (monograma) enquanto a fotografia não existe. Para publicar a foto: colocar o arquivo em `public/` e apontar `COMPANY.founder.photo` para ele em `src/content/site.ts`. Nada mais muda.
+
+### Timeline da plataforma
+
+Prevista na arquitetura aprovada (2010 / 2018 / 2022 / 2026), **não implementada**: os marcos não foram confirmados. Não publicar datas não confirmadas.

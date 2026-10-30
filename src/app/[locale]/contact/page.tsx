@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
@@ -109,7 +110,9 @@ export default async function ContactPage({
             <h2 className="t-h2 mt-6">{copy.formTitle}</h2>
 
             <div className="mt-10 max-w-xl">
-              <ContactForm locale={locale} />
+              <Suspense fallback={<div className="h-96" aria-hidden="true" />}>
+                <ContactForm locale={locale} />
+              </Suspense>
             </div>
 
             <div className="mt-14 max-w-2xl border-t border-rule pt-8">

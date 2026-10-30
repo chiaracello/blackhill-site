@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 import JsonLd from "@/components/JsonLd";
+import FounderPortrait from "@/components/FounderPortrait";
 import PageHero from "@/components/PageHero";
 import {
   Caveat,
@@ -111,16 +112,19 @@ export default async function AboutPage({
             <Eyebrow index="03">{copy.founderEyebrow}</Eyebrow>
           </div>
           <div>
-            <div className="max-w-3xl">
-              <h2 className="t-h2">{COMPANY.founder.name}</h2>
-              <p className="t-eyebrow mt-4 text-light-blue">{COMPANY.founder.role}</p>
-              <p className="t-lead mt-7">{copy.founderIntro}</p>
-              <div className="mt-8 space-y-5">
-                {copy.founderBio.map((paragraph) => (
-                  <p key={paragraph} className="t-body">
-                    {paragraph}
-                  </p>
-                ))}
+            <div className="grid gap-10 md:grid-cols-[19rem_minmax(0,1fr)] md:gap-12">
+              <FounderPortrait caption={copy.portraitCaption} />
+              <div className="max-w-2xl">
+                <h2 className="t-h2">{COMPANY.founder.name}</h2>
+                <p className="t-eyebrow mt-4 text-light-blue">{COMPANY.founder.role}</p>
+                <p className="t-lead mt-7">{copy.founderIntro}</p>
+                <div className="mt-8 space-y-5">
+                  {copy.founderBio.map((paragraph) => (
+                    <p key={paragraph} className="t-body">
+                      {paragraph}
+                    </p>
+                  ))}
+                </div>
               </div>
             </div>
 

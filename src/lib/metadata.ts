@@ -26,6 +26,9 @@ export function buildMetadata({
   description: string;
 }): Metadata {
   const canonical = absoluteUrl(locale, path);
+  // Referenced explicitly: the file convention lives under the [locale] segment,
+  // so Next cannot resolve it for every static page on its own.
+  const ogImage = absoluteUrl(locale, "/opengraph-image");
 
   const languages: Record<string, string> = { "x-default": absoluteUrl("pt", path) };
   for (const l of LOCALES) {
@@ -43,11 +46,20 @@ export function buildMetadata({
       url: canonical,
       title,
       description,
+      images: [
+        {
+          url: ogImage,
+          width: 1200,
+          height: 630,
+          alt: "Blackhill Capital",
+        },
+      ],
     },
     twitter: {
       card: "summary_large_image",
       title,
       description,
+      images: [ogImage],
     },
   };
 }

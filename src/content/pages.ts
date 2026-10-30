@@ -8,6 +8,8 @@ export const HOME: Localized<{
   heroEyebrow: string;
   heroTitle: string;
   heroLede: string;
+  ctaPrimary: string;
+  ctaSecondary: string;
   /** Reworded independence triad — Brand Standard v1.1. */
   triad: { label: string; detail: string }[];
   pillarsEyebrow: string;
@@ -33,6 +35,8 @@ export const HOME: Localized<{
     heroTitle: "Onde capital encontra complexidade.",
     heroLede:
       "A Blackhill Capital atua na interseção entre o Judiciário brasileiro e o mercado de capitais — originando, estruturando e monetizando ativos de crédito complexos para capital institucional qualificado.",
+    ctaPrimary: "Apresente sua operação",
+    ctaSecondary: "Conhecer as competências",
     triad: [
       {
         label: "Advisor independente",
@@ -94,6 +98,8 @@ export const HOME: Localized<{
     heroTitle: "Where capital meets complexity.",
     heroLede:
       "Blackhill Capital operates at the intersection of the Brazilian judiciary and the capital markets — originating, structuring and monetising complex credit assets for qualified institutional capital.",
+    ctaPrimary: "Discuss a Transaction",
+    ctaSecondary: "Explore our capabilities",
     triad: [
       {
         label: "Independent advisor",
@@ -359,6 +365,7 @@ export const ABOUT: Localized<{
   advisorsScope: string[];
   founderEyebrow: string;
   founderIntro: string;
+  portraitCaption: string;
   founderBio: string[];
   track: { org: string; role: string; detail: string }[];
   trackCaveat: string;
@@ -398,6 +405,7 @@ export const ABOUT: Localized<{
       "Special Situations",
     ],
     founderEyebrow: "Sócio-fundador",
+    portraitCaption: "Marcello de Rezende Chiara · Founder & Managing Partner · São Paulo",
     founderIntro:
       "Mais de 30 anos em mercados financeiros, com foco em crédito estruturado, distressed assets e advisory institucional.",
     founderBio: [
@@ -493,6 +501,7 @@ export const ABOUT: Localized<{
       "Special Situations",
     ],
     founderEyebrow: "Founding partner",
+    portraitCaption: "Marcello de Rezende Chiara · Founder & Managing Partner · São Paulo",
     founderIntro:
       "Over 30 years in financial markets, focused on structured credit, distressed assets and institutional advisory.",
     founderBio: [
@@ -832,18 +841,19 @@ export const CONTACT: Localized<{
     name: string;
     institution: string;
     email: string;
-    profile: string;
+    nature: string;
     message: string;
     consent: string;
     submit: string;
     submitting: string;
   };
   placeholders: { name: string; institution: string; email: string; message: string };
-  profiles: string[];
+  natureHint: string;
   success: { title: string; body: string };
   errors: {
     name: string;
     email: string;
+    nature: string;
     message: string;
     consent: string;
     unavailable: string;
@@ -862,10 +872,10 @@ export const CONTACT: Localized<{
       "As informações enviadas por este formulário são tratadas de forma confidencial e utilizadas exclusivamente para responder ao seu contato. Não são compartilhadas com terceiros, não alimentam ferramentas de publicidade e não são usadas para envio de comunicação de marketing. Não envie por este canal dados sensíveis, documentos de operações ou informações sujeitas a sigilo contratual.",
     labels: {
       name: "Nome",
-      institution: "Instituição",
-      email: "E-mail institucional",
-      profile: "Perfil",
-      message: "Mensagem",
+      institution: "Empresa ou instituição",
+      email: "E-mail profissional",
+      nature: "Qual é a natureza da oportunidade?",
+      message: "Descrição resumida",
       consent:
         "Autorizo a Blackhill Capital a tratar os dados informados com a finalidade exclusiva de responder a este contato, conforme a Política de Privacidade.",
       submit: "Enviar mensagem",
@@ -875,15 +885,11 @@ export const CONTACT: Localized<{
       name: "Nome completo",
       institution: "Nome da instituição",
       email: "nome@instituicao.com.br",
-      message: "Descreva brevemente o assunto, sem incluir informações confidenciais.",
+      message:
+        "Descreva o contexto em linhas gerais — classe de ativo, ordem de grandeza e o que você busca. Sem nomes de contrapartes, documentos ou dados de operação.",
     },
-    profiles: [
-      "Investidor",
-      "Cedente",
-      "Empresa em reestruturação",
-      "Parceiro estratégico",
-      "Outro",
-    ],
+    natureHint:
+      "A seleção direciona o contato ao sócio responsável pela frente correspondente.",
     success: {
       title: "Mensagem enviada.",
       body:
@@ -892,7 +898,8 @@ export const CONTACT: Localized<{
     errors: {
       name: "Informe seu nome.",
       email: "Informe um e-mail válido.",
-      message: "Escreva uma mensagem com ao menos 20 caracteres.",
+      nature: "Selecione a natureza da oportunidade.",
+      message: "Descreva o contexto em ao menos 20 caracteres.",
       consent: "É necessário autorizar o tratamento dos dados para enviar a mensagem.",
       unavailable:
         "O envio por formulário está temporariamente indisponível e sua mensagem não foi registrada. Utilize o contato direto indicado nesta página.",
@@ -912,10 +919,10 @@ export const CONTACT: Localized<{
       "Information submitted through this form is treated confidentially and used solely to respond to your enquiry. It is not shared with third parties, does not feed advertising tools and is not used for marketing communication. Please do not send sensitive data, transaction documents or information subject to contractual confidentiality through this channel.",
     labels: {
       name: "Name",
-      institution: "Institution",
-      email: "Institutional email",
-      profile: "Profile",
-      message: "Message",
+      institution: "Company or institution",
+      email: "Professional email",
+      nature: "What is the nature of the opportunity?",
+      message: "Brief description",
       consent:
         "I authorise Blackhill Capital to process the data provided for the sole purpose of responding to this enquiry, in accordance with the Privacy Policy.",
       submit: "Send message",
@@ -925,15 +932,11 @@ export const CONTACT: Localized<{
       name: "Full name",
       institution: "Institution name",
       email: "name@institution.com",
-      message: "Briefly describe the subject, without including confidential information.",
+      message:
+        "Describe the context in broad terms — asset class, order of magnitude and what you are looking for. No counterparty names, documents or transaction data.",
     },
-    profiles: [
-      "Investor",
-      "Seller",
-      "Company in restructuring",
-      "Strategic partner",
-      "Other",
-    ],
+    natureHint:
+      "Your selection routes the enquiry to the partner responsible for that front.",
     success: {
       title: "Message sent.",
       body:
@@ -942,7 +945,8 @@ export const CONTACT: Localized<{
     errors: {
       name: "Please provide your name.",
       email: "Please provide a valid email address.",
-      message: "Please write a message of at least 20 characters.",
+      nature: "Please select the nature of the opportunity.",
+      message: "Please describe the context in at least 20 characters.",
       consent: "You must authorise data processing to send the message.",
       unavailable:
         "Form submission is temporarily unavailable and your message was not recorded. Please use the direct contact details on this page.",

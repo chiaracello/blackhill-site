@@ -63,7 +63,12 @@ export default async function AdvisoryIndexPage({
         const isCore = tier === "core";
 
         return (
-          <Section key={tier} rule className={tierIndex % 2 === 1 ? "bg-navy-2/25" : ""}>
+          <Section
+            key={tier}
+            rule
+            compact={tierIndex > 0}
+            className={tierIndex % 2 === 1 ? "bg-navy-2/25" : ""}
+          >
             <div className="grid gap-8 lg:grid-cols-[14rem_minmax(0,1fr)] lg:gap-16">
               <div>
                 <Eyebrow index={`0${tierIndex + 1}`}>{TIER_LABEL[tier][locale]}</Eyebrow>

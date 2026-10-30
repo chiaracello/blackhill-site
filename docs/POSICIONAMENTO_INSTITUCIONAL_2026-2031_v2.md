@@ -158,13 +158,29 @@ Financial Advisory & Strategic Technology Investments
 | Website institucional bilíngue | ✅ Implementado em branch, pendente de aprovação |
 | Página do ecossistema com limites de divulgação | ✅ Implementada |
 | Declaração de independência precisada | ✅ Aplicada em todo o site |
+| Camada de originação comercial (Standard §08) | ✅ Implementada |
+| Imagem Open Graph institucional | ✅ Implementada |
+| Enquadramento da foto do fundador, com fallback | ✅ Implementado — aguarda a fotografia |
+| Timeline da plataforma | ⛔ Não publicada — marcos não confirmados |
 | Marca gráfica (símbolo de interseção) | ⏳ Proposta pendente de aprovação |
 | Tipografia institucional de qualidade web | ⏳ Decisão pendente — Arial mantida |
 | Atualização do Knowledge Hub para v2.2 | ⏳ Pendente — incorporar dois pilares e mapa de skills |
 
 ---
 
-## 8. Pendência documental
+## 8. O site como canal de originação
+
+A v2 incorpora uma segunda função ao website: além de sustentar reputação institucional, ele origina mandatos de Financial Advisory.
+
+A decisão de posicionamento não muda — o que muda é a estrutura de conversão. Cada frente de advisory passa a responder quatro perguntas na ordem em que um contratante as faz: que problema resolvemos, quem pode nos contratar, como atuamos e como iniciar uma conversa confidencial. A chamada institucional passa a ser **"Apresente sua operação"**, com o caminho secundário preservado para quem ainda está avaliando competências.
+
+O limite é explícito e está codificado no Standard §08: **originar mandato não autoriza prometer resultado**. Nenhuma página promete aprovação de crédito, execução garantida, prazo ou êxito, e toda frente declara que o contato preliminar não é vinculante.
+
+A qualificação acontece por natureza da oportunidade, em lista fechada, o que direciona o contato sem exigir do visitante qualquer informação que só deveria circular sob confidencialidade.
+
+---
+
+## 9. Pendência documental
 
 O Knowledge Hub v2.1 (junho de 2026) não registra XCurve, Finders, DealNorth nem Blackhill Advisors. Registra apenas duas relações societárias: Enforce/BTG (parceria contratual) e ZEROU/NW Soluções (opção societária).
 

@@ -26,6 +26,7 @@ A v1.1 incorpora a evolução institucional da Blackhill desde junho de 2026. Qu
 | 2 | Declaração de independência | "sem gestão de capital próprio" | **"Não investimos nas operações que assessoramos. Não gerimos capital de terceiros."** |
 | 3 | Pilar *Especialização* | "Sem dispersão para crédito convencional ou equity" | **Mantido para a atividade de advisory. Participações em tecnologia constituem frente separada, fora do mandato de advisory.** |
 | 4 | Arquitetura de marca | Pilar único (advisory) | **Dois pilares: Blackhill Advisors e Strategic Technology Investments** |
+| 5 | Função do website | Institucional | **Institucional e canal de originação de mandatos** (§08) |
 
 ### Por que a cláusula 2 mudou
 
@@ -242,7 +243,55 @@ Arial permanece a norma. Registra-se, para decisão, que uma tipografia instituc
 
 ---
 
-## 08 · QA CHECKLIST
+## 08 · ORIGINAÇÃO COMERCIAL
+
+*(Seção nova na v1.1.)*
+
+O website da Blackhill é, além de peça institucional, canal de originação de mandatos de Financial Advisory. Esta seção fixa os limites de linguagem dessa função.
+
+### Públicos prioritários
+
+Bancos e instituições financeiras · FIDCs e gestoras de crédito · Empresas médias e grandes · Credores e investidores institucionais · Detentores de créditos judiciais · Escritórios jurídicos especializados em operações complexas.
+
+### Chamada institucional
+
+| Posição | Português | Inglês |
+| :-- | :-- | :-- |
+| Primária | **Apresente sua operação** | **Discuss a Transaction** |
+| Secundária | Conhecer as competências | Explore our capabilities |
+
+A chamada primária conduz sempre ao formulário qualificado, nunca a um e-mail direto ou a uma página genérica.
+
+### Estrutura obrigatória das frentes de advisory
+
+Cada frente responde, nesta ordem: **(1)** o problema financeiro que resolve · **(2)** quem pode contratar a Blackhill · **(3)** como a Blackhill atua na estruturação ou negociação · **(4)** como iniciar uma conversa confidencial.
+
+### Linguagem a evitar na conversão
+
+Originar mandato não autoriza prometer resultado. Permanece proibido, inclusive em CTA, formulário e copy de conversão:
+
+- Promessa de retorno, rentabilidade ou recuperação.
+- Promessa de **aprovação de crédito**, de **execução garantida** ou de **fechamento**.
+- Prazo garantido de conclusão ou de resposta do mercado.
+- Qualquer formulação que sugira que o contato preliminar constitui mandato, proposta vinculante ou compromisso de estruturação.
+
+Toda página de frente declara explicitamente que o contato preliminar **não é vinculante** e que a aceitação de qualquer trabalho depende de análise prévia e acordo formal.
+
+### Qualificação e confidencialidade
+
+O formulário coleta **apenas**: nome, empresa ou instituição, e-mail profissional, natureza da oportunidade e descrição resumida.
+
+É vedado solicitar, antes da formalização de confidencialidade: documentos de operação, nomes de contrapartes, dados de devedores, bases de carteira, informação societária sensível ou qualquer dado pessoal sensível.
+
+A natureza da oportunidade é escolhida em lista fechada: venda ou aquisição de carteira NPL · estruturação de crédito / funding · debt restructuring · special situations · precatórios / judicial claims · parcerias institucionais · outros assuntos.
+
+### Confirmação de recebimento
+
+Nenhuma mensagem pode receber confirmação de recebimento que não corresponda a uma entrega efetiva. A confirmação só é exibida após aceitação pelo serviço de e-mail; em qualquer outro desfecho, o visitante é informado de que a mensagem **não** foi registrada e direcionado ao contato direto.
+
+---
+
+## 09 · QA CHECKLIST
 
 Antes de finalizar qualquer material:
 
@@ -257,6 +306,8 @@ Antes de finalizar qualquer material:
 **Visual:** paleta correta · ouro apenas sobre navy · Arial · espaçamento consistente.
 
 **Hierarquia (v1.1):** núcleo, capacidades e complementares em pesos distintos · Pilar 2 subordinado ao Pilar 1.
+
+**Originação (v1.1):** nenhuma promessa de aprovação, execução ou prazo · contato preliminar declarado não vinculante · formulário sem pedido de documento ou dado sigiloso · confirmação apenas após entrega real.
 
 ---
 

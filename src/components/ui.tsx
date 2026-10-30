@@ -17,20 +17,23 @@ export function Section({
   rule = false,
   id,
   tight = false,
+  compact = false,
 }: {
   children: ReactNode;
   className?: string;
   rule?: boolean;
   id?: string;
   tight?: boolean;
+  /** For sections that continue the one above — keeps them reading as one list. */
+  compact?: boolean;
 }) {
+  const rhythm = tight
+    ? "py-12 md:py-16"
+    : compact
+      ? "py-14 md:py-16 lg:py-20"
+      : "py-20 md:py-28 lg:py-32";
   return (
-    <section
-      id={id}
-      className={`${rule ? "rule-top" : ""} ${
-        tight ? "py-12 md:py-16" : "py-20 md:py-28 lg:py-32"
-      } ${className}`}
-    >
+    <section id={id} className={`${rule ? "rule-top" : ""} ${rhythm} ${className}`}>
       <Shell>{children}</Shell>
     </section>
   );
