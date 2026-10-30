@@ -177,14 +177,14 @@ export const ADVISORY_AREAS: AdvisoryArea[] = [
         "Definição do lastro e dos critérios de elegibilidade dos ativos.",
         "Sizing das cotas e desenho das proteções estruturais.",
         "Seleção e coordenação de gestor, administrador, custodiante e assessores jurídicos.",
-        "Condução do processo de estruturação da cessão e do registro regulatório.",
+        "Coordenação da estruturação da cessão e do processo de registro, conduzido pelos prestadores habilitados.",
         "Acompanhamento pós-fechamento: relatório periódico, eventos de liquidez e substituição de ativos.",
       ],
       en: [
         "Definition of the underlying pool and asset eligibility criteria.",
         "Tranche sizing and design of structural protections.",
         "Selection and coordination of manager, administrator, custodian and legal advisers.",
-        "Management of the assignment structuring process and regulatory registration.",
+        "Coordination of the assignment structuring and of the registration process, which is carried out by the licensed service providers.",
         "Post-closing monitoring: periodic reporting, liquidity events and asset substitution.",
       ],
     },
@@ -197,13 +197,19 @@ export const ADVISORY_AREAS: AdvisoryArea[] = [
         { label: "Estruturas", value: "FIDC NP · FIDC performado · multiclasse" },
         { label: "Securitização", value: "CRI · CRA · debêntures" },
         { label: "Regulamentação", value: "ICVM 175/2022 · Lei 14.430/2022" },
-        { label: "Papel da Blackhill", value: "Advisor estruturador — não gestor" },
+        {
+          label: "Papel da Blackhill",
+          value: "Advisor estruturador — não gestor, administrador, custodiante nem distribuidor",
+        },
       ],
       en: [
         { label: "Structures", value: "Non-standard · performing · multi-class funds" },
         { label: "Securitisation", value: "Real estate and agribusiness notes · debentures" },
         { label: "Regulation", value: "CVM Rule 175/2022 · Law 14.430/2022" },
-        { label: "Blackhill's role", value: "Structuring advisor — not manager" },
+        {
+          label: "Blackhill's role",
+          value: "Structuring advisor — not manager, administrator, custodian or distributor",
+        },
       ],
     },
   },
@@ -218,7 +224,7 @@ export const ADVISORY_AREAS: AdvisoryArea[] = [
     },
     lede: {
       pt: "O precatório é um crédito reconhecido judicialmente em caráter definitivo contra a Fazenda Pública. Sua complexidade não está no mérito — já decidido — mas na fila orçamentária, na cadeia de titularidade e na atualização do valor. É aí que a estruturação técnica define o resultado.",
-      en: "A precatório is a judicially recognised, final claim against the Brazilian public treasury. Its complexity lies not in the merits — already decided — but in the budgetary queue, the chain of title and the restatement of value. That is where technical structuring determines the outcome.",
+      en: "A precatório is a court-ordered public claim: a final, judicially recognised debt of the Brazilian public treasury. Its complexity lies not in the merits — already decided — but in the budgetary queue, the chain of title and the restatement of value. That is where technical structuring determines the outcome.",
     },
     problem: {
       pt: "O titular de um precatório tem um crédito já reconhecido em definitivo, mas não tem liquidez: o pagamento depende da fila orçamentária do ente devedor e pode levar anos. A Blackhill estrutura a monetização antecipada desse crédito junto a capital institucional qualificado.",
