@@ -53,6 +53,12 @@ export async function generateMetadata({
       follow: true,
       googleBot: { index: true, follow: true, "max-image-preview": "large" },
     },
+    // Search Console, URL-prefix property. Set GOOGLE_SITE_VERIFICATION to the
+    // token Google provides and the meta tag appears; unset, nothing is emitted.
+    // A domain property is preferable but requires a DNS TXT record.
+    verification: process.env.GOOGLE_SITE_VERIFICATION
+      ? { google: process.env.GOOGLE_SITE_VERIFICATION }
+      : undefined,
   };
 }
 
