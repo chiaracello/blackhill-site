@@ -84,7 +84,7 @@ export default async function AdvisoryIndexPage({
                       <Link
                         key={area.slug}
                         href={localePath(locale, `/advisory/${area.slug}`)}
-                        className="cell cell-invert min-h-[22rem]"
+                        className="cell cell-invert"
                       >
                         <span className="t-numeral">{area.index}</span>
                         <div>
@@ -103,7 +103,7 @@ export default async function AdvisoryIndexPage({
                       <Link
                         key={area.slug}
                         href={localePath(locale, `/advisory/${area.slug}`)}
-                        className="cell min-h-[15rem] hover:bg-[var(--surface-hover)]"
+                        className="cell hover:bg-[var(--surface-hover)]"
                       >
                         <span className="t-index">{area.index}</span>
                         <div>

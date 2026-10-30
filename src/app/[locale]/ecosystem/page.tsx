@@ -34,11 +34,17 @@ export async function generateMetadata({
  * Editorial accents that tell one platform from the next. They are section
  * ornaments within the Blackhill palette — never a logotype and never a visual
  * identity attributed to the platform itself (Standard v1.3 §03).
+ *
+ * Each plate is distinguished twice over: by accent and by the edge the rule
+ * sits on. Finders carries the Standard's own `ouro institucional` #B8923F —
+ * the token reserved for marks and linework over navy — rather than the
+ * champagne used as the site's default accent, which left it reading as the
+ * unstyled one of the three.
  */
-const PLATFORM_ACCENT: Record<string, string> = {
-  xcurve: "#8FB4D9",
-  finders: "#C9A84C",
-  dealnorth: "#7FA894",
+const PLATFORM_STYLE: Record<string, { accent: string; edge: string }> = {
+  xcurve: { accent: "#8FB4D9", edge: "border-t-2" },
+  finders: { accent: "#B8923F", edge: "border-l-[3px] border-t-[3px]" },
+  dealnorth: { accent: "#7FA894", edge: "border-b-2" },
 };
 
 export default async function EcosystemPage({
@@ -109,13 +115,21 @@ export default async function EcosystemPage({
                   next; it is an editorial device, not a brand mark — no
                   logotype or visual identity is attributed to a platform. */}
               <div
-                className="surface-navy-2 border-t-2 px-7 py-8 md:px-9 md:py-10"
-                style={{ borderTopColor: PLATFORM_ACCENT[platform.slug] }}
+                className={`surface-navy-2 px-7 py-8 md:px-9 md:py-10 ${
+                  PLATFORM_STYLE[platform.slug].edge
+                }`}
+                style={{ borderColor: PLATFORM_STYLE[platform.slug].accent }}
               >
-                <h2 className="t-h2">{platform.name}</h2>
+                <span
+                  className="t-numeral block"
+                  style={{ color: PLATFORM_STYLE[platform.slug].accent }}
+                >
+                  {platform.index}
+                </span>
+                <h2 className="t-h2 mt-5">{platform.name}</h2>
                 <p
                   className="t-eyebrow mt-3"
-                  style={{ color: PLATFORM_ACCENT[platform.slug] }}
+                  style={{ color: PLATFORM_STYLE[platform.slug].accent }}
                 >
                   {platform.category[locale]}
                 </p>
@@ -129,7 +143,7 @@ export default async function EcosystemPage({
 
               <div
                 className="mt-12 border-l-2 pl-6 md:pl-8"
-                style={{ borderLeftColor: PLATFORM_ACCENT[platform.slug] }}
+                style={{ borderLeftColor: PLATFORM_STYLE[platform.slug].accent }}
               >
                 <p className="t-eyebrow">
                   {locale === "pt" ? "Racional estratégico" : "Strategic rationale"}

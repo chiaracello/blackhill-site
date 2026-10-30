@@ -147,7 +147,7 @@ export default async function HomePage({
       </Section>
 
       {/* --------------------------------------------------------- SENIOR-LED */}
-      <Section rule surface="warm">
+      <Section rule surface="navy">
         <SectionHead
           eyebrow={copy.seniorEyebrow}
           title={copy.seniorTitle}
@@ -170,28 +170,32 @@ export default async function HomePage({
       </Section>
 
       {/* ------------------------------------------------------ PILLAR 1 — CORE */}
-      <Section rule surface="navy">
+      <Section rule surface="ivory">
         <SectionHead
           eyebrow={copy.advisoryEyebrow}
           title={copy.advisoryTitle}
           lede={copy.advisoryLede}
         />
 
-        <div className="mt-16 grid gap-px md:grid-cols-2">
+        {/* The two core practice lines carry the same weight here as on the
+            advisory page: inverted cells, display numeral, editorial title.
+            The home page is where most readers meet them first. */}
+        <div className="cell-grid mt-16 md:grid-cols-2">
           {core.map((area) => (
             <Link
               key={area.slug}
               href={localePath(locale, `/advisory/${area.slug}`)}
-              className="panel panel-interactive group flex flex-col justify-between gap-10 p-8 md:p-10 lg:p-12"
+              className="cell cell-invert"
             >
+              <span className="t-numeral">{area.index}</span>
               <div>
-                <Eyebrow index={area.index}>{TIER_LABEL.core[locale]}</Eyebrow>
-                <h3 className="t-h3 mt-6 text-xl md:text-2xl">{area.title[locale]}</h3>
-                <p className="t-body mt-4">{area.short[locale]}</p>
+                <p className="t-eyebrow">{TIER_LABEL.core[locale]}</p>
+                <h3 className="t-h2 mt-4">{area.title[locale]}</h3>
+                <p className="t-body mt-5 max-w-[40ch]">{area.short[locale]}</p>
+                <span className="link-reveal mt-7 inline-block">
+                  {ui.readMore} <span aria-hidden="true">→</span>
+                </span>
               </div>
-              <span className="link-reveal">
-                {ui.readMore} <span aria-hidden="true">→</span>
-              </span>
             </Link>
           ))}
         </div>
