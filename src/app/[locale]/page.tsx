@@ -14,7 +14,7 @@ import {
   Shell,
   StatBlock,
 } from "@/components/ui";
-import { ADVISORY_AREAS, TIER_LABEL, areasByTier } from "@/content/advisory";
+import { ADVISORY_AREAS, areasByTier } from "@/content/advisory";
 import { APPROACH, SIGNATURE } from "@/content/approach";
 import { ECOSYSTEM_SCOPE, PLATFORMS } from "@/content/ecosystem";
 import { HOME, MARKET_STATS, PROCESS } from "@/content/pages";
@@ -180,7 +180,7 @@ export default async function HomePage({
         {/* The two core practice lines carry the same weight here as on the
             advisory page: inverted cells, display numeral, editorial title.
             The home page is where most readers meet them first. */}
-        <div className="cell-grid mt-16 md:grid-cols-2">
+        <div className="cell-grid mt-16 md:grid-cols-2 lg:grid-cols-3">
           {core.map((area) => (
             <Link
               key={area.slug}
@@ -189,7 +189,7 @@ export default async function HomePage({
             >
               <span className="t-numeral">{area.index}</span>
               <div>
-                <p className="t-eyebrow">{TIER_LABEL.core[locale]}</p>
+                <p className="t-eyebrow">{ui.core}</p>
                 <h3 className="t-h2 mt-4">{area.title[locale]}</h3>
                 <p className="t-body mt-5 max-w-[40ch]">{area.short[locale]}</p>
                 <span className="link-reveal mt-7 inline-block">
@@ -211,7 +211,7 @@ export default async function HomePage({
                 <span className="text-base font-bold text-fg">{area.title[locale]}</span>
                 <span className="t-small hidden md:block">{area.short[locale]}</span>
                 <span className="t-caveat uppercase tracking-[0.16em]">
-                  {area.tier === "capability" ? ui.capability : ui.complementary}
+                  {ui.complementary}
                 </span>
               </Link>
             </li>

@@ -23,11 +23,11 @@ export async function generateMetadata({
     locale,
     path: "/advisory",
     title: pt
-      ? "Advisory | Precatórios, NPL, Claims e Crédito Estruturado"
-      : "Advisory | Court-Ordered Claims, NPL, Claims and Structured Credit",
+      ? "Advisory | NPL, Crédito Estruturado e Precatórios"
+      : "Advisory | NPL, Structured Credit and Precatórios",
     description: pt
-      ? "Sete frentes especializadas em crédito complexo, organizadas por hierarquia: núcleo de autoridade em precatórios e NPL, capacidades de estruturação e serviços complementares."
-      : "Seven specialised complex credit practice lines, organised by hierarchy: core authority in court-ordered claims and NPL, structuring capabilities and complementary services.",
+      ? "Três núcleos de autoridade em crédito complexo — NPL & Distressed Credit, Crédito Estruturado, FIDCs & Securities e Precatórios & Legal Claims — e quatro capacidades complementares que viabilizam suas operações."
+      : "Three cores of authority in complex credit — NPL & Distressed Credit, Structured Credit, FIDCs & Securities and Precatórios & Legal Claims — and four complementary capabilities that enable their transactions.",
   });
 }
 
@@ -48,13 +48,13 @@ export default async function AdvisoryIndexPage({
         eyebrow={locale === "pt" ? "Pilar 01 — Blackhill Advisors" : "Pillar 01 — Blackhill Advisors"}
         title={
           locale === "pt"
-            ? "Sete frentes especializadas, um núcleo de autoridade."
-            : "Seven specialised practice lines, one core of authority."
+            ? "Três núcleos de autoridade, sete frentes especializadas."
+            : "Three cores of authority, seven specialised practice lines."
         }
         lede={
           locale === "pt"
-            ? "A hierarquia abaixo é deliberada. Precatórios e NPL & Distressed Credit concentram a profundidade técnica da casa; as demais frentes são instrumentos e serviços que sustentam esse núcleo."
-            : "The hierarchy below is deliberate. Court-ordered claims and NPL & Distressed Credit hold the firm's technical depth; the remaining lines are instruments and services that support that core."
+            ? "A Blackhill concentra sua profundidade técnica em três núcleos de igual relevância. As demais frentes são capacidades complementares que viabilizam as operações desses núcleos — com conteúdo próprio, sem protagonismo narrativo equivalente."
+            : "Blackhill concentrates its technical depth in three cores of equal standing. The remaining lines are complementary capabilities that enable those cores' transactions — with content of their own, without equivalent narrative prominence."
         }
       />
 
@@ -67,7 +67,7 @@ export default async function AdvisoryIndexPage({
             key={tier}
             rule
             compact={tierIndex > 0}
-            surface={tier === "core" ? "ivory" : tier === "capability" ? "navy" : "warm"}
+            surface={tier === "core" ? "ivory" : "navy"}
           >
             <div className="grid gap-8 lg:grid-cols-[14rem_minmax(0,1fr)] lg:gap-16">
               <div>
@@ -79,7 +79,7 @@ export default async function AdvisoryIndexPage({
                 {isCore ? (
                   /* Hierarchy read as area: the core occupies the largest
                      cells on the page and inverts against its surface. */
-                  <div className="cell-grid md:grid-cols-2">
+                  <div className="cell-grid md:grid-cols-2 lg:grid-cols-3">
                     {areas.map((area) => (
                       <Link
                         key={area.slug}
@@ -97,8 +97,8 @@ export default async function AdvisoryIndexPage({
                       </Link>
                     ))}
                   </div>
-                ) : tier === "capability" ? (
-                  <div className="cell-grid md:grid-cols-3">
+                ) : (
+                  <div className="cell-grid sm:grid-cols-2 lg:grid-cols-4">
                     {areas.map((area) => (
                       <Link
                         key={area.slug}
@@ -113,27 +113,6 @@ export default async function AdvisoryIndexPage({
                       </Link>
                     ))}
                   </div>
-                ) : (
-                  <ul>
-                    {areas.map((area) => (
-                      <li key={area.slug}>
-                        <Link
-                          href={localePath(locale, `/advisory/${area.slug}`)}
-                          className="index-row"
-                        >
-                          <span className="t-index">{area.index}</span>
-                          <span className="text-base font-bold text-fg">
-                            {area.title[locale]}
-                          </span>
-                          <span className="t-small">{area.short[locale]}</span>
-                          <span className="link-reveal hidden lg:inline-block">
-                            <span aria-hidden="true">→</span>
-                          </span>
-                        </Link>
-                      </li>
-                    ))}
-                    <li className="border-t border-rule" />
-                  </ul>
                 )}
               </div>
             </div>

@@ -14,7 +14,7 @@ const ROUTES: { path: string; priority: number; changeFrequency: "monthly" | "ye
   { path: "/advisory", priority: 0.9, changeFrequency: "monthly" },
   ...ADVISORY_AREAS.map((area) => ({
     path: `/advisory/${area.slug}`,
-    priority: area.tier === "core" ? 0.9 : area.tier === "capability" ? 0.7 : 0.6,
+    priority: area.tier === "core" ? 0.9 : 0.7,
     changeFrequency: "monthly" as const,
   })),
   { path: "/about", priority: 0.8, changeFrequency: "monthly" },

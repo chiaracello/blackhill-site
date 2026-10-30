@@ -15,7 +15,7 @@ import {
   RevealLink,
   Section,
 } from "@/components/ui";
-import { ADVISORY_AREAS, ENGAGE, TIER_LABEL, areaBySlug } from "@/content/advisory";
+import { ADVISORY_AREAS, ENGAGE, areaBySlug } from "@/content/advisory";
 import { INSIGHTS } from "@/content/insights";
 import { AREA_NATURE, DISCLAIMER, UI } from "@/content/site";
 import { LOCALES, isLocale, localePath } from "@/lib/i18n";
@@ -92,7 +92,7 @@ export default async function AdvisoryAreaPage({
       <PageHero
         locale={locale}
         breadcrumb={{ label: ui.backToAdvisory, href: "/advisory" }}
-        eyebrow={`${area.index} — ${TIER_LABEL[area.tier][locale]}`}
+        eyebrow={`${area.index} — ${area.tier === "core" ? ui.core : ui.complementary}`}
         title={area.title[locale]}
         lede={area.lede[locale]}
       />

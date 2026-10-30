@@ -9,7 +9,7 @@
 | **Substitui** | Posicionamento Institucional Definitivo — Junho de 2026 |
 | **Classificação** | Uso Interno — Decisão do Sócio-Fundador |
 | **Aprovação** | Marcello Chiara — outubro de 2026 |
-| **Norma decorrente** | [Brand & Communication Standard v1.2](BRAND_STANDARD_v1.2.md) |
+| **Norma decorrente** | [Brand & Communication Standard v1.4](BRAND_STANDARD_v1.4.md) |
 
 ---
 
@@ -17,7 +17,7 @@
 
 O memorando de junho de 2026 recomendou consolidar a Blackhill Capital como **Distressed & Judicial Claims Advisor**, resolvendo o problema diagnosticado à época: seis verticais com peso narrativo equivalente diluíam a autoridade da marca e a aproximavam de servicers e consultorias generalistas.
 
-Esse diagnóstico permanece válido, e a hierarquia que dele decorreu — núcleo, capacidades, serviços complementares — é mantida **integralmente**.
+Esse diagnóstico permanece válido. A hierarquia que dele decorreu — núcleo, capacidades, serviços complementares — foi **emendada em 30 de outubro de 2026 para três núcleos de igual relevância**; ver seção 10.
 
 O que mudou é o perímetro da plataforma. A Blackhill passou a deter participações estratégicas em três plataformas de tecnologia aplicadas aos mercados em que atua. A v2 incorpora essa frente sem comprometer o que torna a casa defensável.
 
@@ -30,8 +30,8 @@ O que mudou é o perímetro da plataforma. A Blackhill passou a deter participa�
 | Decisão de junho de 2026 | Situação na v2 |
 | :-- | :-- |
 | Tagline "Onde capital encontra complexidade" | **Preservada** — ativo permanente de marca |
-| Núcleo em Precatórios e NPL Judicial | **Preservado** |
-| FIDC e Claims como capacidades de estruturação | **Preservado** |
+| Núcleo em Precatórios e NPL Judicial | **Preservado em outubro de 2026 · emendado em 30/10/2026 — ver seção 10** |
+| FIDC e Claims como capacidades de estruturação | **Emendado em 30/10/2026 — ver seção 10** |
 | Reestruturação e Servicing como complementares | **Preservado** |
 | Moldura "interseção entre o Judiciário e o mercado de capitais" | **Preservada** |
 | Declaração de independência | **Precisada** — ver seção 3 |
@@ -103,14 +103,13 @@ Financial Advisory & Strategic Technology Investments
 ├── PILAR 1 · BLACKHILL ADVISORS            [núcleo narrativo — ~80% da comunicação]
 │   │   Não é pessoa jurídica independente.
 │   │
-│   ├── Núcleo de autoridade
-│   │   ├── Precatórios
-│   │   └── NPL & Distressed Credit
-│   ├── Capacidades de estruturação
-│   │   ├── Claims & Litigation Finance
-│   │   ├── Crédito Estruturado / FIDC
-│   │   └── Dívida Ativa & Recebíveis Públicos (LC 208/2024)
-│   └── Serviços complementares
+│   ├── Núcleos de autoridade  (emenda de 30/10/2026 — seção 10)
+│   │   ├── 01 NPL & Distressed Credit
+│   │   ├── 02 Crédito Estruturado, FIDCs & Securities
+│   │   └── 03 Precatórios & Legal Claims
+│   └── Capacidades complementares
+│       ├── Claims & Litigation Finance
+│       ├── Dívida Ativa & Recebíveis Públicos (LC 208/2024)
 │       ├── Reestruturação Corporativa
 │       └── Servicing & Recuperação
 │
@@ -200,4 +199,24 @@ O Knowledge Hub v2.1 (junho de 2026) não registra XCurve, Finders, DealNorth ne
 
 ---
 
-*Posicionamento Institucional 2026–2031, versão 2 — outubro de 2026. Substitui a versão de junho de 2026. Não constitui aconselhamento jurídico, regulatório ou de investimento.*
+## 10. Emenda de 30 de outubro de 2026 — três núcleos de autoridade
+
+Decisão estratégica do sócio-fundador. A Blackhill passa a declarar **três núcleos de autoridade de igual relevância**, no lugar dos dois fixados em outubro:
+
+| # | Núcleo | Perímetro declarado |
+| :-- | :-- | :-- |
+| **01** | **NPL & Distressed Credit** | Carteiras inadimplidas, créditos estressados, special situations, reestruturações e transações secundárias |
+| **02** | **Crédito Estruturado, FIDCs & Securities** | Crédito estruturado, operações com FIDCs, securitização, estruturas de financiamento e soluções de captação |
+| **03** | **Precatórios & Legal Claims** | Precatórios, créditos judiciais, direitos creditórios litigiosos, avaliação, estruturação e transações com legal claims |
+
+As quatro frentes restantes — Claims & Litigation Finance, Dívida Ativa & Recebíveis Públicos, Reestruturação Corporativa e Servicing & Recuperação — passam a ser **capacidades complementares**, com conteúdo, página e URL preservados.
+
+### O que a emenda não altera
+
+O risco de diluição de autoridade por paridade narrativa, identificado na v1, continua administrado por hierarquia explícita — a diferença é que a camada superior agora tem três frentes em vez de duas, e a paridade **entre elas** passa a ser obrigatória, não um risco. Nenhuma rota foi renomeada, nenhum conteúdo foi removido, nenhuma operação executada foi afirmada, e o ecossistema de tecnologia permanece como pilar institucional separado.
+
+A norma decorrente é o [Brand & Communication Standard v1.4](BRAND_STANDARD_v1.4.md) §02.
+
+---
+
+*Posicionamento Institucional 2026–2031, versão 2 — outubro de 2026, com emenda de 30 de outubro de 2026 (seção 10). Substitui a versão de junho de 2026. Não constitui aconselhamento jurídico, regulatório ou de investimento.*

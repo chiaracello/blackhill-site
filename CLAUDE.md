@@ -4,7 +4,7 @@
 
 Site institucional da Blackhill Capital em `blackhill.com.br`. Next.js 16 (App Router, Turbopack) · React 19 · Tailwind CSS 4 · TypeScript strict. Deploy na Vercel, projeto `blackhill-site`, team `blackhill-capital`.
 
-**Antes de alterar qualquer conteúdo visível, leia [`BLACKHILL_BRAND_CONTEXT.md`](BLACKHILL_BRAND_CONTEXT.md).** Ele consolida as referências institucionais aprovadas. A norma vigente é o [Brand & Communication Standard v1.3](docs/BRAND_STANDARD_v1.3.md); a aplicação visual detalhada está em [BLACKHILL_DESIGN_SYSTEM.md](BLACKHILL_DESIGN_SYSTEM.md).
+**Antes de alterar qualquer conteúdo visível, leia [`BLACKHILL_BRAND_CONTEXT.md`](BLACKHILL_BRAND_CONTEXT.md).** Ele consolida as referências institucionais aprovadas. A norma vigente é o [Brand & Communication Standard v1.4](docs/BRAND_STANDARD_v1.4.md); a aplicação visual detalhada está em [BLACKHILL_DESIGN_SYSTEM.md](BLACKHILL_DESIGN_SYSTEM.md).
 
 ---
 
@@ -17,12 +17,12 @@ Site institucional da Blackhill Capital em `blackhill.com.br`. Next.js 16 (App R
 - **Nunca** apresentar dado de mercado sem fonte e data-base de consolidação, acompanhado do caveat de que não representa operações da Blackhill (`MARKET_CAVEAT`).
 - **Nunca** divulgar percentuais de participação, controle ou relações societárias das plataformas do ecossistema.
 - A declaração de independência vigente é **"Não investimos nas operações que assessoramos. Não gerimos capital de terceiros."** Não reintroduzir o absoluto "Sem capital próprio": o Pilar 2 o torna falso.
-- As sete frentes de advisory **nunca** aparecem em paridade visual. A hierarquia núcleo → capacidades → complementares é estrutural, codificada em `Tier` (`src/content/advisory.ts`).
+- A Blackhill tem **três núcleos de autoridade de igual relevância** — NPL & Distressed Credit, Crédito Estruturado, FIDCs & Securities e Precatórios & Legal Claims. Eles aparecem sempre com o mesmo peso visual **entre si**, e as quatro capacidades complementares **nunca** com peso equivalente ao deles. A hierarquia é estrutural, codificada em `Tier` (`src/content/advisory.ts`).
 - Texto institucional é bilíngue. Toda string visível vive em `src/content/*`, com `pt` e `en`. **Nunca** escrever texto solto no JSX.
 
 ### Identidade visual
 
-- Paleta e tipografia são fixadas pelo Standard v1.3: navy `#0B1F3A`, obsidian `#071526`, champagne `#C9A84C`, ouro institucional `#B8923F`, bronze `#5C4A1E`, marfim `#F5EFE3`, warm gray `#E4DFD4`, tinta `#23262B`.
+- Paleta e tipografia são fixadas pelo Standard v1.4: navy `#0B1F3A`, obsidian `#071526`, champagne `#C9A84C`, ouro institucional `#B8923F`, bronze `#5C4A1E`, marfim `#F5EFE3`, warm gray `#E4DFD4`, tinta `#23262B`.
 - **Champagne e ouro institucional apenas sobre navy. Sobre fundo claro, a família ouro aparece exclusivamente como bronze `#5C4A1E`** — champagne sobre marfim dá 2,54:1 e reprova.
 - **Nenhum componente declara cor de texto.** Cada seção declara uma superfície (`surface` em `<Section>`: `navy`, `obsidian`, `navy-2`, `ivory`, `warm`) e ela define tipo, fio, acento e botão. Todo bloco escuro aninhado em seção clara precisa declarar a própria superfície, ou herda o texto navy e some.
 - **Bodoni Moda só em título editorial, figura e citação.** Corpo, lista, rótulo, menu e formulário são Inter. Fontes auto-hospedadas por `next/font` — nenhuma requisição a terceiros.

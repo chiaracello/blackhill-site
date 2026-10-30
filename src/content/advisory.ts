@@ -1,12 +1,18 @@
 import type { Localized } from "./site";
 
 /**
- * Hierarchy fixed by the Posicionamento Institucional 2026–2031, Fase 5:
- * core authority → structuring capability → complementary service. The tier
- * drives editorial weight everywhere these areas appear; they are never shown
- * with equal visual parity.
+ * Hierarchy approved on 30 October 2026: three cores of equal weight, and the
+ * remaining fronts as complementary capabilities.
+ *
+ *   01 NPL & Distressed Credit
+ *   02 Structured Credit, FIDCs & Securities
+ *   03 Precatórios & Legal Claims
+ *
+ * The three cores carry identical editorial weight — equal cells, equal type,
+ * equal position. The complementary capabilities keep their full content and
+ * their own pages; what they do not carry is the same narrative prominence.
  */
-export type Tier = "core" | "capability" | "complementary";
+export type Tier = "core" | "complementary";
 
 export type AdvisoryArea = {
   slug: string;
@@ -35,91 +41,9 @@ export type AdvisoryArea = {
 
 export const ADVISORY_AREAS: AdvisoryArea[] = [
   {
-    slug: "precatorios",
-    tier: "core",
-    index: "01",
-    title: { pt: "Precatórios", en: "Precatórios (Court-Ordered Public Claims)" },
-    short: {
-      pt: "Créditos judiciais definitivos contra entes públicos federais, estaduais e municipais.",
-      en: "Final judicial claims against federal, state and municipal public entities.",
-    },
-    lede: {
-      pt: "O precatório é um crédito reconhecido judicialmente em caráter definitivo contra a Fazenda Pública. Sua complexidade não está no mérito — já decidido — mas na fila orçamentária, na cadeia de titularidade e na atualização do valor. É aí que a estruturação técnica define o resultado.",
-      en: "A precatório is a judicially recognised, final claim against the Brazilian public treasury. Its complexity lies not in the merits — already decided — but in the budgetary queue, the chain of title and the restatement of value. That is where technical structuring determines the outcome.",
-    },
-    problem: {
-      pt: "O titular de um precatório tem um crédito já reconhecido em definitivo, mas não tem liquidez: o pagamento depende da fila orçamentária do ente devedor e pode levar anos. A Blackhill estrutura a monetização antecipada desse crédito junto a capital institucional qualificado.",
-      en: "The holder of a precatório has a claim already recognised with finality, but no liquidity: payment depends on the debtor entity's budgetary queue and can take years. Blackhill structures the early monetisation of that claim with qualified institutional capital.",
-    },
-    who: {
-      pt: [
-        "Detentores de precatórios federais, estaduais ou municipais",
-        "Escritórios de advocacia com carteiras de clientes titulares",
-        "Empresas com precatórios reconhecidos em balanço",
-        "Investidores institucionais com mandato para crédito de ente público",
-      ],
-      en: [
-        "Holders of federal, state or municipal precatórios",
-        "Law firms with portfolios of holder clients",
-        "Companies carrying recognised precatórios on their balance sheet",
-        "Institutional investors mandated for public-entity credit",
-      ],
-    },
-    complexity: {
-      pt: [
-        "O pagamento depende da inscrição no orçamento do ente devedor (LOA) e do exercício em que o crédito é alcançado — não de uma data contratual.",
-        "A atualização monetária segue regimes distintos antes e depois da inscrição orçamentária, com a EC 113/2021 fixando a SELIC como índice após a LOA.",
-        "A natureza do crédito — alimentar ou comum — altera a posição na fila de pagamento.",
-        "A cadeia de cessões anteriores, gravames, penhoras e débitos inscritos em dívida ativa do titular original podem comprometer a liquidez do ativo.",
-        "O perfil de risco varia materialmente entre União, Estados e Municípios: são três curvas de crédito soberano distintas, não um único ativo.",
-      ],
-      en: [
-        "Payment depends on inclusion in the debtor entity's budget law and on the fiscal year in which the claim is reached — not on a contractual date.",
-        "Monetary restatement follows different regimes before and after budget inclusion, with Constitutional Amendment 113/2021 fixing the SELIC rate as the post-budget index.",
-        "The nature of the claim — food-related or ordinary — changes its position in the payment queue.",
-        "Prior assignment chains, liens, attachments and tax debts of the original holder can compromise the asset's liquidity.",
-        "Risk profiles differ materially between the Federal Union, states and municipalities: these are three distinct sovereign credit curves, not one asset.",
-      ],
-    },
-    role: {
-      pt: [
-        "Originação junto a titulares, escritórios e entes institucionais por rede proprietária.",
-        "Verificação documental: ofício requisitório, trânsito em julgado, pendências recursais, cadeia de titularidade e ausência de gravames.",
-        "Atualização do valor pelo índice aplicável, com data-base explícita.",
-        "Estruturação da cessão ou do veículo de investimento, com cláusulas de ajuste de preço e indenidade.",
-        "Intermediação entre cedente e investidor qualificado, com due diligence independente em cada etapa.",
-      ],
-      en: [
-        "Origination from holders, law firms and institutional entities through a proprietary network.",
-        "Document verification: requisition order, final judgment, pending appeals, chain of title and absence of liens.",
-        "Restatement of value using the applicable index, with an explicit reference date.",
-        "Structuring of the assignment or investment vehicle, with price adjustment and indemnity provisions.",
-        "Intermediation between seller and qualified investor, with independent due diligence at each stage.",
-      ],
-    },
-    execution: {
-      pt: "A condução é sênior e direta. Quando o ativo exige, a Blackhill mobiliza parecer jurídico independente sobre a cadeia processual e a cessibilidade do crédito.",
-      en: "Senior and direct conduct. Where the asset requires it, Blackhill engages an independent legal opinion on the procedural chain and the claim's assignability.",
-    },
-    frame: {
-      pt: [
-        { label: "Esferas", value: "Federal · Estadual · Municipal" },
-        { label: "Atualização pós-LOA", value: "EC 113/2021 — SELIC" },
-        { label: "Securitização municipal", value: "LC 208/2024" },
-        { label: "Parecer jurídico", value: "Independente e obrigatório" },
-      ],
-      en: [
-        { label: "Spheres", value: "Federal · State · Municipal" },
-        { label: "Post-budget restatement", value: "Amendment 113/2021 — SELIC" },
-        { label: "Municipal securitisation", value: "Complementary Law 208/2024" },
-        { label: "Legal opinion", value: "Independent and mandatory" },
-      ],
-    },
-  },
-  {
     slug: "npl-distressed",
     tier: "core",
-    index: "02",
+    index: "01",
     title: { pt: "NPL & Distressed Credit", en: "NPL & Distressed Credit" },
     short: {
       pt: "Carteiras inadimplentes e exposições corporativas estressadas, do varejo pulverizado ao corporate.",
@@ -199,9 +123,176 @@ export const ADVISORY_AREAS: AdvisoryArea[] = [
     },
   },
   {
-    slug: "claims",
-    tier: "capability",
+    slug: "structured-credit",
+    tier: "core",
+    index: "02",
+    title: {
+      pt: "Crédito Estruturado, FIDCs & Securities",
+      en: "Structured Credit, FIDCs & Securities",
+    },
+    short: {
+      pt: "Veículos de investimento com lastro em recebíveis — do FIDC à securitização.",
+      en: "Receivables-backed investment vehicles — from receivables funds to securitisation.",
+    },
+    lede: {
+      pt: "A estrutura não é o objetivo: é o instrumento que torna um ativo complexo investível por capital institucional. A escolha entre cessão direta, FIDC simples ou estrutura multiclasse decorre do tamanho, da origem e do perfil de risco da carteira.",
+      en: "The structure is not the objective: it is the instrument that makes a complex asset investable by institutional capital. The choice between direct assignment, a single-tranche fund or a multi-class structure follows from the portfolio's size, origin and risk profile.",
+    },
+    problem: {
+      pt: "Um ativo de crédito pode ser bom e, ainda assim, não ser investível: falta o veículo, o desenho de garantias e o arcabouço regulatório que permitem a capital institucional entrar. A Blackhill constrói essa ponte entre o ativo e o investidor.",
+      en: "A credit asset can be sound and still not be investable: what is missing is the vehicle, the security design and the regulatory framework that let institutional capital in. Blackhill builds that bridge between the asset and the investor.",
+    },
+    who: {
+      pt: [
+        "Originadores de recebíveis que buscam funding estruturado",
+        "Empresas que precisam transformar carteira em liquidez",
+        "Gestoras que precisam estruturar um veículo para uma tese",
+        "Bancos e securitizadoras em operações de cessão",
+      ],
+      en: [
+        "Receivables originators seeking structured funding",
+        "Companies that need to turn a portfolio into liquidity",
+        "Asset managers that need a vehicle built for a thesis",
+        "Banks and securitisation companies in assignment transactions",
+      ],
+    },
+    complexity: {
+      pt: [
+        "O sizing das cotas — sênior, mezanino e subordinada — define a cobertura efetiva do investidor sênior e é a decisão estrutural central.",
+        "A cota subordinada retida pelo originador funciona como alinhamento de interesse e primeira absorção de perda.",
+        "Gestor, administrador e custodiante independentes são exigência regulatória, não escolha de conveniência.",
+        "A política de crédito e os critérios de elegibilidade do lastro precisam ser definidos antes do registro, não ajustados depois.",
+        "Estruturas multiorigem exigem limites de concentração explícitos por cedente, devedor e classe de ativo.",
+      ],
+      en: [
+        "Tranche sizing — senior, mezzanine and subordinated — defines the senior investor's effective coverage and is the central structural decision.",
+        "The subordinated tranche retained by the originator serves as interest alignment and first-loss absorption.",
+        "Independent manager, administrator and custodian are a regulatory requirement, not a matter of convenience.",
+        "Credit policy and eligibility criteria for the underlying must be set before registration, not adjusted afterwards.",
+        "Multi-origin structures require explicit concentration limits by seller, debtor and asset class.",
+      ],
+    },
+    role: {
+      pt: [
+        "Definição do lastro e dos critérios de elegibilidade dos ativos.",
+        "Sizing das cotas e desenho das proteções estruturais.",
+        "Seleção e coordenação de gestor, administrador, custodiante e assessores jurídicos.",
+        "Condução do processo de estruturação da cessão e do registro regulatório.",
+        "Acompanhamento pós-fechamento: relatório periódico, eventos de liquidez e substituição de ativos.",
+      ],
+      en: [
+        "Definition of the underlying pool and asset eligibility criteria.",
+        "Tranche sizing and design of structural protections.",
+        "Selection and coordination of manager, administrator, custodian and legal advisers.",
+        "Management of the assignment structuring process and regulatory registration.",
+        "Post-closing monitoring: periodic reporting, liquidity events and asset substitution.",
+      ],
+    },
+    execution: {
+      pt: "A condução é sênior e direta, em articulação com o administrador, o custodiante e o gestor do veículo, e com auditoria e assessoria legal mobilizadas conforme a estrutura escolhida.",
+      en: "Senior and direct conduct, working with the vehicle's administrator, custodian and manager, and with audit and legal counsel engaged according to the structure chosen.",
+    },
+    frame: {
+      pt: [
+        { label: "Estruturas", value: "FIDC NP · FIDC performado · multiclasse" },
+        { label: "Securitização", value: "CRI · CRA · debêntures" },
+        { label: "Regulamentação", value: "ICVM 175/2022 · Lei 14.430/2022" },
+        { label: "Papel da Blackhill", value: "Advisor estruturador — não gestor" },
+      ],
+      en: [
+        { label: "Structures", value: "Non-standard · performing · multi-class funds" },
+        { label: "Securitisation", value: "Real estate and agribusiness notes · debentures" },
+        { label: "Regulation", value: "CVM Rule 175/2022 · Law 14.430/2022" },
+        { label: "Blackhill's role", value: "Structuring advisor — not manager" },
+      ],
+    },
+  },
+  {
+    slug: "precatorios",
+    tier: "core",
     index: "03",
+    title: { pt: "Precatórios & Legal Claims", en: "Precatórios & Legal Claims" },
+    short: {
+      pt: "Créditos judiciais definitivos contra entes públicos federais, estaduais e municipais.",
+      en: "Final judicial claims against federal, state and municipal public entities.",
+    },
+    lede: {
+      pt: "O precatório é um crédito reconhecido judicialmente em caráter definitivo contra a Fazenda Pública. Sua complexidade não está no mérito — já decidido — mas na fila orçamentária, na cadeia de titularidade e na atualização do valor. É aí que a estruturação técnica define o resultado.",
+      en: "A precatório is a judicially recognised, final claim against the Brazilian public treasury. Its complexity lies not in the merits — already decided — but in the budgetary queue, the chain of title and the restatement of value. That is where technical structuring determines the outcome.",
+    },
+    problem: {
+      pt: "O titular de um precatório tem um crédito já reconhecido em definitivo, mas não tem liquidez: o pagamento depende da fila orçamentária do ente devedor e pode levar anos. A Blackhill estrutura a monetização antecipada desse crédito junto a capital institucional qualificado.",
+      en: "The holder of a precatório has a claim already recognised with finality, but no liquidity: payment depends on the debtor entity's budgetary queue and can take years. Blackhill structures the early monetisation of that claim with qualified institutional capital.",
+    },
+    who: {
+      pt: [
+        "Detentores de precatórios federais, estaduais ou municipais",
+        "Escritórios de advocacia com carteiras de clientes titulares",
+        "Empresas com precatórios reconhecidos em balanço",
+        "Investidores institucionais com mandato para crédito de ente público",
+      ],
+      en: [
+        "Holders of federal, state or municipal precatórios",
+        "Law firms with portfolios of holder clients",
+        "Companies carrying recognised precatórios on their balance sheet",
+        "Institutional investors mandated for public-entity credit",
+      ],
+    },
+    complexity: {
+      pt: [
+        "O pagamento depende da inscrição no orçamento do ente devedor (LOA) e do exercício em que o crédito é alcançado — não de uma data contratual.",
+        "A atualização monetária segue regimes distintos antes e depois da inscrição orçamentária, com a EC 113/2021 fixando a SELIC como índice após a LOA.",
+        "A natureza do crédito — alimentar ou comum — altera a posição na fila de pagamento.",
+        "A cadeia de cessões anteriores, gravames, penhoras e débitos inscritos em dívida ativa do titular original podem comprometer a liquidez do ativo.",
+        "O perfil de risco varia materialmente entre União, Estados e Municípios: são três curvas de crédito soberano distintas, não um único ativo.",
+      ],
+      en: [
+        "Payment depends on inclusion in the debtor entity's budget law and on the fiscal year in which the claim is reached — not on a contractual date.",
+        "Monetary restatement follows different regimes before and after budget inclusion, with Constitutional Amendment 113/2021 fixing the SELIC rate as the post-budget index.",
+        "The nature of the claim — food-related or ordinary — changes its position in the payment queue.",
+        "Prior assignment chains, liens, attachments and tax debts of the original holder can compromise the asset's liquidity.",
+        "Risk profiles differ materially between the Federal Union, states and municipalities: these are three distinct sovereign credit curves, not one asset.",
+      ],
+    },
+    role: {
+      pt: [
+        "Originação junto a titulares, escritórios e entes institucionais por rede proprietária.",
+        "Verificação documental: ofício requisitório, trânsito em julgado, pendências recursais, cadeia de titularidade e ausência de gravames.",
+        "Atualização do valor pelo índice aplicável, com data-base explícita.",
+        "Estruturação da cessão ou do veículo de investimento, com cláusulas de ajuste de preço e indenidade.",
+        "Intermediação entre cedente e investidor qualificado, com due diligence independente em cada etapa.",
+      ],
+      en: [
+        "Origination from holders, law firms and institutional entities through a proprietary network.",
+        "Document verification: requisition order, final judgment, pending appeals, chain of title and absence of liens.",
+        "Restatement of value using the applicable index, with an explicit reference date.",
+        "Structuring of the assignment or investment vehicle, with price adjustment and indemnity provisions.",
+        "Intermediation between seller and qualified investor, with independent due diligence at each stage.",
+      ],
+    },
+    execution: {
+      pt: "A condução é sênior e direta. Quando o ativo exige, a Blackhill mobiliza parecer jurídico independente sobre a cadeia processual e a cessibilidade do crédito.",
+      en: "Senior and direct conduct. Where the asset requires it, Blackhill engages an independent legal opinion on the procedural chain and the claim's assignability.",
+    },
+    frame: {
+      pt: [
+        { label: "Esferas", value: "Federal · Estadual · Municipal" },
+        { label: "Atualização pós-LOA", value: "EC 113/2021 — SELIC" },
+        { label: "Securitização municipal", value: "LC 208/2024" },
+        { label: "Parecer jurídico", value: "Independente e obrigatório" },
+      ],
+      en: [
+        { label: "Spheres", value: "Federal · State · Municipal" },
+        { label: "Post-budget restatement", value: "Amendment 113/2021 — SELIC" },
+        { label: "Municipal securitisation", value: "Complementary Law 208/2024" },
+        { label: "Legal opinion", value: "Independent and mandatory" },
+      ],
+    },
+  },
+  {
+    slug: "claims",
+    tier: "complementary",
+    index: "04",
     title: { pt: "Claims & Litigation Finance", en: "Claims & Litigation Finance" },
     short: {
       pt: "Monetização antecipada de direitos creditórios de origem judicial ou arbitral.",
@@ -281,90 +372,8 @@ export const ADVISORY_AREAS: AdvisoryArea[] = [
     },
   },
   {
-    slug: "structured-credit",
-    tier: "capability",
-    index: "04",
-    title: { pt: "Crédito Estruturado & FIDC", en: "Structured Credit & Receivables Funds" },
-    short: {
-      pt: "Veículos de investimento com lastro em recebíveis — do FIDC à securitização.",
-      en: "Receivables-backed investment vehicles — from receivables funds to securitisation.",
-    },
-    lede: {
-      pt: "A estrutura não é o objetivo: é o instrumento que torna um ativo complexo investível por capital institucional. A escolha entre cessão direta, FIDC simples ou estrutura multiclasse decorre do tamanho, da origem e do perfil de risco da carteira.",
-      en: "The structure is not the objective: it is the instrument that makes a complex asset investable by institutional capital. The choice between direct assignment, a single-tranche fund or a multi-class structure follows from the portfolio's size, origin and risk profile.",
-    },
-    problem: {
-      pt: "Um ativo de crédito pode ser bom e, ainda assim, não ser investível: falta o veículo, o desenho de garantias e o arcabouço regulatório que permitem a capital institucional entrar. A Blackhill constrói essa ponte entre o ativo e o investidor.",
-      en: "A credit asset can be sound and still not be investable: what is missing is the vehicle, the security design and the regulatory framework that let institutional capital in. Blackhill builds that bridge between the asset and the investor.",
-    },
-    who: {
-      pt: [
-        "Originadores de recebíveis que buscam funding estruturado",
-        "Empresas que precisam transformar carteira em liquidez",
-        "Gestoras que precisam estruturar um veículo para uma tese",
-        "Bancos e securitizadoras em operações de cessão",
-      ],
-      en: [
-        "Receivables originators seeking structured funding",
-        "Companies that need to turn a portfolio into liquidity",
-        "Asset managers that need a vehicle built for a thesis",
-        "Banks and securitisation companies in assignment transactions",
-      ],
-    },
-    complexity: {
-      pt: [
-        "O sizing das cotas — sênior, mezanino e subordinada — define a cobertura efetiva do investidor sênior e é a decisão estrutural central.",
-        "A cota subordinada retida pelo originador funciona como alinhamento de interesse e primeira absorção de perda.",
-        "Gestor, administrador e custodiante independentes são exigência regulatória, não escolha de conveniência.",
-        "A política de crédito e os critérios de elegibilidade do lastro precisam ser definidos antes do registro, não ajustados depois.",
-        "Estruturas multiorigem exigem limites de concentração explícitos por cedente, devedor e classe de ativo.",
-      ],
-      en: [
-        "Tranche sizing — senior, mezzanine and subordinated — defines the senior investor's effective coverage and is the central structural decision.",
-        "The subordinated tranche retained by the originator serves as interest alignment and first-loss absorption.",
-        "Independent manager, administrator and custodian are a regulatory requirement, not a matter of convenience.",
-        "Credit policy and eligibility criteria for the underlying must be set before registration, not adjusted afterwards.",
-        "Multi-origin structures require explicit concentration limits by seller, debtor and asset class.",
-      ],
-    },
-    role: {
-      pt: [
-        "Definição do lastro e dos critérios de elegibilidade dos ativos.",
-        "Sizing das cotas e desenho das proteções estruturais.",
-        "Seleção e coordenação de gestor, administrador, custodiante e assessores jurídicos.",
-        "Condução do processo de estruturação da cessão e do registro regulatório.",
-        "Acompanhamento pós-fechamento: relatório periódico, eventos de liquidez e substituição de ativos.",
-      ],
-      en: [
-        "Definition of the underlying pool and asset eligibility criteria.",
-        "Tranche sizing and design of structural protections.",
-        "Selection and coordination of manager, administrator, custodian and legal advisers.",
-        "Management of the assignment structuring process and regulatory registration.",
-        "Post-closing monitoring: periodic reporting, liquidity events and asset substitution.",
-      ],
-    },
-    execution: {
-      pt: "A condução é sênior e direta, em articulação com o administrador, o custodiante e o gestor do veículo, e com auditoria e assessoria legal mobilizadas conforme a estrutura escolhida.",
-      en: "Senior and direct conduct, working with the vehicle's administrator, custodian and manager, and with audit and legal counsel engaged according to the structure chosen.",
-    },
-    frame: {
-      pt: [
-        { label: "Estruturas", value: "FIDC NP · FIDC performado · multiclasse" },
-        { label: "Securitização", value: "CRI · CRA · debêntures" },
-        { label: "Regulamentação", value: "ICVM 175/2022 · Lei 14.430/2022" },
-        { label: "Papel da Blackhill", value: "Advisor estruturador — não gestor" },
-      ],
-      en: [
-        { label: "Structures", value: "Non-standard · performing · multi-class funds" },
-        { label: "Securitisation", value: "Real estate and agribusiness notes · debentures" },
-        { label: "Regulation", value: "CVM Rule 175/2022 · Law 14.430/2022" },
-        { label: "Blackhill's role", value: "Structuring advisor — not manager" },
-      ],
-    },
-  },
-  {
     slug: "public-receivables",
-    tier: "capability",
+    tier: "complementary",
     index: "05",
     title: { pt: "Dívida Ativa & Recebíveis Públicos", en: "Public Tax Receivables" },
     short: {
@@ -602,26 +611,21 @@ export const ADVISORY_AREAS: AdvisoryArea[] = [
   },
 ];
 
-export const TIER_ORDER: Tier[] = ["core", "capability", "complementary"];
+export const TIER_ORDER: Tier[] = ["core", "complementary"];
 
 export const TIER_LABEL: Record<Tier, Localized<string>> = {
-  core: { pt: "Núcleo de autoridade", en: "Core authority" },
-  capability: { pt: "Capacidades de estruturação", en: "Structuring capabilities" },
-  complementary: { pt: "Serviços complementares", en: "Complementary services" },
+  core: { pt: "Núcleos de autoridade", en: "Cores of authority" },
+  complementary: { pt: "Capacidades complementares", en: "Complementary capabilities" },
 };
 
 export const TIER_NOTE: Record<Tier, Localized<string>> = {
   core: {
-    pt: "Frentes em que a Blackhill concentra a maior profundidade técnica e onde se posiciona como referência de mercado.",
-    en: "Practice lines where Blackhill concentrates its deepest technical capability and positions itself as a market reference.",
-  },
-  capability: {
-    pt: "Instrumentos técnicos que viabilizam a monetização dos ativos do núcleo.",
-    en: "Technical instruments that enable monetisation of the core asset classes.",
+    pt: "Três frentes de igual relevância, em que a Blackhill concentra a maior profundidade técnica e onde se posiciona como referência de mercado.",
+    en: "Three practice lines of equal standing, where Blackhill concentrates its deepest technical capability and positions itself as a market reference.",
   },
   complementary: {
-    pt: "Serviços oferecidos a clientes do núcleo, sem protagonismo narrativo equivalente.",
-    en: "Services offered to core clients, without equivalent narrative prominence.",
+    pt: "Instrumentos técnicos e serviços que viabilizam as operações dos três núcleos, sem protagonismo narrativo equivalente.",
+    en: "Technical instruments and services that enable the transactions of the three cores, without equivalent narrative prominence.",
   },
 };
 

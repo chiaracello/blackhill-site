@@ -86,9 +86,9 @@ export const HOME: Localized<{
     pillarsLede:
       "O advisory em crédito complexo é a atividade principal da Blackhill e concentra a profundidade técnica da casa. O ecossistema de tecnologia é uma frente distinta, de investimento estratégico, mantida estruturalmente separada das operações assessoradas.",
     advisoryEyebrow: "Pilar 01 — Blackhill Advisors",
-    advisoryTitle: "Sete frentes especializadas. Um núcleo de autoridade.",
+    advisoryTitle: "Três núcleos de autoridade. Sete frentes especializadas.",
     advisoryLede:
-      "Precatórios e NPL & Distressed Credit concentram a maior profundidade técnica da plataforma. As demais frentes existem como instrumentos de estruturação e serviços de suporte a esse núcleo — não como verticais concorrentes em visibilidade.",
+      "NPL & Distressed Credit, Crédito Estruturado, FIDCs & Securities e Precatórios & Legal Claims têm igual relevância e concentram a profundidade técnica da plataforma. As demais frentes existem como capacidades complementares que viabilizam as operações desses três núcleos.",
     ecosystemEyebrow: "Pilar 02 — Ecossistema de tecnologia",
     ecosystemTitle: "Tecnologia aplicada à originação, à decisão e à execução de crédito.",
     ecosystemLede:
@@ -172,9 +172,9 @@ export const HOME: Localized<{
     pillarsLede:
       "Complex credit advisory is Blackhill's principal activity and holds the firm's technical depth. The technology ecosystem is a distinct strategic investment front, kept structurally separate from advised transactions.",
     advisoryEyebrow: "Pillar 01 — Blackhill Advisors",
-    advisoryTitle: "Seven specialised practice lines. One core of authority.",
+    advisoryTitle: "Three cores of authority. Seven specialised practice lines.",
     advisoryLede:
-      "Court-ordered public claims and NPL & Distressed Credit hold the platform's deepest technical capability. The remaining lines exist as structuring instruments and support services to that core — not as verticals competing for visibility.",
+      "NPL & Distressed Credit, Structured Credit, FIDCs & Securities and Precatórios & Legal Claims carry equal standing and hold the platform's technical depth. The remaining lines exist as complementary capabilities that enable the transactions of those three cores.",
     ecosystemEyebrow: "Pillar 02 — Technology ecosystem",
     ecosystemTitle: "Technology applied to credit origination, decisioning and execution.",
     ecosystemLede:

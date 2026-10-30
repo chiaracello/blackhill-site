@@ -5,7 +5,7 @@
 | | |
 | :-- | :-- |
 | **Versão** | 1.0 — 30 de outubro de 2026 |
-| **Norma de origem** | [Brand & Communication Standard v1.3](docs/BRAND_STANDARD_v1.3.md) |
+| **Norma de origem** | [Brand & Communication Standard v1.4](docs/BRAND_STANDARD_v1.4.md) |
 | **Base de reconciliação** | [Continuidade visual](docs/CONTINUIDADE_VISUAL_MATERIAIS.md) |
 | **Implementação de referência** | `src/app/globals.css` |
 | **Classificação** | Uso interno — referência permanente |
@@ -145,10 +145,10 @@ As duas famílias são **auto-hospedadas**: servidas do próprio domínio, sem r
 | :-- | :-- | :-- |
 | `panel` | Bloco de conteúdo leve | Superfície tingida + fio de 1px. Nunca cartão pesado. |
 | `cell` + `cell-grid` | Hierarquia lida como área | Grade cujos vãos são fios de 1px |
-| `cell-invert` | O núcleo de autoridade | Célula navy dentro de grade clara |
+| `cell-invert` | Os três núcleos de autoridade | Célula navy dentro de grade clara |
 | `index-row` | Lista navegável | Fio superior, padding que cresce no hover |
 
-**Hierarquia por área.** Nas frentes de advisory o peso não é só tipográfico: Precatórios e NPL ocupam células do dobro do tamanho e invertem contra a superfície. Uma pessoa entende a hierarquia antes de ler uma palavra.
+**Hierarquia por área.** Nas frentes de advisory o peso não é só tipográfico: os três núcleos — NPL & Distressed Credit, Crédito Estruturado, FIDCs & Securities e Precatórios & Legal Claims — ocupam células grandes, iguais entre si, e invertem contra a superfície. As quatro capacidades complementares ficam em células menores. Uma pessoa entende a hierarquia antes de ler uma palavra.
 
 ### Botões e links
 
@@ -245,7 +245,7 @@ Forma nominal obrigatória. Aparece em faixa sob o hero, no topo da página de A
 - Animação que esconda texto no carregamento, ou que atinja o h1.
 - Cartão com canto arredondado acentuado — o sistema é de fio reto.
 - Logotipo ou identidade visual atribuída a XCurve, Finders ou DealNorth.
-- Paridade visual entre as sete frentes de advisory. A hierarquia é estrutural.
+- Paridade visual entre núcleo e capacidade complementar. Entre os três núcleos, ao contrário, a paridade é obrigatória.
 
 ---
 

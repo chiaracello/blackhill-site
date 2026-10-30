@@ -12,13 +12,13 @@ Em caso de divergência, prevalece a fonte mais alta:
 
 | # | Fonte | Natureza |
 | :-- | :-- | :-- |
-| 1 | **Brand & Communication Standard v1.3** — `docs/BRAND_STANDARD_v1.3.md` | Norma vigente |
+| 1 | **Brand & Communication Standard v1.4** — `docs/BRAND_STANDARD_v1.4.md` | Norma vigente |
 | 1b | **Design System** — `BLACKHILL_DESIGN_SYSTEM.md` | Aplicação visual |
 | 2 | **Posicionamento Institucional 2026–2031 v2** — `docs/POSICIONAMENTO_INSTITUCIONAL_2026-2031_v2.md` | Estratégia aprovada |
 | 3 | `__BLACKHILL_KNOWLEDGE_HUB.md` (Google Drive, v2.1, Jun/2026) | Base de conhecimento mestre |
 | 4 | `Blackhill_Arquitetura_Website.docx` (Jun/2026) | Arquitetura de informação |
 
-**Regra de governança herdada do Knowledge Hub:** toda instrução que divergir do Brand Standard deve ser sinalizada, e o Standard prevalece até validação expressa de Marcello Chiara. Essa regra permanece em vigor na v1.3.
+**Regra de governança herdada do Knowledge Hub:** toda instrução que divergir do Brand Standard deve ser sinalizada, e o Standard prevalece até validação expressa de Marcello Chiara. Essa regra permanece em vigor na v1.4.
 
 ---
 
@@ -58,13 +58,14 @@ Denominação da frente de advisory. **Não é pessoa jurídica independente** �
 
 Escopo: Financial Advisory · Structured Credit · Debt Solutions · NPL · Distressed Assets · Judicial Claims · Special Situations.
 
-**Hierarquia editorial obrigatória** (nunca apresentar as sete frentes em paridade visual):
+**Hierarquia editorial obrigatória** — três núcleos de igual relevância, e as demais frentes como capacidades complementares:
 
 | Camada | Frentes |
 | :-- | :-- |
-| **Núcleo de autoridade** | Precatórios · NPL & Distressed Credit |
-| **Capacidades de estruturação** | Claims & Litigation Finance · Crédito Estruturado/FIDC · Dívida Ativa (LC 208/2024) |
-| **Serviços complementares** | Reestruturação Corporativa · Servicing & Recuperação |
+| **Núcleos de autoridade** | **01** NPL & Distressed Credit · **02** Crédito Estruturado, FIDCs & Securities · **03** Precatórios & Legal Claims |
+| **Capacidades complementares** | Claims & Litigation Finance · Dívida Ativa (LC 208/2024) · Reestruturação Corporativa · Servicing & Recuperação |
+
+Os três núcleos aparecem sempre com o mesmo peso visual entre si. As quatro capacidades preservam conteúdo e página próprios, sem peso equivalente ao dos núcleos.
 
 ### Pilar 2 — Strategic Technology Investments
 
@@ -101,7 +102,7 @@ Não gere capital de terceiros · Não investe capital próprio nas operações 
 
 ## 5. Identidade visual
 
-Norma: [Brand & Communication Standard v1.3](docs/BRAND_STANDARD_v1.3.md) §07.
+Norma: [Brand & Communication Standard v1.4](docs/BRAND_STANDARD_v1.4.md) §07.
 Aplicação: [BLACKHILL_DESIGN_SYSTEM.md](BLACKHILL_DESIGN_SYSTEM.md) — paleta completa, escala tipográfica, espaçamento, componentes e padrões de apresentação.
 
 | Uso | Hex | Regra |
