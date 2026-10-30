@@ -90,6 +90,18 @@ export async function submitContact(
   const message = field(data, "message", LIMITS.message);
   const consent = data.get("consent") === "on";
 
+  // Campaign origin, carried by the form. Never a decision input — only
+  // context appended to the notification so a lead can be attributed.
+  const origin: [string, string][] = [
+    ["Origem", field(data, "origin_source", 120)],
+    ["Meio", field(data, "origin_medium", 120)],
+    ["Campanha", field(data, "origin_campaign", 120)],
+    ["Conteúdo", field(data, "origin_content", 120)],
+    ["Termo", field(data, "origin_term", 120)],
+    ["Página de entrada", field(data, "origin_landing", 160)],
+    ["Referenciador", field(data, "origin_referrer", 100)],
+  ].filter(([, value]) => value !== "") as [string, string][];
+
   const values: ContactValues = { name, institution, email, nature, message };
   const fail = (code: ContactErrorCode, field?: ContactField): ContactState => ({
     status: "error",
@@ -145,7 +157,20 @@ ${rows
   .join("")}
 </table>
 <p style="margin:0 0 6px;color:#7B93B5">Descrição</p>
-<p style="margin:0;white-space:pre-wrap">${escapeHtml(message)}</p>
+<p style="margin:0 0 24px;white-space:pre-wrap">${escapeHtml(message)}</p>
+${
+  origin.length > 0
+    ? `<p style="margin:0 0 8px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#7B93B5">Origem do contato</p>
+<table style="border-collapse:collapse;font-size:13px">
+${origin
+  .map(
+    ([label, value]) =>
+      `<tr><td style="padding:3px 16px 3px 0;color:#7B93B5">${label}</td><td style="padding:3px 0">${escapeHtml(value)}</td></tr>`,
+  )
+  .join("")}
+</table>`
+    : ""
+}
 </div>`;
 
   const text = [
@@ -155,6 +180,9 @@ ${rows
     "",
     "Descrição:",
     message,
+    ...(origin.length > 0
+      ? ["", "Origem do contato:", ...origin.map(([label, value]) => `${label}: ${value}`)]
+      : []),
   ].join("\n");
 
   try {

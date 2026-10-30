@@ -5,6 +5,7 @@ import "../globals.css";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import JsonLd from "@/components/JsonLd";
+import OriginCapture from "@/components/OriginCapture";
 import { UI } from "@/content/site";
 import { HTML_LANG, LOCALES, SITE_URL, isLocale } from "@/lib/i18n";
 import { organizationSchema } from "@/lib/metadata";
@@ -79,6 +80,7 @@ export default async function LocaleLayout({
           {children}
         </main>
         <Footer locale={locale} />
+        <OriginCapture />
         <JsonLd data={organizationSchema(locale)} />
       </body>
     </html>

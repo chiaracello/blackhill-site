@@ -28,22 +28,25 @@ export const PRIVACY: Localized<{
       {
         title: "2. Dados coletados",
         body: [
-          "Este website coleta exclusivamente os dados que você informa voluntariamente no formulário de contato: nome, instituição, endereço de e-mail, perfil de relacionamento e o conteúdo da mensagem.",
+          "Este website coleta exclusivamente os dados que você informa voluntariamente no formulário de contato: nome, empresa ou instituição, endereço de e-mail profissional, natureza da oportunidade e a descrição que você escreve.",
+          "Junto com o formulário é enviada também a origem do contato: os parâmetros de campanha presentes no endereço pelo qual você chegou (utm_source, utm_medium, utm_campaign, utm_content e utm_term), a página de entrada e o domínio de onde você veio — apenas o domínio, nunca o endereço completo da página anterior.",
           "Não há cadastro de usuários, não há área autenticada e não há coleta de dados por outros meios neste website.",
         ],
       },
       {
         title: "3. Finalidade e base legal",
         body: [
-          "Os dados informados são tratados com a finalidade exclusiva de analisar e responder ao seu contato.",
+          "Os dados informados são tratados com a finalidade exclusiva de analisar e responder ao seu contato. A origem do contato é utilizada apenas para entender por qual caminho você chegou até a Blackhill, e não influencia a análise nem gera qualquer classificação sobre você.",
           "A base legal é o consentimento do titular, manifestado de forma expressa no envio do formulário (art. 7º, I, da LGPD). Quando o contato evolui para uma relação contratual ou pré-contratual, o tratamento passa a fundamentar-se na execução de contrato ou de procedimentos preliminares (art. 7º, V).",
         ],
       },
       {
         title: "4. Cookies e tecnologias de rastreamento",
         body: [
-          "Este website não utiliza cookies de publicidade, não emprega ferramentas de analytics de terceiros, não instala pixels de rastreamento e não realiza perfilamento de visitantes.",
-          "Por não haver cookies não essenciais, não é exibido banner de consentimento de cookies — não há consentimento a ser coletado para essa finalidade.",
+          "Este website não utiliza cookies, não emprega ferramentas de analytics de terceiros, não instala pixels de rastreamento e não realiza perfilamento de visitantes. Nenhum dado é compartilhado com plataformas de publicidade.",
+          "A origem do contato descrita no item 2 fica guardada exclusivamente no armazenamento de sessão do seu próprio navegador (sessionStorage), que pertence apenas àquela aba e é descartado quando você a fecha. Não é cookie, não é lido por terceiros e não sai do seu navegador.",
+          "Essa informação só é transmitida à Blackhill Capital se, e quando, você decidir enviar o formulário. Se você navegar pelo site e não enviar nada, nenhum registro é criado em lugar algum.",
+          "Por não haver cookies nem rastreamento, não é exibido banner de consentimento de cookies — não há consentimento a ser coletado para essa finalidade.",
         ],
       },
       {
@@ -100,22 +103,25 @@ export const PRIVACY: Localized<{
       {
         title: "2. Data collected",
         body: [
-          "This website collects only the data you voluntarily provide in the contact form: name, institution, email address, relationship profile and the content of your message.",
+          "This website collects only the data you voluntarily provide in the contact form: name, company or institution, professional email address, nature of the opportunity and the description you write.",
+          "Submitted alongside the form is the origin of your enquiry: the campaign parameters present in the address you arrived through (utm_source, utm_medium, utm_campaign, utm_content and utm_term), the landing page, and the domain you came from — the domain only, never the full address of the previous page.",
           "There is no user registration, no authenticated area and no collection of data by any other means on this website.",
         ],
       },
       {
         title: "3. Purpose and legal basis",
         body: [
-          "The data provided is processed for the sole purpose of reviewing and responding to your enquiry.",
+          "The data provided is processed for the sole purpose of reviewing and responding to your enquiry. The origin of the enquiry is used only to understand which path brought you to Blackhill; it does not influence the analysis and generates no classification about you.",
           "The legal basis is the data subject's consent, given expressly on submission of the form (LGPD art. 7, I). Where contact develops into a contractual or pre-contractual relationship, processing is then based on performance of a contract or preliminary procedures (art. 7, V).",
         ],
       },
       {
         title: "4. Cookies and tracking technologies",
         body: [
-          "This website uses no advertising cookies, employs no third-party analytics tools, installs no tracking pixels and performs no visitor profiling.",
-          "As there are no non-essential cookies, no cookie consent banner is displayed — there is no consent to collect for that purpose.",
+          "This website uses no cookies, employs no third-party analytics tools, installs no tracking pixels and performs no visitor profiling. No data is shared with advertising platforms.",
+          "The enquiry origin described in item 2 is held solely in your own browser's session storage, which belongs to that tab alone and is discarded when you close it. It is not a cookie, it is not read by any third party and it does not leave your browser.",
+          "That information is transmitted to Blackhill Capital only if, and when, you choose to submit the form. If you browse the site and submit nothing, no record is created anywhere.",
+          "As there are no cookies and no tracking, no cookie consent banner is displayed — there is no consent to collect for that purpose.",
         ],
       },
       {

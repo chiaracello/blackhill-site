@@ -1,12 +1,18 @@
 "use client";
 
 import { useSearchParams } from "next/navigation";
-import { useActionState } from "react";
+import { useActionState, useEffect, useSyncExternalStore } from "react";
 import { useFormStatus } from "react-dom";
 
 import { submitContact, type ContactState } from "@/app/actions/contact";
 import { CONTACT } from "@/content/pages";
 import { OPPORTUNITY_NATURES, natureByValue } from "@/content/site";
+import {
+  clearOrigin,
+  getOriginSnapshot,
+  serverSnapshot,
+  subscribeOrigin,
+} from "@/lib/attribution";
 import { localePath, type Locale } from "@/lib/i18n";
 
 const INITIAL: ContactState = { status: "idle" };
@@ -20,6 +26,15 @@ export default function ContactForm({ locale }: { locale: Locale }) {
   const params = useSearchParams();
   const requested = params.get("assunto") ?? "";
   const preselected = natureByValue(requested)?.value ?? "";
+
+  // Read on the client only; it never leaves the tab unless this form is sent.
+  const origin = useSyncExternalStore(subscribeOrigin, getOriginSnapshot, serverSnapshot);
+
+  // One origin is reported once.
+  const delivered = state.status === "ok";
+  useEffect(() => {
+    if (delivered) clearOrigin();
+  }, [delivered]);
 
   if (state.status === "ok") {
     return (
@@ -48,6 +63,14 @@ export default function ContactForm({ locale }: { locale: Locale }) {
       noValidate
     >
       <input type="hidden" name="locale" value={locale} />
+      {/* Campaign origin, submitted with the message and nothing else. */}
+      <input type="hidden" name="origin_source" value={origin.source} />
+      <input type="hidden" name="origin_medium" value={origin.medium} />
+      <input type="hidden" name="origin_campaign" value={origin.campaign} />
+      <input type="hidden" name="origin_content" value={origin.content} />
+      <input type="hidden" name="origin_term" value={origin.term} />
+      <input type="hidden" name="origin_landing" value={origin.landing} />
+      <input type="hidden" name="origin_referrer" value={origin.referrer} />
 
       {/* Honeypot — hidden from assistive technology and from tab order. */}
       <div aria-hidden="true" className="absolute left-[-9999px] h-0 w-0 overflow-hidden">
