@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Blackhill Capital — Carrossel institucional</title>
+<link rel="stylesheet" href="css/fonts.css">
+<style>
+  /* ======================================================================
+     BLACKHILL CAPITAL — Carrossel LinkedIn 1080 × 1350 (4:5)
+     Brand & Communication Standard v1.4 · BLACKHILL_DESIGN_SYSTEM.md
+
+     Tokens idênticos a src/app/globals.css. A escala tipográfica é
+     reescalada para a tela de 1080px lida no celular: o piso de 13px do
+     site corresponderia a 5px aparentes em 390px de largura.
+     ====================================================================== */
+
+  :root {
+    --navy: #0b1f3a;
+    --navy-deep: #071526;
+    --navy-2: #122a49;
+    --gold: #c9a84c;        /* champagne — somente sobre navy */
+    --gold-line: #b8923f;   /* ouro institucional — somente sobre navy */
+    --bronze: #5c4a1e;      /* família ouro sobre fundo claro */
+    --ivory: #f5efe3;
+    --ink: #23262b;
+    --white: #fff;
+
+    --fg-body-dark: #c6d2e2;   /* parágrafo sobre escuro */
+    --fg-muted-dark: #93a7c2;  /* caveat sobre escuro */
+    --fg-body-light: #3e434b;  /* parágrafo sobre claro */
+    --fg-muted-light: #5a6068; /* caveat sobre claro */
+
+    --accent-finders: #c9a84c;
+    --accent-dealnorth: #7fa894;
+
+    --pad: 92px;
+  }
+
+  @page { size: 1080px 1350px; margin: 0; }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+  body {
+    font-family: "Inter", system-ui, sans-serif;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .page {
+    width: 1080px;
+    height: 1350px;
+    padding: var(--pad);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    page-break-after: always;
+    break-after: page;
+  }
+  .page:last-child { page-break-after: auto; break-after: auto; }
+
+  /* --- Superfícies. Cada página declara a sua. --------------------------- */
+  .s-obsidian { background: var(--navy-deep); color: var(--fg-body-dark); }
+  .s-navy     { background: var(--navy);      color: var(--fg-body-dark); }
+  .s-ivory    { background: var(--ivory);     color: var(--fg-body-light); }
+
+  /* --- Wordmark. Inter 600, tracking +0,14em; CAPITAL +0,34em. ----------- */
+  .head { display: flex; justify-content: space-between; align-items: flex-start; }
+  .wordmark { display: flex; flex-direction: column; gap: 7px; }
+  .wm-1 { font-size: 34px; font-weight: 600; letter-spacing: 0.14em; line-height: 1; }
+  .wm-2 { font-size: 19px; font-weight: 500; letter-spacing: 0.34em; line-height: 1; }
+  .s-obsidian .wm-1, .s-navy .wm-1 { color: var(--white); }
+  .s-obsidian .wm-2, .s-navy .wm-2 { color: var(--gold); }
+  .s-ivory .wm-1, .s-ivory .wm-2 { color: var(--navy); }
+
+  .folio { font-size: 22px; font-weight: 500; letter-spacing: 0.1em; }
+  .s-obsidian .folio, .s-navy .folio { color: var(--fg-muted-dark); }
+  .s-ivory .folio { color: var(--fg-muted-light); }
+
+  /* --- Rótulo de seção -------------------------------------------------- */
+  .eyebrow {
+    font-size: 22px; font-weight: 600; letter-spacing: 0.22em;
+    text-transform: uppercase; line-height: 1.3;
+  }
+  .s-obsidian .eyebrow, .s-navy .eyebrow { color: var(--gold); }
+  .s-ivory .eyebrow { color: var(--bronze); }
+
+  /* --- Títulos editoriais: Bodoni Moda ---------------------------------- */
+  .display, .h1 {
+    font-family: "Bodoni Moda", Georgia, serif;
+    font-weight: 400;
+  }
+  .display { font-size: 68px; line-height: 1.22; letter-spacing: -0.015em; }
+  .h1      { font-size: 74px; line-height: 1.06; letter-spacing: -0.012em; }
+  .s-obsidian .display, .s-navy .display,
+  .s-obsidian .h1, .s-navy .h1 { color: var(--white); }
+  .s-ivory .h1 { color: var(--navy); }
+
+  /* Itálico de destaque: uma palavra, na cor do acento. */
+  .accent { font-style: italic; color: var(--gold); }
+
+  /* --- Corpo ------------------------------------------------------------ */
+  .lead { font-size: 30px; line-height: 1.55; max-width: 24ch; }
+  .s-ivory .lead { color: var(--fg-body-light); }
+
+  /* --- Fio, não caixa --------------------------------------------------- */
+  .rule { height: 1px; width: 100%; }
+  .s-obsidian .rule, .s-navy .rule { background: rgb(255 255 255 / 0.11); }
+  .s-ivory .rule { background: rgb(11 31 58 / 0.16); }
+  .rule-gold { height: 2px; width: 132px; background: var(--gold-line); }
+
+  /* --- Células dos três núcleos. Paridade obrigatória entre elas. ------- */
+  .cores { display: flex; flex-direction: column; gap: 1px; background: rgb(11 31 58 / 0.16); }
+  .core {
+    background: var(--navy);           /* bloco escuro declara a própria superfície */
+    color: var(--fg-body-dark);
+    display: flex; align-items: baseline; gap: 30px;
+    padding: 34px 44px;
+    height: 192px;                     /* paridade estrita entre os três núcleos */
+  }
+  .core-n {
+    font-family: "Bodoni Moda", Georgia, serif;
+    font-size: 52px; line-height: 1; color: var(--gold);
+    flex: none; width: 70px;
+  }
+  .core-t { font-size: 32px; font-weight: 600; color: var(--white); line-height: 1.2; letter-spacing: -0.01em; }
+  .core-d { font-size: 23px; line-height: 1.5; color: var(--fg-body-dark); margin-top: 12px; max-width: 42ch; }
+
+  /* --- Plataformas. Acento de plataforma: exceção única do Pilar 2. ----- */
+  .plat { padding-top: 40px; }
+  .plat-bar { height: 3px; width: 96px; margin-bottom: 30px; }
+  .plat-n { font-size: 44px; font-weight: 600; color: var(--white); letter-spacing: 0.01em; line-height: 1; }
+  .plat-c { font-size: 21px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; margin-top: 16px; }
+  .plat-d { font-size: 28px; line-height: 1.55; color: var(--fg-body-dark); margin-top: 24px; max-width: 37ch; }
+
+  /* --- Assinatura institucional. Forma nominal obrigatória. ------------- */
+  .sig { display: flex; flex-direction: column; gap: 14px; }
+  .sig span { font-size: 40px; font-weight: 600; color: var(--white); letter-spacing: -0.005em; }
+  .url { font-size: 36px; font-weight: 500; color: var(--gold); letter-spacing: 0.02em; }
+
+  /* --- Rodapé e caveat de compliance, em toda página -------------------- */
+  .foot { margin-top: auto; }
+  .foot-row { display: flex; justify-content: space-between; align-items: baseline; gap: 40px; }
+  .descriptor { font-size: 23px; font-weight: 500; letter-spacing: 0.02em; }
+  .s-obsidian .descriptor, .s-navy .descriptor { color: var(--white); }
+  .caveat { font-size: 21px; line-height: 1.55; max-width: 62ch; }
+  .s-obsidian .caveat, .s-navy .caveat { color: var(--fg-muted-dark); }
+  .s-ivory .caveat { color: var(--fg-muted-light); }
+  .date { font-size: 23px; font-weight: 500; }
+  .s-obsidian .date, .s-navy .date { color: var(--fg-muted-dark); }
+
+  .grow { flex: 1 1 auto; }
+</style>
+</head>
+<body>
+
+<!-- ============ 01 · INSTITUCIONAL — capa obsidian ====================== -->
+<section class="page s-obsidian">
+  <div class="head">
+    <div class="wordmark"><span class="wm-1">BLACKHILL</span><span class="wm-2">CAPITAL</span></div>
+    <div class="folio">01 / 04</div>
+  </div>
+
+  <div class="grow"></div>
+
+  <div class="eyebrow">Novo website</div>
+  <h1 class="display" style="margin-top: 40px;">
+    Uma nova <span class="accent">presença</span>.<br>
+    Três núcleos de autoridade.<br>
+    Um ecossistema em evolução.
+  </h1>
+
+  <div class="grow"></div>
+
+  <div class="foot">
+    <div class="rule-gold" style="margin-bottom: 34px;"></div>
+    <div class="foot-row">
+      <div class="descriptor">Financial Advisory &amp; Strategic Technology Investments</div>
+      <div class="date">Novembro de 2026</div>
+    </div>
+    <p class="caveat" style="margin-top: 26px;">
+      Material institucional. Não constitui oferta, recomendação de investimento
+      nem promessa de rentabilidade.
+    </p>
+  </div>
+</section>
+
+<!-- ============ 02 · FINANCIAL ADVISORY — três núcleos, superfície marfim -->
+<section class="page s-ivory">
+  <div class="head">
+    <div class="wordmark"><span class="wm-1">BLACKHILL</span><span class="wm-2">CAPITAL</span></div>
+    <div class="folio">02 / 04</div>
+  </div>
+
+  <div style="margin-top: 44px;">
+    <div class="eyebrow">Pilar 01 — Financial Advisory</div>
+    <h2 class="h1" style="margin-top: 26px;">Três núcleos de autoridade.</h2>
+    <p class="lead" style="margin-top: 24px; font-size: 28px; max-width: 42ch;">
+      Três frentes de igual relevância, em que a Blackhill concentra a maior
+      profundidade técnica.
+    </p>
+  </div>
+
+  <div class="cores" style="margin-top: 44px;">
+    <div class="core">
+      <div class="core-n">01</div>
+      <div>
+        <div class="core-t">NPL &amp; Distressed Credit</div>
+        <div class="core-d">Carteiras inadimplentes e exposições corporativas estressadas, do varejo pulverizado ao corporate.</div>
+      </div>
+    </div>
+    <div class="core">
+      <div class="core-n">02</div>
+      <div>
+        <div class="core-t">Crédito Estruturado, FIDCs &amp; Securities</div>
+        <div class="core-d">Veículos de investimento com lastro em recebíveis — do FIDC à securitização.</div>
+      </div>
+    </div>
+    <div class="core">
+      <div class="core-n">03</div>
+      <div>
+        <div class="core-t">Precatórios &amp; Legal Claims</div>
+        <div class="core-d">Créditos judiciais definitivos contra entes públicos federais, estaduais e municipais.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="foot">
+    <div class="rule" style="margin-bottom: 26px;"></div>
+    <p class="caveat">
+      Material institucional. Não constitui oferta, recomendação de investimento
+      nem promessa de rentabilidade.
+    </p>
+  </div>
+</section>
+
+<!-- ============ 03 · ECOSSISTEMA DE TECNOLOGIA — superfície navy ========= -->
+<section class="page s-navy">
+  <div class="head">
+    <div class="wordmark"><span class="wm-1">BLACKHILL</span><span class="wm-2">CAPITAL</span></div>
+    <div class="folio">03 / 04</div>
+  </div>
+
+  <div style="margin-top: 74px;">
+    <div class="eyebrow">Pilar 02 — Ecossistema de tecnologia</div>
+    <h2 class="h1" style="margin-top: 28px; max-width: 18ch;">Duas plataformas no ecossistema Blackhill.</h2>
+  </div>
+
+  <div class="plat" style="margin-top: 40px;">
+    <div class="plat-bar" style="background: var(--accent-finders);"></div>
+    <div class="plat-n">Finders</div>
+    <div class="plat-c" style="color: var(--accent-finders);">Originação e negociação de ativos</div>
+    <p class="plat-d">
+      Infraestrutura para originação, conexão e negociação de carteiras NPL
+      e ativos de crédito complexos.
+    </p>
+  </div>
+
+  <div class="rule" style="margin-top: 52px;"></div>
+
+  <div class="plat">
+    <div class="plat-bar" style="background: var(--accent-dealnorth);"></div>
+    <div class="plat-n">DealNorth</div>
+    <div class="plat-c" style="color: var(--accent-dealnorth);">Gestão de pipeline e oportunidades</div>
+    <p class="plat-d">
+      Tecnologia para gestão de pipelines, oportunidades e processos comerciais,
+      voltada a organizações de diferentes setores.
+    </p>
+  </div>
+
+  <div class="foot">
+    <div class="rule" style="margin-bottom: 26px;"></div>
+    <p class="caveat">
+      As plataformas integram o ecossistema de tecnologia da Blackhill Capital e
+      encontram-se em diferentes estágios de desenvolvimento. Material
+      institucional: não constitui oferta de produto, serviço, valor mobiliário
+      ou participação societária.
+    </p>
+  </div>
+</section>
+
+<!-- ============ 04 · ENCERRAMENTO — obsidian ============================ -->
+<section class="page s-obsidian">
+  <div class="head">
+    <div class="wordmark"><span class="wm-1">BLACKHILL</span><span class="wm-2">CAPITAL</span></div>
+    <div class="folio">04 / 04</div>
+  </div>
+
+  <div class="grow"></div>
+
+  <h2 class="h1" style="max-width: 17ch;">Duas frentes distintas e complementares.</h2>
+  <p class="lead" style="margin-top: 30px; color: var(--fg-body-dark); max-width: 30ch;">
+    Experiência financeira especializada e investimento estratégico em tecnologia.
+  </p>
+
+  <div class="rule-gold" style="margin: 64px 0 46px;"></div>
+
+  <div class="sig">
+    <span>Condução sênior.</span>
+    <span>Tecnologia aplicada.</span>
+    <span>Foco em execução.</span>
+  </div>
+
+  <div class="grow"></div>
+
+  <div class="foot">
+    <div class="url">blackhill.com.br</div>
+    <div class="rule" style="margin: 34px 0 26px;"></div>
+    <p class="caveat">
+      Blackhill Capital Ltda. Material institucional de divulgação. Não constitui
+      oferta pública de valores mobiliários, parecer jurídico, recomendação de
+      investimento, promessa de rentabilidade ou garantia de qualquer natureza.
+      A Blackhill atua como advisor e não gere capital de terceiros.
+    </p>
+  </div>
+</section>
+
+</body>
+</html>
