@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Blackhill Capital — Três núcleos de autoridade</title>
+<link rel="stylesheet" href="../carrossel-institucional-2026-11/css/fonts.css">
+<style>
+  /* ======================================================================
+     BLACKHILL CAPITAL — Peça única 1080 × 1350 (4:5)
+     Publicação de 05/11/2026 — autoridade nos três núcleos de Advisory.
+
+     Composição deliberadamente distinta da página 02 do carrossel: lá a
+     hierarquia é lida como área (células navy sobre marfim); aqui é lida
+     como índice (linhas sobre fio, superfície obsidian). Mesmo sistema,
+     outro componente — `index-row` em vez de `cell-invert`.
+     ====================================================================== */
+
+  :root {
+    --navy-deep: #071526;
+    --gold: #c9a84c;
+    --gold-line: #b8923f;
+    --white: #fff;
+    --fg-body-dark: #c6d2e2;
+    --fg-muted-dark: #93a7c2;
+    --pad: 92px;
+  }
+
+  @page { size: 1080px 1350px; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+  body {
+    font-family: "Inter", system-ui, sans-serif;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .page {
+    width: 1080px; height: 1350px; padding: var(--pad);
+    display: flex; flex-direction: column;
+    background: var(--navy-deep); color: var(--fg-body-dark);
+    overflow: hidden;
+  }
+
+  .wordmark { display: flex; flex-direction: column; gap: 7px; }
+  .wm-1 { font-size: 34px; font-weight: 600; letter-spacing: 0.14em; line-height: 1; color: var(--white); }
+  .wm-2 { font-size: 19px; font-weight: 500; letter-spacing: 0.34em; line-height: 1; color: var(--gold); }
+
+  .eyebrow {
+    font-size: 22px; font-weight: 600; letter-spacing: 0.22em;
+    text-transform: uppercase; color: var(--gold);
+  }
+
+  .h1 {
+    font-family: "Bodoni Moda", Georgia, serif;
+    font-weight: 400; font-size: 66px; line-height: 1.12;
+    letter-spacing: -0.012em; color: var(--white);
+  }
+  .accent { font-style: italic; color: var(--gold); }
+
+  /* Índice: fio superior, numeral em champagne, sem caixa. */
+  .rows { display: flex; flex-direction: column; }
+  .row {
+    display: flex; align-items: baseline; gap: 32px;
+    padding: 22px 0;
+    border-top: 1px solid rgb(255 255 255 / 0.11);
+  }
+  .row:last-child { border-bottom: 1px solid rgb(255 255 255 / 0.11); }
+  .row-n {
+    font-family: "Bodoni Moda", Georgia, serif;
+    font-size: 50px; line-height: 1; color: var(--gold);
+    flex: none; width: 68px;
+  }
+  .row-t { font-size: 33px; font-weight: 600; color: var(--white); line-height: 1.2; letter-spacing: -0.01em; }
+  .row-d { font-size: 23px; line-height: 1.5; color: var(--fg-body-dark); margin-top: 12px; max-width: 40ch; }
+
+  .note { font-size: 25px; line-height: 1.6; color: var(--fg-body-dark); max-width: 40ch; }
+
+  .foot { margin-top: auto; padding-top: 36px; }
+  .rule-gold { height: 2px; width: 132px; background: var(--gold-line); }
+  .url { font-size: 30px; font-weight: 500; color: var(--gold); letter-spacing: 0.02em; }
+  .caveat { font-size: 21px; line-height: 1.55; color: var(--fg-muted-dark); max-width: 62ch; }
+</style>
+</head>
+<body>
+
+<section class="page">
+  <div class="wordmark"><span class="wm-1">BLACKHILL</span><span class="wm-2">CAPITAL</span></div>
+
+  <div style="margin-top: 48px;">
+    <div class="eyebrow">Financial Advisory</div>
+    <h1 class="h1" style="margin-top: 22px; max-width: 17ch;">
+      Três frentes. A <span class="accent">mesma</span> profundidade técnica.
+    </h1>
+  </div>
+
+  <div class="rows" style="margin-top: 40px;">
+    <div class="row">
+      <div class="row-n">01</div>
+      <div>
+        <div class="row-t">NPL &amp; Distressed Credit</div>
+        <div class="row-d">Carteiras inadimplentes e exposições corporativas estressadas, do varejo pulverizado ao corporate.</div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="row-n">02</div>
+      <div>
+        <div class="row-t">Crédito Estruturado, FIDCs &amp; Securities</div>
+        <div class="row-d">Veículos de investimento com lastro em recebíveis — do FIDC à securitização.</div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="row-n">03</div>
+      <div>
+        <div class="row-t">Precatórios &amp; Legal Claims</div>
+        <div class="row-d">Créditos judiciais definitivos contra entes públicos federais, estaduais e municipais.</div>
+      </div>
+    </div>
+  </div>
+
+  <p class="note" style="margin-top: 26px;">
+    Núcleos de igual relevância — não uma frente principal e duas acessórias.
+  </p>
+
+  <div class="foot">
+    <div class="rule-gold" style="margin-bottom: 24px;"></div>
+    <div class="url">blackhill.com.br/advisory</div>
+    <p class="caveat" style="margin-top: 24px;">
+      Material institucional. Não constitui oferta, recomendação de investimento
+      nem promessa de rentabilidade. O contato preliminar não é vinculante.
+    </p>
+  </div>
+</section>
+
+</body>
+</html>

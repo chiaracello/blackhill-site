@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Finders — ecossistema de tecnologia Blackhill</title>
+<link rel="stylesheet" href="../carrossel-institucional-2026-11/css/fonts.css">
+<style>
+  /* ======================================================================
+     FINDERS — peça única 1080 × 1350 (4:5), publicação institucional.
+
+     O nome FINDERS é composto na MESMA convenção tipográfica do wordmark
+     Blackhill — Inter 600, tracking +0,14em — justamente para que leia como
+     tipografia do sistema e não como logotipo próprio. Nenhuma marca é
+     atribuída à plataforma: sem símbolo, sem caixa, sem lockup.
+
+     O dispositivo de conexão (dois rótulos ligados por um fio champagne)
+     comunica a função da plataforma sem ilustração, respeitando a regra de
+     "fio, não caixa".
+     ====================================================================== */
+
+  :root {
+    --navy: #0b1f3a;
+    --gold: #c9a84c;
+    --gold-line: #b8923f;
+    --white: #fff;
+    --fg-body-dark: #c6d2e2;
+    --fg-muted-dark: #93a7c2;
+    --pad: 92px;
+  }
+
+  @page { size: 1080px 1350px; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+  body { font-family: "Inter", system-ui, sans-serif; font-variant-numeric: tabular-nums; }
+
+  .page {
+    width: 1080px; height: 1350px; padding: var(--pad);
+    display: flex; flex-direction: column;
+    background: var(--navy); color: var(--fg-body-dark);
+    overflow: hidden;
+  }
+
+  .wordmark { display: flex; flex-direction: column; gap: 7px; }
+  .wm-1 { font-size: 30px; font-weight: 600; letter-spacing: 0.14em; line-height: 1; color: var(--white); }
+  .wm-2 { font-size: 17px; font-weight: 500; letter-spacing: 0.34em; line-height: 1; color: var(--gold); }
+
+  .eyebrow {
+    font-size: 21px; font-weight: 600; letter-spacing: 0.22em;
+    text-transform: uppercase; color: var(--gold);
+  }
+
+  /* Nome da plataforma: tipografia do sistema, nunca logotipo. */
+  .platform { font-size: 112px; font-weight: 600; letter-spacing: 0.14em; line-height: 1; color: var(--white); }
+  .platform-c {
+    font-size: 21px; font-weight: 600; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--gold); margin-top: 24px;
+  }
+
+  .h1 {
+    font-family: "Bodoni Moda", Georgia, serif;
+    font-weight: 400; font-size: 60px; line-height: 1.14;
+    letter-spacing: -0.012em; color: var(--white);
+  }
+
+  /* Dispositivo de conexão: dois polos, um fio. */
+  .link-row { display: flex; align-items: center; gap: 26px; }
+  .pole { font-size: 20px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--white); flex: none; }
+  .wire { flex: 1 1 auto; height: 1px; background: var(--gold-line); }
+  .wire-note { font-size: 21px; line-height: 1.55; color: var(--fg-muted-dark); margin-top: 18px; }
+
+  .caps { font-size: 23px; line-height: 1.75; color: var(--fg-body-dark); max-width: 44ch; }
+  .caps b { font-weight: 600; color: var(--white); }
+
+  .foot { margin-top: auto; padding-top: 40px; }
+  .rule-gold { height: 2px; width: 132px; background: var(--gold-line); }
+  .url { font-size: 30px; font-weight: 500; color: var(--gold); letter-spacing: 0.02em; }
+  .caveat { font-size: 21px; line-height: 1.55; color: var(--fg-muted-dark); max-width: 60ch; }
+</style>
+</head>
+<body>
+
+<section class="page">
+  <div class="wordmark"><span class="wm-1">BLACKHILL</span><span class="wm-2">CAPITAL</span></div>
+
+  <div style="margin-top: 62px;">
+    <div class="eyebrow">Ecossistema de tecnologia</div>
+    <div class="platform" style="margin-top: 26px;">FINDERS</div>
+    <div class="platform-c">Originação e negociação de ativos de crédito</div>
+  </div>
+
+  <h1 class="h1" style="margin-top: 56px;">
+    Onde a carteira encontra a contraparte.
+  </h1>
+
+  <div style="margin-top: 56px;">
+    <div class="link-row">
+      <span class="pole">Cedentes</span>
+      <span class="wire"></span>
+      <span class="pole">Cessionárias</span>
+    </div>
+    <p class="wire-note">Processo estruturado e auditável, entre organizações.</p>
+  </div>
+
+  <p class="caps" style="margin-top: 50px;">
+    <b>Vitrine de carteiras</b> com habilitação da contraparte · <b>NDA e sala de
+    dados</b> com acesso por concessão · <b>Propostas lacradas</b> e registro do
+    negócio · <b>Trilha de auditoria</b>
+  </p>
+
+  <div class="foot">
+    <div class="rule-gold" style="margin-bottom: 28px;"></div>
+    <div class="url">blackhill.com.br/ecosystem</div>
+    <p class="caveat" style="margin-top: 22px;">
+      A Finders integra o ecossistema de tecnologia da Blackhill Capital, frente
+      distinta do Financial Advisory. As plataformas do ecossistema encontram-se
+      em diferentes estágios de desenvolvimento. Material institucional: não
+      constitui oferta de produto, serviço, valor mobiliário ou participação
+      societária.
+    </p>
+  </div>
+</section>
+
+</body>
+</html>
