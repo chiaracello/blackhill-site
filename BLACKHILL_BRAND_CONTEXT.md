@@ -36,7 +36,7 @@ Ativo permanente de marca. **Não reescrever.**
 - **Razão social:** Blackhill Capital Ltda.
 - **CNPJ:** 49.400.092/0001-96
 - **Sede:** Alameda Rio Negro, 1030 — Torre Corporate — Escritório 206 — Alphaville — Barueri — SP — CEP 06454-000
-- **Sócio-fundador:** Marcello de Rezende Chiara — Founder & Managing Partner
+- **Sócio-fundador:** Marcello Chiara — Founder & Managing Partner
 
 ### Trajetória do sócio-fundador
 

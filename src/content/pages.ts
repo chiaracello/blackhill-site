@@ -483,7 +483,7 @@ export const ABOUT: Localized<{
       "Special Situations",
     ],
     founderEyebrow: "Sócio-fundador",
-    portraitCaption: "Marcello de Rezende Chiara · Founder & Managing Partner · São Paulo",
+    portraitCaption: "Marcello Chiara · Founder & Managing Partner · São Paulo",
     founderIntro:
       "Mais de 30 anos em mercados financeiros, com foco em crédito estruturado, distressed assets e advisory institucional.",
     founderBio: [
@@ -582,7 +582,7 @@ export const ABOUT: Localized<{
       "Special Situations",
     ],
     founderEyebrow: "Founding partner",
-    portraitCaption: "Marcello de Rezende Chiara · Founder & Managing Partner · São Paulo",
+    portraitCaption: "Marcello Chiara · Founder & Managing Partner · São Paulo",
     founderIntro:
       "Over 30 years in financial markets, focused on structured credit, distressed assets and institutional advisory.",
     founderBio: [

@@ -14,7 +14,13 @@ export const COMPANY = {
     line2: "Alphaville — Barueri — SP — CEP 06454-000",
   },
   founder: {
-    name: "Marcello de Rezende Chiara",
+    /**
+     * Public-facing name, standardised by the founder (Nov 2026). The civil
+     * name is not used in any public reference — site copy, metadata or
+     * structured data. It remains in the company's legal records, which this
+     * file does not describe.
+     */
+    name: "Marcello Chiara",
     shortName: "Marcello Chiara",
     role: "Founder & Managing Partner",
     phone: "+55 (11) 99199-5656",

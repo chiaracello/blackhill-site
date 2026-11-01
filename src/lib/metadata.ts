@@ -99,7 +99,7 @@ export function organizationSchema(locale: Locale) {
     // entity to a third party. Add it only with confirmed addresses.
     founder: {
       "@type": "Person",
-      name: "Marcello de Rezende Chiara",
+      name: "Marcello Chiara",
       jobTitle: "Founder & Managing Partner",
       description:
         locale === "pt"
