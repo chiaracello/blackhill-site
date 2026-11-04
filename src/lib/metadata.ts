@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 
+import { COMPANY } from "@/content/site";
+
 import { HTML_LANG, LOCALES, SITE_URL, absoluteUrl, type Locale } from "./i18n";
 
 const OG_LOCALE: Record<Locale, string> = {
@@ -94,13 +96,16 @@ export function organizationSchema(locale: Locale) {
       addressCountry: "BR",
     },
     // The founder node is what distinguishes this entity from the other firms
-    // trading under the Blackhill name. `sameAs` would strengthen it further,
-    // and is deliberately absent: an unverified profile URL would bind this
-    // entity to a third party. Add it only with confirmed addresses.
+    // trading under the Blackhill name, and `sameAs` is what turns the claim
+    // into a link a crawler can follow. It is emitted only when
+    // `COMPANY.founder.linkedin` holds a confirmed address; an unverified URL
+    // would bind this entity to a third party, which is the opposite of what
+    // the field is for.
     founder: {
       "@type": "Person",
       name: "Marcello Chiara",
       jobTitle: "Founder & Managing Partner",
+      ...(COMPANY.founder.linkedin ? { sameAs: [COMPANY.founder.linkedin] } : {}),
       description:
         locale === "pt"
           ? "Mais de 30 anos em mercados financeiros, com foco em crédito estruturado, distressed assets e advisory institucional. Conduz diretamente os mandatos de advisory da Blackhill Capital."

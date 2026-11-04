@@ -27,12 +27,19 @@ export const COMPANY = {
     phoneHref: "+5511991995656",
     email: "mchiara@blackhillcapital.com.br",
     /**
-     * Pending verification. The previous value was assumed, never confirmed,
-     * and was rendered nowhere. A `sameAs` pointing at the wrong profile binds
-     * the Blackhill entity to a third party, so this stays null until the real
-     * addresses are confirmed — see docs/PROPOSTA_SENIOR_LED.md, item C3.
+     * Confirmed November 2026. The handle resolves — LinkedIn answers an
+     * existing path with its sign-in wall and a missing one with a 404, and
+     * this one hits the wall while a control URL 404s — and it is the address
+     * the founder publishes in his own e-mail signature. Both together are
+     * what the earlier value lacked: it was assumed, never checked, and is
+     * now known to be wrong (`/company/blackhill-capital` returns 404).
+     *
+     * Feeds `sameAs` on the Person node in the JSON-LD. The organisation's
+     * own profile is a separate field and is still unconfirmed: existence
+     * alone does not prove whose page it is, and binding the wrong company
+     * page would defeat the very disambiguation `sameAs` exists to provide.
      */
-    linkedin: null as string | null,
+    linkedin: "https://www.linkedin.com/in/marcellochiara" as string | null,
     initials: "MC",
     /**
      * Professional portrait. Drop the file in `public/` and set the path here
