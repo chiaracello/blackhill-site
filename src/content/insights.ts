@@ -598,7 +598,7 @@ export const INSIGHTS: Insight[] = [
           body: [
             "A cessão pode ser plenamente válida e eficaz no plano jurídico sem produzir, no plano contábil, a baixa do ativo no balanço do cedente. São perguntas diferentes, respondidas por conjuntos de normas diferentes, e tratá-las como uma só é erro frequente na estruturação.",
             "No plano jurídico, o que se examina é a titularidade: quem é o credor depois da assinatura, e com que eficácia perante o devedor e perante terceiros.",
-            "No plano contábil, o que se examina é a extensão em que os riscos e os benefícios do crédito foram efetivamente transferidos. Coobrigação, cláusula de recompra, retenção de parcela do risco e garantias de performance são elementos que podem afetar esse tratamento — a depender das condições contratuais concretas e das normas aplicáveis ao cedente.",
+            "No plano contábil, a análise costuma partir da extensão em que os riscos e os benefícios do crédito foram efetivamente transferidos. Esse exame, porém, é um critério entre outros: o desfecho é dado pelas normas contábeis aplicáveis ao cedente, e não pela cessão em si nem pela constatação isolada de que houve transferência. Coobrigação, cláusula de recompra, retenção de parcela do risco e garantias de performance são elementos que podem afetar o tratamento, a depender das condições contratuais concretas.",
             "Não há resposta geral, e esta página não oferece uma. Quando a operação tem por objetivo liberar capital, o desenho contratual precisa ser avaliado sob essa lente desde o início, com o apoio contábil e regulatório do próprio cedente, e não depois de assinado.",
           ],
         },
@@ -678,7 +678,7 @@ export const INSIGHTS: Insight[] = [
           body: [
             "An assignment can be fully valid and effective as a matter of law without producing, as a matter of accounting, derecognition of the asset on the assignor's balance sheet. These are different questions answered by different bodies of rules, and treating them as one is a frequent structuring error.",
             "On the legal plane, the question is title: who is the creditor after signing, and with what effect against the debtor and against third parties.",
-            "On the accounting plane, the question is the extent to which the risks and rewards of the claim were effectively transferred. Recourse, repurchase clauses, retention of part of the risk and performance guarantees are elements that may affect that treatment — depending on the specific contractual terms and on the rules applicable to the assignor.",
+            "On the accounting plane, the analysis usually starts from the extent to which the risks and rewards of the claim were effectively transferred. That examination, however, is one criterion among others: the outcome is determined by the accounting rules applicable to the assignor, not by the assignment itself nor by the isolated finding that a transfer occurred. Recourse, repurchase clauses, retention of part of the risk and performance guarantees are elements that may affect the treatment, depending on the specific contractual terms.",
             "There is no general answer, and this page does not offer one. Where the transaction aims to release capital, the contractual design has to be assessed through that lens from the outset, with the assignor's own accounting and regulatory advice, not after signing.",
           ],
         },
