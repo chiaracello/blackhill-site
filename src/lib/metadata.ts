@@ -86,6 +86,11 @@ export function organizationSchema(locale: Locale) {
         : "Independent financial advisory boutique specialising in complex credit assets in Brazil — court-ordered public claims, NPL, distressed credit, judicial claims and structured credit.",
     slogan:
       locale === "pt" ? "Onde capital encontra complexidade." : "Where capital meets complexity.",
+    // Emitted only for a profile whose ownership was verified, never one that
+    // merely resolves. Together with the founder's `sameAs` below, this is
+    // what separates this entity from the other firms trading under the
+    // Blackhill name.
+    ...(COMPANY.linkedin ? { sameAs: [COMPANY.linkedin] } : {}),
     areaServed: { "@type": "Country", name: "Brazil" },
     address: {
       "@type": "PostalAddress",

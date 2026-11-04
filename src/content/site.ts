@@ -13,6 +13,18 @@ export const COMPANY = {
     line1: "Alameda Rio Negro, 1030 — Torre Corporate — Escritório 206",
     line2: "Alphaville — Barueri — SP — CEP 06454-000",
   },
+  /**
+   * Company page, confirmed November 2026 from the account that administers
+   * it: `/company/blackhillcapital` resolves to this account's Company Page
+   * admin dashboard, which proves whose page it is rather than merely that a
+   * page exists. That distinction is the whole point — binding the wrong
+   * company page would defeat the disambiguation `sameAs` is there to
+   * provide. The earlier presumed handle `/company/blackhill-capital`
+   * returns 404 and was never valid.
+   *
+   * Feeds `sameAs` on the Organization node in the JSON-LD.
+   */
+  linkedin: "https://www.linkedin.com/company/blackhillcapital" as string | null,
   founder: {
     /**
      * Public-facing name, standardised by the founder (Nov 2026). The civil
