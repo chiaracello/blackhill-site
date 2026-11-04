@@ -14,6 +14,14 @@ export type Insight = {
   sections: Localized<{ heading: string; body: string[] }[]>;
   /** Advisory area this explainer supports. */
   related: string;
+  /**
+   * Closing note for readers who are weighing a transaction of this kind.
+   * Rendered above the disclaimer with a link to the related advisory front —
+   * the audit is explicit that the value of an explainer is the link it sends
+   * to the practice page, not the page view it collects. Optional: an
+   * explainer with no commercial counterpart simply omits it.
+   */
+  cta?: Localized<string>;
 };
 
 export const INSIGHTS: Insight[] = [
@@ -517,6 +525,185 @@ export const INSIGHTS: Insight[] = [
           body: [
             "This page describes the economic logic of pricing complex assets in qualitative terms. It does not present, and must not be read as, any indication of return, target profitability or expected outcome for any transaction.",
             "Every investment decision should be preceded by complete due diligence, conducted by advisers independent of the investor.",
+          ],
+        },
+      ],
+    },
+  },
+  {
+    slug: "cessao-de-carteira",
+    index: "06",
+    related: "npl-distressed",
+    title: {
+      pt: "Como funciona a cessão de uma carteira NPL",
+      en: "How an NPL portfolio assignment works",
+    },
+    deck: {
+      pt: "Do preparo da base ao fechamento: o que efetivamente se transfere, as etapas da operação e onde o preço se forma ou se perde.",
+      en: "From data preparation to closing: what is actually transferred, the stages of the transaction, and where price is made or lost.",
+    },
+    cta: {
+      pt: "Instituições financeiras, fundos, varejistas e empresas que estejam avaliando a alienação de uma carteira encontram na frente de NPL & Distressed Credit como conduzimos esse processo. O contato preliminar é confidencial e não vinculante.",
+      en: "Financial institutions, funds, retailers and companies weighing the sale of a portfolio will find how we run this process on the NPL & Distressed Credit practice page. Preliminary contact is confidential and non-binding.",
+    },
+    sections: {
+      pt: [
+        {
+          heading: "O que se transfere",
+          body: [
+            "A cessão transfere a titularidade do crédito, não a posição contratual. O cessionário passa a ser credor; o contrato que originou o crédito permanece o mesmo, com as mesmas cláusulas, as mesmas garantias e os mesmos vícios.",
+            "Os acessórios seguem o principal. Garantias reais e fidejussórias, juros e encargos contratados acompanham o crédito cedido, salvo disposição em contrário — é a regra do artigo 287 do Código Civil.",
+            "O devedor conserva contra o cessionário as defesas que tinha contra o cedente, nos termos do artigo 294. A consequência prática é direta: um crédito mal constituído não se corrige ao mudar de mãos.",
+          ],
+        },
+        {
+          heading: "Até onde responde o cedente",
+          body: [
+            "Na cessão por título oneroso, o cedente responde pela existência do crédito ao tempo em que o cedeu — artigo 295. Responde por ter cedido um crédito que existe, é exigível e lhe pertence.",
+            "Não responde pela solvência do devedor, salvo estipulação expressa, conforme o artigo 296. É a cláusula de maior impacto econômico de todo o instrumento: ela separa a cessão em que o risco de crédito passa integralmente ao cessionário daquela em que o cedente permanece exposto.",
+            "Ambas as regras são dispositivas. As partes podem afastá-las ou ampliá-las por convenção, e é exatamente nesse espaço que a negociação se concentra — o que torna a leitura atenta do instrumento mais importante do que a regra geral.",
+            "Daí a função das cláusulas de recompra ou de substituição de créditos que se revelem inelegíveis após o fechamento. Elas operam sobre a existência e a regularidade do crédito, não sobre o risco de o devedor não pagar. Confundir as duas coisas na negociação é fonte recorrente de impasse.",
+          ],
+        },
+        {
+          heading: "A preparação da base é onde o preço se forma",
+          body: [
+            "A diferença de preço entre duas carteiras economicamente equivalentes costuma estar na qualidade da informação entregue, não no ativo.",
+            "O que se espera de uma base pronta: layout consistente, chave única por contrato e por devedor, histórico de pagamentos, histórico de ações de cobrança e situação documental de cada crédito.",
+            "O que não pode ser comprovado é descontado. O comprador precifica a incerteza, e a precifica a favor dele — não há motivo para esperar outra coisa.",
+            "Uma carteira preparada com antecedência encurta o prazo de diligência e amplia o número de interessados capazes de analisá-la. São os dois fatores que mais influenciam a formação de preço competitivo, e ambos dependem de trabalho feito antes de o processo começar.",
+          ],
+        },
+        {
+          heading: "As etapas",
+          body: [
+            "Diagnóstico e preparação da base, com saneamento dos campos críticos e definição do perímetro do que será cedido.",
+            "Teaser anônimo e acordo de confidencialidade. O mercado comprador é pequeno, e a informação de que determinada instituição está vendendo tem valor próprio — por isso a identificação do cedente só ocorre após o NDA.",
+            "Data room e diligência, com processo de perguntas e respostas estruturado e registrado.",
+            "Propostas não vinculantes, afunilamento e propostas vinculantes.",
+            "Contrato de cessão, fechamento e transferência da base e do acervo documental.",
+          ],
+        },
+        {
+          heading: "A notificação do devedor",
+          body: [
+            "A cessão produz efeitos entre cedente e cessionário desde a assinatura, mas só é eficaz perante o devedor depois de notificada — artigo 290. Até a notificação, o pagamento feito ao credor original é válido e extingue a obrigação.",
+            "O próprio artigo equipara à notificação a declaração escrita de ciência do devedor, o que abre alternativas operacionais quando a comunicação individual é inviável em escala.",
+            "Em carteiras pulverizadas, notificar é uma operação logística de porte. Custo, prazo e forma de comprovação entram na estruturação da operação, não no improviso posterior.",
+            "A eficácia perante terceiros depende da forma do instrumento, conforme o artigo 288. Isso deixa de ser formalidade no dia em que duas partes reivindicarem a titularidade do mesmo crédito.",
+          ],
+        },
+        {
+          heading: "Dois planos distintos: o jurídico e o contábil",
+          body: [
+            "A cessão pode ser plenamente válida e eficaz no plano jurídico sem produzir, no plano contábil, a baixa do ativo no balanço do cedente. São perguntas diferentes, respondidas por conjuntos de normas diferentes, e tratá-las como uma só é erro frequente na estruturação.",
+            "No plano jurídico, o que se examina é a titularidade: quem é o credor depois da assinatura, e com que eficácia perante o devedor e perante terceiros.",
+            "No plano contábil, o que se examina é a extensão em que os riscos e os benefícios do crédito foram efetivamente transferidos. Coobrigação, cláusula de recompra, retenção de parcela do risco e garantias de performance são elementos que podem afetar esse tratamento — a depender das condições contratuais concretas e das normas aplicáveis ao cedente.",
+            "Não há resposta geral, e esta página não oferece uma. Quando a operação tem por objetivo liberar capital, o desenho contratual precisa ser avaliado sob essa lente desde o início, com o apoio contábil e regulatório do próprio cedente, e não depois de assinado.",
+          ],
+        },
+        {
+          heading: "Reporte, perímetro regulatório e dados pessoais",
+          body: [
+            "O dever de informar operações de crédito ao Sistema de Informações de Créditos do Banco Central recai sobre as instituições sujeitas a esse reporte. Não é atributo do crédito: é obrigação de quem o detém.",
+            "A consequência é que o tratamento depende de quem adquire. Uma cessão entre instituições ambas sujeitas ao reporte não produz o mesmo efeito que uma cessão a adquirente situado fora desse perímetro. As obrigações de cedente e cessionário após o fechamento precisam ser verificadas caso a caso, e não presumidas iguais.",
+            "Esse ponto costuma ser tratado como detalhe operacional e não é: ele afeta a informação disponível sobre o devedor, as obrigações remanescentes do cedente e a própria redação do contrato.",
+            "Carteiras de pessoa física envolvem tratamento de dados pessoais em escala. Base legal, finalidade, segurança da transferência e conformidade de quem assumirá a cobrança são definidas na estruturação.",
+          ],
+        },
+        {
+          heading: "O papel da Blackhill",
+          body: [
+            "A Blackhill atua como assessora independente do cedente. Não adquirimos carteiras. Não investimos nas operações que assessoramos e não gerimos capital de terceiros.",
+            "O mandato cobre cinco frentes: preparação da base e do acervo documental; estruturação jurídica e operacional da cessão; apoio à precificação; organização do processo competitivo entre compradores qualificados; e condução da execução até o fechamento.",
+            "A independência tem efeito econômico direto. Quem conduz o processo sem intenção de comprar não tem interesse em como o preço se forma, e pode desenhar a competição em favor do cedente — o oposto de negociar bilateralmente com o primeiro interessado que aparece.",
+          ],
+        },
+        {
+          heading: "Limites desta análise",
+          body: [
+            "Esta página descreve a mecânica jurídica e operacional da cessão em termos gerais. Não constitui parecer jurídico, contábil ou regulatório, não substitui a análise do caso concreto e não apresenta qualquer indicação de preço, de retorno ou de resultado esperado.",
+            "Cada operação depende da natureza dos créditos, da qualidade documental, do perfil das partes e da negociação entre elas.",
+          ],
+        },
+      ],
+      en: [
+        {
+          heading: "What is transferred",
+          body: [
+            "Assignment transfers title to the claim, not the contractual position. The assignee becomes the creditor; the contract that originated the claim stays the same, with the same terms, the same security and the same defects.",
+            "Accessories follow the principal. Security interests, guarantees, contractual interest and charges travel with the assigned claim unless otherwise agreed — the rule in article 287 of the Brazilian Civil Code.",
+            "Under article 294, the debtor keeps against the assignee the defences it held against the assignor. The practical consequence is direct: a defectively constituted claim is not cured by changing hands.",
+          ],
+        },
+        {
+          heading: "How far the assignor is liable",
+          body: [
+            "In an assignment for value, the assignor is liable for the existence of the claim at the time of assignment — article 295. It answers for having assigned a claim that exists, is enforceable and belongs to it.",
+            "It is not liable for the debtor's solvency unless expressly agreed, under article 296. This is the single clause with the greatest economic weight in the instrument: it separates an assignment in which credit risk passes entirely to the assignee from one in which the assignor remains exposed.",
+            "Both rules are default rules. The parties may disapply or extend them by agreement, and that is precisely where negotiation concentrates — which makes close reading of the instrument more important than the general rule.",
+            "Hence the function of repurchase or substitution clauses for claims found ineligible after closing. They operate on the existence and regularity of the claim, not on the risk that the debtor fails to pay. Conflating the two in negotiation is a recurring source of deadlock.",
+          ],
+        },
+        {
+          heading: "Data preparation is where price is made",
+          body: [
+            "The price gap between two economically equivalent portfolios usually lies in the quality of the information delivered, not in the asset.",
+            "What a prepared file looks like: consistent layout, a unique key per contract and per debtor, payment history, collection-action history and the documentary status of each claim.",
+            "What cannot be evidenced is discounted. The buyer prices uncertainty, and prices it in its own favour — there is no reason to expect otherwise.",
+            "A portfolio prepared in advance shortens diligence and widens the set of buyers able to analyse it. Those are the two factors that most influence competitive price formation, and both depend on work done before the process begins.",
+          ],
+        },
+        {
+          heading: "The stages",
+          body: [
+            "Assessment and preparation of the data file, cleaning the critical fields and defining the perimeter of what will be assigned.",
+            "Anonymous teaser and confidentiality agreement. The buyer universe is small, and the information that a given institution is selling has value of its own — which is why the seller is identified only after the NDA.",
+            "Data room and diligence, with a structured and recorded question-and-answer process.",
+            "Non-binding proposals, short-listing and binding proposals.",
+            "Assignment agreement, closing, and transfer of the data file and documentary records.",
+          ],
+        },
+        {
+          heading: "Notifying the debtor",
+          body: [
+            "Assignment takes effect between assignor and assignee on signing, but is only effective against the debtor once notified — article 290. Until notification, payment to the original creditor is valid and discharges the obligation.",
+            "The article itself treats a debtor who acknowledges the assignment in writing as notified, which opens operational alternatives where individual communication is unworkable at scale.",
+            "In granular portfolios, notification is a logistics operation of real size. Its cost, timing and method of evidence belong in the structuring, not in improvisation afterwards.",
+            "Effectiveness against third parties depends on the form of the instrument, under article 288. That ceases to be a formality the day two parties claim title to the same receivable.",
+          ],
+        },
+        {
+          heading: "Two separate planes: legal and accounting",
+          body: [
+            "An assignment can be fully valid and effective as a matter of law without producing, as a matter of accounting, derecognition of the asset on the assignor's balance sheet. These are different questions answered by different bodies of rules, and treating them as one is a frequent structuring error.",
+            "On the legal plane, the question is title: who is the creditor after signing, and with what effect against the debtor and against third parties.",
+            "On the accounting plane, the question is the extent to which the risks and rewards of the claim were effectively transferred. Recourse, repurchase clauses, retention of part of the risk and performance guarantees are elements that may affect that treatment — depending on the specific contractual terms and on the rules applicable to the assignor.",
+            "There is no general answer, and this page does not offer one. Where the transaction aims to release capital, the contractual design has to be assessed through that lens from the outset, with the assignor's own accounting and regulatory advice, not after signing.",
+          ],
+        },
+        {
+          heading: "Reporting, regulatory perimeter and personal data",
+          body: [
+            "The duty to report credit exposures to the Brazilian Central Bank's credit information system falls on the institutions subject to that reporting. It is not an attribute of the claim: it is an obligation of whoever holds it.",
+            "The consequence is that treatment depends on who acquires. An assignment between two institutions both subject to reporting does not produce the same effect as an assignment to an acquirer outside that perimeter. The obligations of assignor and assignee after closing must be checked case by case, not assumed to be identical.",
+            "This point tends to be treated as an operational detail and is not: it affects the information available on the debtor, the assignor's remaining obligations and the drafting of the agreement itself.",
+            "Consumer portfolios involve processing personal data at scale. Legal basis, purpose, security of the transfer and the compliance of whoever will service the claims are settled during structuring.",
+          ],
+        },
+        {
+          heading: "Blackhill's role",
+          body: [
+            "Blackhill acts as independent advisor to the seller. We do not acquire portfolios. We do not invest in the transactions we advise on and we do not manage third-party capital.",
+            "The mandate covers five fronts: preparing the data file and documentary records; legal and operational structuring of the assignment; pricing support; running a competitive process among qualified buyers; and carrying execution through to closing.",
+            "Independence has a direct economic effect. A party running the process with no intention of buying has no interest in how the price is formed, and can design the competition in the seller's favour — the opposite of negotiating bilaterally with the first interested party to appear.",
+          ],
+        },
+        {
+          heading: "Limits of this analysis",
+          body: [
+            "This page describes the legal and operational mechanics of assignment in general terms. It is not legal, accounting or regulatory advice, it does not replace analysis of the specific case, and it presents no indication of price, return or expected outcome.",
+            "Every transaction depends on the nature of the claims, the quality of the documentation, the profile of the parties and the negotiation between them.",
           ],
         },
       ],

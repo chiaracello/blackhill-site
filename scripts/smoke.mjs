@@ -40,6 +40,7 @@ const PATHS = [
   "/insights/divida-ativa",
   "/insights/judicial-claims",
   "/insights/distressed-credit",
+  "/insights/cessao-de-carteira",
   "/contact",
   "/privacy",
   "/compliance",

@@ -79,6 +79,29 @@ export default async function InsightPage({
               </section>
             ))}
 
+            {/*
+              Commercial close. The audit is explicit that an explainer earns
+              its keep through the link it sends to the corresponding practice
+              page, not through the page view it collects — so this points at
+              advisory, while the section below points at contact. Rendered
+              only when the insight declares a `cta` and the related area
+              resolves; an explainer without a commercial counterpart shows
+              nothing here.
+            */}
+            {insight.cta && area ? (
+              <div className="mt-16 border-t border-rule pt-8">
+                <Eyebrow>
+                  {locale === "pt" ? "Para quem avalia uma operação" : "Weighing a transaction"}
+                </Eyebrow>
+                <p className="t-body mt-4 max-w-2xl">{insight.cta[locale]}</p>
+                <div className="mt-8">
+                  <PrimaryLink href={localePath(locale, `/advisory/${area.slug}`)}>
+                    {area.title[locale]}
+                  </PrimaryLink>
+                </div>
+              </div>
+            ) : null}
+
             <Caveat className="mt-16 border-t border-rule pt-8">{DISCLAIMER[locale]}</Caveat>
           </article>
 
