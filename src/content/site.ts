@@ -58,7 +58,7 @@ export const COMPANY = {
      * (e.g. "/marcello-chiara.jpg"); the About page swaps the typographic
      * fallback for the photograph with no other change.
      */
-    photo: null as string | null,
+    photo: "/marcello-chiara.jpg" as string | null,
   },
 } as const;
 
